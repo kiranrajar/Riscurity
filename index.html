@@ -91,7 +91,7 @@
               </linearGradient>
             </defs>
 
-            <!-- Clipped Shield Inner Graphic (Cybersecurity Pattern & Circuitry) -->
+            <!-- Clipped Shield Inner Graphic (Cybersecurity Matrix, Radar & Core Lock) -->
             <g clip-path="url(#shieldClip)">
               <!-- Shield Background Glow -->
               <path d="M170 20 L300 65 V190 C300 290 240 350 170 385 C100 350 40 290 40 190 V65 Z" fill="url(#shieldGlow)" />
@@ -99,38 +99,78 @@
               <!-- Cyber Grid Overlay -->
               <rect x="0" y="0" width="340" height="400" fill="url(#cyberGrid)" />
 
-              <!-- Circuit Lines & Data Nodes -->
-              <g stroke="url(#cyberLineGrad)" stroke-width="1.5" fill="none" opacity="0.7">
-                <!-- Concentric Security Hex / Octagon Rings -->
-                <polygon points="170,80 230,110 230,180 170,210 110,180 110,110" stroke-dasharray="4 4" />
-                <polygon points="170,110 200,125 200,165 170,180 140,165 140,125" />
+              <!-- Matrix Code Rain / Binary Data Columns -->
+              <g class="matrix-text">
+                <!-- Column 1 (Left) -->
+                <text x="65" y="80">0110101</text>
+                <text x="65" y="115">0x7F4E</text>
+                <text x="65" y="150">1011001</text>
+                <text x="65" y="185">0100110</text>
+                <text x="65" y="220">0x22E5</text>
+                <text x="65" y="255">1101001</text>
 
-                <!-- Circuit Traces -->
-                <path d="M170 30 V80 M170 210 V360" />
-                <path d="M50 110 H110 M230 110 H290" />
-                <path d="M50 180 H110 M230 180 H290" />
-                <path d="M80 250 L110 220 M260 250 L230 220" />
-                <path d="M100 70 L140 100 M240 70 L200 100" />
+                <!-- Column 2 (Left-Mid) -->
+                <text x="110" y="60">SEC_OK</text>
+                <text x="110" y="95">010110</text>
+                <text x="110" y="240">011001</text>
+                <text x="110" y="275">0x9F40</text>
+                <text x="110" y="310">100110</text>
+
+                <!-- Column 3 (Right-Mid) -->
+                <text x="215" y="60">101100</text>
+                <text x="215" y="95">0x1B8F</text>
+                <text x="215" y="240">010011</text>
+                <text x="215" y="275">VAPT_OK</text>
+                <text x="215" y="310">110101</text>
+
+                <!-- Column 4 (Right) -->
+                <text x="260" y="80">0100111</text>
+                <text x="260" y="115">1101001</text>
+                <text x="260" y="150">0x5E75</text>
+                <text x="260" y="185">0110101</text>
+                <text x="260" y="220">1001110</text>
+                <text x="260" y="255">0101101</text>
+              </g>
+
+              <!-- Rotating Radar Target Rings -->
+              <g class="radar-ring" stroke="var(--signal)" stroke-width="1" fill="none" opacity="0.35">
+                <circle cx="170" cy="180" r="95" stroke-dasharray="6 6" />
+                <circle cx="170" cy="180" r="65" stroke-dasharray="12 4" />
+                <line x1="170" y1="75" x2="170" y2="285" stroke-dasharray="3 3" />
+                <line x1="65" y1="180" x2="275" y2="180" stroke-dasharray="3 3" />
+              </g>
+
+              <!-- Circuit Lines & Data Nodes -->
+              <g stroke="url(#cyberLineGrad)" stroke-width="1.5" fill="none" opacity="0.75">
+                <polygon points="170,85 225,115 225,185 170,215 115,185 115,115" stroke-dasharray="4 4" />
+                <path d="M170 30 V85 M170 215 V360" />
+                <path d="M50 115 H115 M225 115 H290" />
+                <path d="M50 185 H115 M225 185 H290" />
+                <path d="M85 255 L115 225 M255 255 L225 225" />
               </g>
 
               <!-- Central Cyber Security Lock Core Symbol -->
-              <g transform="translate(170, 145)">
+              <g class="core-pulse" transform="translate(170, 160)">
                 <!-- Lock Shackle -->
-                <path d="M-14 -4 V-16 C-14 -25 14 -25 14 -16 V-4" fill="none" stroke="var(--signal)" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M-15 -6 V-20 C-15 -30 15 -30 15 -20 V-6" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" />
                 <!-- Lock Body -->
-                <rect x="-20" y="-4" width="40" height="32" rx="5" fill="#0A100E" stroke="var(--signal)" stroke-width="2" />
+                <rect x="-24" y="-6" width="48" height="38" rx="6" fill="#0A100E" stroke="var(--signal)" stroke-width="2.2" />
                 <!-- Keyhole / Core Node -->
-                <circle cx="0" cy="8" r="4" fill="var(--signal)" />
-                <path d="M0 8 V16" stroke="var(--signal)" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="0" cy="8" r="5" fill="var(--signal)" />
+                <path d="M0 8 V18" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" />
               </g>
 
+              <!-- Cyber HUD Status Text -->
+              <text x="170" y="222" text-anchor="middle" fill="var(--signal)" font-size="9" font-family="monospace" letter-spacing="1.5" font-weight="600">CYBER DEFENSE ACTIVE</text>
+              <text x="170" y="235" text-anchor="middle" fill="var(--text-mid)" font-size="8" font-family="monospace" letter-spacing="1">256-BIT ENCRYPTED</text>
+
               <!-- Glowing Circuit Nodes -->
-              <circle cx="170" cy="80" r="3.5" fill="var(--signal)" />
-              <circle cx="230" cy="110" r="3.5" fill="var(--signal)" />
-              <circle cx="110" cy="110" r="3.5" fill="var(--signal)" />
-              <circle cx="230" cy="180" r="3.5" fill="var(--signal)" />
-              <circle cx="110" cy="180" r="3.5" fill="var(--signal)" />
-              <circle cx="170" cy="210" r="3.5" fill="var(--signal)" />
+              <circle cx="170" cy="85" r="4" fill="var(--signal)" />
+              <circle cx="225" cy="115" r="4" fill="var(--signal)" />
+              <circle cx="115" cy="115" r="4" fill="var(--signal)" />
+              <circle cx="225" cy="185" r="4" fill="var(--signal)" />
+              <circle cx="115" cy="185" r="4" fill="var(--signal)" />
+              <circle cx="170" cy="215" r="4" fill="var(--signal)" />
             </g>
 
             <!-- Outer Shield Outline -->

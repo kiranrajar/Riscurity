@@ -105,7 +105,19 @@ button{ font-family:inherit; cursor:pointer; }
   display:flex; align-items:center; justify-content:space-between;
 }
 .brand{ display:flex; align-items:center; gap:12px; }
-.brand img{ height:34px; width:auto; }
+.brand img{
+  height:36px;
+  width:36px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1.5px solid var(--signal);
+  box-shadow:0 0 10px rgba(34,229,168,.35);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.brand img:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 16px rgba(34,229,168,.6);
+}
 .brand-name{
   font-family:var(--font-display);
   font-weight:600;
@@ -320,6 +332,36 @@ button{ font-family:inherit; cursor:pointer; }
   filter:drop-shadow(0 0 12px rgba(34,229,168,.65));
 }
 @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+.radar-ring{
+  transform-origin:170px 180px;
+  animation:radarSpin 16s linear infinite;
+}
+@keyframes radarSpin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+.matrix-text{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  fill:var(--signal);
+  opacity:0.4;
+  animation:matrixFlow 3s ease-in-out infinite alternate;
+}
+@keyframes matrixFlow{
+  0%{ opacity:0.25; }
+  50%{ opacity:0.65; }
+  100%{ opacity:0.3; }
+}
+
+.core-pulse{
+  animation:coreGlow 2.5s ease-in-out infinite alternate;
+}
+@keyframes coreGlow{
+  0%{ filter:drop-shadow(0 0 4px var(--signal)); }
+  100%{ filter:drop-shadow(0 0 16px var(--signal)); }
+}
 
 .scan-sweep{
   position:absolute; left:8%; right:8%; height:2px;
@@ -684,7 +726,14 @@ footer{
   flex-wrap:wrap; gap:20px;
 }
 .footer-brand{ display:flex; align-items:center; gap:10px; }
-.footer-brand img{ height:24px; }
+.footer-brand img{
+  height:30px;
+  width:30px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1.5px solid var(--teal);
+  box-shadow:0 0 8px rgba(27,143,134,.35);
+}
 .footer-brand span{ font-family:var(--font-mono); font-size:12.5px; color:var(--text-low); }
 .footer-links{ display:flex; gap:26px; }
 .footer-links a{ font-size:13px; color:var(--text-mid); transition:color .25s; }
