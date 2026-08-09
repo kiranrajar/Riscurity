@@ -65,8 +65,76 @@
       <div class="hero-visual" aria-hidden="true">
         <div class="shield-stage">
           <svg viewBox="0 0 340 400">
-            <path class="shield-outline"
-              d="M170 20 L300 65 V190 C300 290 240 350 170 385 C100 350 40 290 40 190 V65 Z" />
+            <defs>
+              <!-- Shield Clipping Path -->
+              <clipPath id="shieldClip">
+                <path d="M170 20 L300 65 V190 C300 290 240 350 170 385 C100 350 40 290 40 190 V65 Z" />
+              </clipPath>
+
+              <!-- Cybersecurity Grid Pattern -->
+              <pattern id="cyberGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(34, 229, 168, 0.14)" stroke-width="1" />
+                <circle cx="0" cy="0" r="1.2" fill="rgba(34, 229, 168, 0.45)" />
+              </pattern>
+
+              <!-- Radial Shield Core Glow -->
+              <radialGradient id="shieldGlow" cx="50%" cy="45%" r="65%">
+                <stop offset="0%" stop-color="#22E5A8" stop-opacity="0.28" />
+                <stop offset="50%" stop-color="#1B8F86" stop-opacity="0.14" />
+                <stop offset="100%" stop-color="#050807" stop-opacity="0.88" />
+              </radialGradient>
+
+              <!-- Linear Accent Glow -->
+              <linearGradient id="cyberLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#22E5A8" stop-opacity="0.85" />
+                <stop offset="100%" stop-color="#1B8F86" stop-opacity="0.25" />
+              </linearGradient>
+            </defs>
+
+            <!-- Clipped Shield Inner Graphic (Cybersecurity Pattern & Circuitry) -->
+            <g clip-path="url(#shieldClip)">
+              <!-- Shield Background Glow -->
+              <path d="M170 20 L300 65 V190 C300 290 240 350 170 385 C100 350 40 290 40 190 V65 Z" fill="url(#shieldGlow)" />
+
+              <!-- Cyber Grid Overlay -->
+              <rect x="0" y="0" width="340" height="400" fill="url(#cyberGrid)" />
+
+              <!-- Circuit Lines & Data Nodes -->
+              <g stroke="url(#cyberLineGrad)" stroke-width="1.5" fill="none" opacity="0.7">
+                <!-- Concentric Security Hex / Octagon Rings -->
+                <polygon points="170,80 230,110 230,180 170,210 110,180 110,110" stroke-dasharray="4 4" />
+                <polygon points="170,110 200,125 200,165 170,180 140,165 140,125" />
+
+                <!-- Circuit Traces -->
+                <path d="M170 30 V80 M170 210 V360" />
+                <path d="M50 110 H110 M230 110 H290" />
+                <path d="M50 180 H110 M230 180 H290" />
+                <path d="M80 250 L110 220 M260 250 L230 220" />
+                <path d="M100 70 L140 100 M240 70 L200 100" />
+              </g>
+
+              <!-- Central Cyber Security Lock Core Symbol -->
+              <g transform="translate(170, 145)">
+                <!-- Lock Shackle -->
+                <path d="M-14 -4 V-16 C-14 -25 14 -25 14 -16 V-4" fill="none" stroke="var(--signal)" stroke-width="2.5" stroke-linecap="round" />
+                <!-- Lock Body -->
+                <rect x="-20" y="-4" width="40" height="32" rx="5" fill="#0A100E" stroke="var(--signal)" stroke-width="2" />
+                <!-- Keyhole / Core Node -->
+                <circle cx="0" cy="8" r="4" fill="var(--signal)" />
+                <path d="M0 8 V16" stroke="var(--signal)" stroke-width="2.5" stroke-linecap="round" />
+              </g>
+
+              <!-- Glowing Circuit Nodes -->
+              <circle cx="170" cy="80" r="3.5" fill="var(--signal)" />
+              <circle cx="230" cy="110" r="3.5" fill="var(--signal)" />
+              <circle cx="110" cy="110" r="3.5" fill="var(--signal)" />
+              <circle cx="230" cy="180" r="3.5" fill="var(--signal)" />
+              <circle cx="110" cy="180" r="3.5" fill="var(--signal)" />
+              <circle cx="170" cy="210" r="3.5" fill="var(--signal)" />
+            </g>
+
+            <!-- Outer Shield Outline -->
+            <path class="shield-outline" d="M170 20 L300 65 V190 C300 290 240 350 170 385 C100 350 40 290 40 190 V65 Z" />
           </svg>
           <div class="scan-sweep"></div>
           <div class="orbit-node" style="top:12%; left:4%; animation-delay:2.4s;"><span>GRC</span></div>
