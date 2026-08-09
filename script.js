@@ -135,40 +135,57 @@
     }
   }
 
-  /* ---------- direct email button handler ---------- */
-  var sendEmailBtn = document.getElementById('sendEmailBtn');
-  var fname = document.getElementById('fname');
-  var femail = document.getElementById('femail');
-  var fservice = document.getElementById('fservice');
-  var fmsg = document.getElementById('fmsg');
+  /* ---------- contact form — Web3Forms direct inbox delivery ---------- */
+  var form = document.getElementById('contactForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var formResult = document.getElementById('formResult');
 
-  function updateMailto(){
-    if(!sendEmailBtn) return;
-    var nameVal = fname ? fname.value.trim() : '';
-    var emailVal = femail ? femail.value.trim() : '';
-    var serviceVal = fservice ? fservice.value : '';
-    var msgVal = fmsg ? fmsg.value.trim() : '';
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
 
-    var subject = encodeURIComponent('Booking Inquiry' + (nameVal ? ' from ' + nameVal : ' — Riskcurity'));
-    var body = encodeURIComponent(
-      'Client Name: ' + (nameVal || 'N/A') + '\n' +
-      'Client Email: ' + (emailVal || 'N/A') + '\n' +
-      'Service Required: ' + (serviceVal || 'N/A') + '\n\n' +
-      'Message / Project Details:\n' + (msgVal || 'N/A')
-    );
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.75';
+      formResult.style.display = 'none';
 
-    sendEmailBtn.href = 'mailto:riskecurity@gmail.com?subject=' + subject + '&body=' + body;
-  }
+      var formData = new FormData(form);
 
-  [fname, femail, fservice, fmsg].forEach(function(el){
-    if(el){
-      el.addEventListener('input', updateMailto);
-      el.addEventListener('change', updateMailto);
-    }
-  });
-
-  if(sendEmailBtn){
-    sendEmailBtn.addEventListener('click', updateMailto);
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if(data.success){
+          formResult.textContent = '✓ Message sent! We will respond within one business day.';
+          formResult.style.background = 'rgba(34,229,168,.1)';
+          formResult.style.border = '1px solid rgba(34,229,168,.35)';
+          formResult.style.color = '#22E5A8';
+          formResult.style.display = 'block';
+          submitBtn.textContent = 'Message Sent ✓';
+          form.reset();
+          setTimeout(function(){
+            submitBtn.textContent = 'Send Message →';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            formResult.style.display = 'none';
+          }, 5000);
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      })
+      .catch(function(err){
+        formResult.textContent = '✗ Failed to send. Please email us directly at riskecurity@gmail.com';
+        formResult.style.background = 'rgba(229,84,75,.1)';
+        formResult.style.border = '1px solid rgba(229,84,75,.35)';
+        formResult.style.color = '#E5544B';
+        formResult.style.display = 'block';
+        submitBtn.textContent = 'Send Message →';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      });
+    });
   }
 
 })();

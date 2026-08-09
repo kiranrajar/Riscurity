@@ -254,11 +254,12 @@
       </div>
     </div>
 
-    <form class="form reveal" id="contactForm" action="https://formsubmit.co/riskecurity@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Booking / Client Inquiry — Riskcurity">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_cc" value="rickecurity@gmail.com">
+    <form class="form reveal" id="contactForm">
+      <!-- Web3Forms access key — replace YOUR_ACCESS_KEY with key from web3forms.com -->
+      <input type="hidden" name="access_key" id="w3f_key" value="YOUR_ACCESS_KEY">
+      <input type="hidden" name="subject" value="New Client Inquiry — Riskcurity">
+      <input type="hidden" name="from_name" value="Riskcurity Website">
+      <input type="checkbox" name="botcheck" style="display:none;">
 
       <div class="form-row">
         <div class="field">
@@ -285,8 +286,11 @@
         <label for="fmsg">What are you trying to solve?</label>
         <textarea id="fmsg" name="message" placeholder="A few lines about your environment, timeline, or the problem you're facing." required></textarea>
       </div>
-      <a id="sendEmailBtn" href="mailto:riskecurity@gmail.com?subject=Riskcurity%20Booking%20%26%20Inquiry" class="btn" style="width:100%; justify-content:center;">Send Email →</a>
-      <p class="form-note">// opens your email client directly to riskecurity@gmail.com</p>
+
+      <div id="formResult" style="display:none; padding:12px 16px; border-radius:8px; margin-bottom:14px; font-family:var(--font-mono); font-size:13px;"></div>
+
+      <button type="submit" class="btn" id="submitBtn" style="width:100%; justify-content:center;">Send Message →</button>
+      <p class="form-note">// your message goes directly to riskecurity@gmail.com</p>
     </form>
   </div>
 </section>
