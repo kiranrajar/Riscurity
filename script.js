@@ -5,7 +5,7 @@
    - 4-Stage Interactive Methodology Timeline
    - Simulated SOC Live CLI Terminal Engine
    - Contact Form Web3Forms Lead Dispatch
-   - Riskmate AI Conversational Agent (Silent Backend Lead Sync)
+   - Riskmate AI Universal Cybersecurity & AI Technical Engine
    ========================================================= */
 
 (function () {
@@ -283,7 +283,7 @@
     });
   }
 
-  /* ---------- 7. RISKMATE AI CONVERSATIONAL AGENT & SILENT BACKEND LEAD SYNC ---------- */
+  /* ---------- 7. RISKMATE AI UNIVERSAL CYBERSECURITY & AI TECHNICAL ENGINE ---------- */
   var chatToggle = document.getElementById('hackerChatToggle');
   var chatWindow = document.getElementById('hackerChatWindow');
   var chatClose = document.getElementById('hackerChatClose');
@@ -357,7 +357,7 @@
       var userName = currentUser ? currentUser.name : 'there';
       chatBody.innerHTML = '';
       appendMessage(
-        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your technical guide for <b>Web Development, AI Automation, 24/7 SOC, SIEM &amp; GRC Compliance</b>.<br><br>How can I assist you today? Select a service below or ask any question!</p>',
+        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your technical guide for <b>Web Development, AI Automation, 24/7 SOC, SIEM &amp; GRC Compliance</b>.<br><br>I can answer any question about cybersecurity attacks, defenses, AI architectures, or our engineering services. How can I assist you today?</p>',
         'bot',
         [
           { label: '🌐 Web Development', topic: 'web' },
@@ -575,16 +575,15 @@
       chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // Natural Language Agent & Technical Glossary Engine
+    // Universal Technical Cybersecurity & AI Intelligence Engine
     function getAgentResponse(userInput) {
       var q = userInput.toLowerCase().trim();
       var name = currentUser ? currentUser.name : 'there';
-      var email = currentUser ? currentUser.email : 'your email';
 
-      // 1. Greetings (Hi, Hello, Hey, etc.)
+      // 1. Social Greetings & Courtesies
       if (/^(hi|hello|hey|greetings|good morning|good afternoon|good evening|yo|sup|hola)\b/i.test(q) || q === 'hi' || q === 'hello' || q === 'hey') {
         return {
-          text: "Hello <b>" + name + "</b>! 👋 I'm <b>Riskmate AI</b>, your technical guide at Riskcurity.<br><br>I can explain how our engineering services work, answer technical security &amp; AI questions, guide you through our 4-stage methodology, or help scope your project. What are you looking to build or protect today?",
+          text: "Hello <b>" + name + "</b>! 👋 I'm <b>Riskmate AI</b>, your technical guide at Riskcurity.<br><br>I can answer any question regarding cybersecurity threats, defense architectures, AI agents, GRC compliance, or our engineering services. What would you like to explore today?",
           chips: [
             { label: '🌐 Web Development', topic: 'web' },
             { label: '🤖 AI Automation', topic: 'ai' },
@@ -596,73 +595,283 @@
         };
       }
 
-      // 2. Zero-Day Vulnerability Explanations (handles 'zeoday', 'zero day', 'zeroday', '0-day', '0day')
+      if (q.indexOf('thank') !== -1 || q.indexOf('thx') !== -1 || q.indexOf('appreciate') !== -1) {
+        return {
+          text: "You're very welcome, <b>" + name + "</b>! 😊 Feel free to ask any other questions about cybersecurity, AI, or our services whenever you're ready.",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '🤖 AI Automation', topic: 'ai' },
+            { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+            { label: '📩 Book Consultation', topic: 'lead', highlight: true }
+          ]
+        };
+      }
+
+      // 2. Zero-Day Vulnerabilities
       if ((q.indexOf('zero') !== -1 && q.indexOf('day') !== -1) || (q.indexOf('zeo') !== -1 && q.indexOf('day') !== -1) || q.indexOf('0day') !== -1 || q.indexOf('0-day') !== -1 || q.indexOf('zeroday') !== -1 || q.indexOf('zeoday') !== -1) {
         return {
           text: "<b>What is a Zero-Day (0-Day) Vulnerability?</b><br><br>" +
-                "A <b>Zero-Day</b> is a critical software or hardware security flaw that is <b>completely unknown to the software developers</b> — meaning they have had <i>zero days</i> to patch it. Adversaries weaponize zero-days to bypass traditional signature-based antivirus.<br><br>" +
+                "A <b>Zero-Day</b> is a security flaw unknown to the software creators — meaning developers have had <i>zero days</i> to patch it. Threat actors exploit zero-days to bypass traditional signature antivirus.<br><br>" +
                 "<b>How Riskcurity Defends Against Zero-Days:</b><br>" +
-                "• 👁️ <b>24/7 Behavioral SOC Monitoring:</b> Our analysts and automated filters monitor real-time behavioral anomalies (unauthorized memory execution, token manipulation) instead of waiting for public signatures.<br>" +
-                "• ⚔️ <b>Proactive VAPT Testing:</b> Our ethical hackers discover hidden logic flaws in your proprietary web apps, APIs, and cloud stack before external hackers find them.<br>" +
-                "• 🛡️ <b>Zero-Trust Isolation:</b> Strict segmentation limits blast radius so a zero-day in one component cannot compromise your entire infrastructure.",
+                "• 👁️ <b>24/7 Behavioral SOC Watch:</b> We monitor real-time execution anomalies (unauthorized memory hooks, token manipulation) instead of waiting for public signatures.<br>" +
+                "• ⚔️ <b>Proactive VAPT Testing:</b> Our ethical hackers find undiscovered logic flaws in your proprietary code before adversaries do.<br>" +
+                "• 🛡️ <b>Zero-Trust Segmentation:</b> Limits blast radius so an isolated zero-day cannot compromise your entire cloud.",
           chips: [
-            { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
-            { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' },
-            { label: '🌐 Secure Web Dev', topic: 'web' },
+            { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+            { label: '⚔️ VAPT Testing', topic: 'vapt' },
             { label: '📩 Book Security Review', topic: 'lead', highlight: true }
           ]
         };
       }
 
-      // 3. Ransomware, Malware, Phishing & Cyber Threats
-      if (q.indexOf('ransomware') !== -1 || q.indexOf('malware') !== -1 || q.indexOf('phishing') !== -1 || q.indexOf('ddos') !== -1 || q.indexOf('breach') !== -1 || q.indexOf('attack') !== -1) {
+      // 3. Ransomware & Extortion
+      if (q.indexOf('ransomware') !== -1 || q.indexOf('lockbit') !== -1 || q.indexOf('wannacry') !== -1 || q.indexOf('ransom') !== -1 || q.indexOf('encrypt file') !== -1) {
         return {
-          text: "<b>Cyber Threat Defense at Riskcurity:</b><br><br>" +
-                "• <b>Ransomware &amp; Malware Defense:</b> Continuous endpoint telemetry, anomalous process isolation, and automated token revocation via our 24/7 SOC.<br>" +
-                "• <b>Phishing &amp; Credential Theft:</b> Hardened SSO/MFA enforcement, email security filtering, and Zero Trust access policies.<br>" +
-                "• <b>DDoS &amp; Web Exploits:</b> Web Application Firewalls (WAF), rate limiting, and edge CDN protection built into all our Web Development deliverables.",
+          text: "<b>What is Ransomware &amp; How We Prevent It:</b><br><br>" +
+                "Ransomware is malicious software that encrypts corporate files and databases, demanding payment for decryption keys (often combined with double-extortion data leak threats).<br><br>" +
+                "<b>Riskcurity's Anti-Ransomware Stack:</b><br>" +
+                "• <b>Endpoint Detection (EDR/XDR):</b> Immediate process isolation when mass-file modification behavior is detected.<br>" +
+                "• <b>Immutable Backups:</b> Air-gapped, write-once-read-many (WORM) recovery configurations.<br>" +
+                "• <b>24/7 SOC Triage:</b> Blocks lateral movement within minutes of initial infection.",
           chips: [
-            { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
-            { label: '⚔️ VAPT Testing', topic: 'vapt' },
+            { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+            { label: '🛡️ GRC Compliance', topic: 'grc' },
             { label: '📩 Protect My Infrastructure', topic: 'lead', highlight: true }
           ]
         };
       }
 
-      // 4. OWASP Top 10, SQL Injection, XSS, CSRF, IDOR
-      if (q.indexOf('owasp') !== -1 || q.indexOf('sql') !== -1 || q.indexOf('xss') !== -1 || q.indexOf('csrf') !== -1 || q.indexOf('idor') !== -1 || q.indexOf('injection') !== -1) {
+      // 4. Phishing, Social Engineering & Identity Attacks
+      if (q.indexOf('phishing') !== -1 || q.indexOf('social engineer') !== -1 || q.indexOf('spoof') !== -1 || q.indexOf('smishing') !== -1 || q.indexOf('vishing') !== -1 || q.indexOf('whaling') !== -1) {
         return {
-          text: "<b>OWASP Top 10 &amp; Application Security:</b><br><br>" +
-                "The <b>OWASP Top 10</b> represents the most critical web application security risks (Broken Access Control, SQLi, XSS, SSRF, Security Misconfiguration).<br><br>" +
-                "<b>How Riskcurity Secures Your Apps:</b><br>" +
-                "• All our <b>Web Development</b> projects are engineered secure-by-design with parameterized queries, context-aware encoding, JWT/OAuth2 RBAC, and CSP headers.<br>" +
-                "• Our <b>VAPT service</b> actively executes automated and manual exploit payloads to verify your web applications are 100% resilient.",
+          text: "<b>Phishing &amp; Social Engineering Defense:</b><br><br>" +
+                "Phishing exploits human trust through fraudulent emails, SMS, or fake login portals to harvest credentials and session cookies.<br><br>" +
+                "<b>Riskcurity's Defenses:</b><br>" +
+                "• <b>FIDO2 / Hardware MFA:</b> Phishing-resistant authentication (Passkeys/YubiKeys) that cannot be stolen via fake proxies.<br>" +
+                "• <b>DMARC, DKIM &amp; SPF:</b> Prevents unauthorized email spoofing of your corporate domain.<br>" +
+                "• <b>Simulated Phishing Campaigns:</b> Automated security training for staff and executive whaling defense.",
           chips: [
-            { label: '🌐 Web Development', topic: 'web' },
-            { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' },
-            { label: '📩 Audit My Web App', topic: 'lead', highlight: true }
-          ]
-        };
-      }
-
-      // 5. Who are you / About Riskcurity / What do you do
-      if (q.indexOf('who are you') !== -1 || q.indexOf('what do you do') !== -1 || q.indexOf('about riskcurity') !== -1 || q.indexOf('what is riskcurity') !== -1 || q.indexOf('services') !== -1 || q.indexOf('overview') !== -1) {
-        return {
-          text: "<b>Riskcurity</b> is an integrated cybersecurity defense and AI automation engineering practice. We unite two vital disciplines under one roof:<br><br>" +
-                "• <b>Cyber Defense:</b> 24/7 SOC monitoring, SIEM detection engineering, VAPT ethical hacking, and automated GRC (ISO 27001 / SOC 2).<br>" +
-                "• <b>AI &amp; Software Engineering:</b> Autonomous AI agents, intelligent workflow automation, and OWASP-hardened secure web platforms.<br><br>" +
-                "Which area would you like to explore in detail?",
-          chips: [
-            { label: '🌐 Web Development', topic: 'web' },
-            { label: '🤖 AI Automation', topic: 'ai' },
-            { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
+            { label: '⚔️ VAPT Testing', topic: 'vapt' },
             { label: '🛡️ GRC Compliance', topic: 'grc' },
-            { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' }
+            { label: '📩 Book Consultation', topic: 'lead', highlight: true }
           ]
         };
       }
 
-      // 6. Web Development
+      // 5. Malware, Viruses, Trojans, Rootkits & Worms
+      if (q.indexOf('malware') !== -1 || q.indexOf('trojan') !== -1 || q.indexOf('virus') !== -1 || q.indexOf('worm') !== -1 || q.indexOf('spyware') !== -1 || q.indexOf('rootkit') !== -1 || q.indexOf('keylogger') !== -1) {
+        return {
+          text: "<b>Malware Categories &amp; Detection:</b><br><br>" +
+                "• <b>Trojans &amp; Infostealers:</b> Disguised as legitimate software to harvest browser passwords and session tokens.<br>" +
+                "• <b>Rootkits:</b> Kernel-level payloads hiding unauthorized access deep within the operating system.<br>" +
+                "• <b>Worms:</b> Self-replicating code spreading laterally across internal network subnets.<br><br>" +
+                "<b>Defense:</b> Continuous behavioral telemetry, SIEM correlation, and automated process containment via our 24/7 SOC.",
+          chips: [
+            { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
+            { label: '📡 SIEM Engineering', topic: 'siem' }
+          ]
+        };
+      }
+
+      // 6. DDoS (Distributed Denial of Service)
+      if (q.indexOf('ddos') !== -1 || q.indexOf('denial of service') !== -1 || q.indexOf('syn flood') !== -1 || q.indexOf('botnet') !== -1) {
+        return {
+          text: "<b>What is a DDoS Attack?</b><br><br>" +
+                "A <b>DDoS</b> attack overwhelms targeted servers or APIs with millions of malicious requests from distributed botnets, causing outages for legitimate users.<br><br>" +
+                "<b>Riskcurity DDoS Hardening:</b><br>" +
+                "• Cloud edge scrubbing &amp; CDN caching (Cloudflare/AWS CloudFront).<br>" +
+                "• Token-bucket and sliding-window rate limiting on all API endpoints.<br>" +
+                "• Autoscaling container clusters with automated health-check failovers.",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '👁️ 24/7 SOC Watch', topic: 'soc' }
+          ]
+        };
+      }
+
+      // 7. SQL Injection (SQLi)
+      if (q.indexOf('sql injection') !== -1 || q.indexOf('sqli') !== -1 || (q.indexOf('sql') !== -1 && q.indexOf('inject') !== -1)) {
+        return {
+          text: "<b>What is SQL Injection (SQLi)?</b><br><br>" +
+                "SQLi occurs when untrusted user input is concatenated directly into database queries, allowing attackers to read, alter, or delete sensitive tables (e.g. <code>' OR 1=1 --</code>).<br><br>" +
+                "<b>Prevention:</b><br>" +
+                "• Parameterized queries &amp; Prepared Statements (mandatory across all our Web Development).<br>" +
+                "• Object-Relational Mappers (ORMs) with strict type binding.<br>" +
+                "• Principle of Least Privilege on database user accounts.",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '⚔️ VAPT Testing', topic: 'vapt' }
+          ]
+        };
+      }
+
+      // 8. Cross-Site Scripting (XSS) & CSRF
+      if (q.indexOf('xss') !== -1 || q.indexOf('cross site scripting') !== -1 || q.indexOf('cross-site scripting') !== -1 || q.indexOf('csrf') !== -1) {
+        return {
+          text: "<b>XSS &amp; CSRF Web Vulnerabilities:</b><br><br>" +
+                "• <b>XSS (Cross-Site Scripting):</b> Malicious JavaScript executed in a victim's browser to steal session cookies or hijack accounts.<br>" +
+                "• <b>CSRF (Cross-Site Request Forgery):</b> Tricking an authenticated user into executing unwanted actions on a trusted web application.<br><br>" +
+                "<b>How We Secure Web Apps:</b> Contextual output encoding, strict <code>Content-Security-Policy (CSP)</code> headers, and <code>SameSite=Strict</code> cookie attributes.",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '⚔️ VAPT Testing', topic: 'vapt' }
+          ]
+        };
+      }
+
+      // 9. IDOR & Broken Access Control
+      if (q.indexOf('idor') !== -1 || q.indexOf('broken access') !== -1 || q.indexOf('privilege escalation') !== -1) {
+        return {
+          text: "<b>IDOR &amp; Broken Access Control:</b><br><br>" +
+                "<b>Insecure Direct Object Reference (IDOR)</b> happens when an application exposes internal database IDs in URLs (e.g., <code>/api/user/104</code>) without verifying if the requesting user has permission to view that record.<br><br>" +
+                "<b>Remediation:</b> Implementing robust Role-Based Access Control (RBAC), UUIDs, and automated session permission checks on every API route.",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '⚔️ VAPT Testing', topic: 'vapt' }
+          ]
+        };
+      }
+
+      // 10. Cryptography, Encryption & Hashing
+      if (q.indexOf('encrypt') !== -1 || q.indexOf('crypto') !== -1 || q.indexOf('hash') !== -1 || q.indexOf('aes') !== -1 || q.indexOf('rsa') !== -1 || q.indexOf('tls') !== -1 || q.indexOf('ssl') !== -1) {
+        return {
+          text: "<b>Encryption vs. Hashing vs. Encoding:</b><br><br>" +
+                "• <b>Encryption (AES-256, RSA):</b> Two-way transformation designed to protect confidentiality (data in transit via TLS 1.3, data at rest via AES).<br>" +
+                "• <b>Hashing (bcrypt, Argon2, SHA-256):</b> One-way irreversible mathematical transformation used for secure password storage and file integrity.<br>" +
+                "• <b>Encoding (Base64):</b> Data format representation (NOT security).<br><br>" +
+                "Riskcurity enforces TLS 1.3 and Argon2id password hashing across all engineered systems.",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '🛡️ GRC Compliance', topic: 'grc' }
+          ]
+        };
+      }
+
+      // 11. Zero Trust Architecture (ZTA)
+      if (q.indexOf('zero trust') !== -1 || q.indexOf('zta') !== -1 || q.indexOf('microsegmentation') !== -1) {
+        return {
+          text: "<b>What is Zero Trust Architecture (ZTA)?</b><br><br>" +
+                "Zero Trust operates on the principle: <b>\"Never Trust, Always Verify.\"</b> It eliminates the outdated idea of a \"secure corporate perimeter.\"<br><br>" +
+                "<b>Core Pillars:</b><br>" +
+                "• Continuous explicit authentication &amp; device health checks.<br>" +
+                "• Least-privilege access control (JIT access).<br>" +
+                "• Microsegmentation to contain any lateral compromise.",
+          chips: [
+            { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
+            { label: '🛡️ GRC Compliance', topic: 'grc' }
+          ]
+        };
+      }
+
+      // 12. EDR, XDR & MDR
+      if (q.indexOf('edr') !== -1 || q.indexOf('xdr') !== -1 || q.indexOf('mdr') !== -1 || q.indexOf('crowdstrike') !== -1 || q.indexOf('sentinelone') !== -1) {
+        return {
+          text: "<b>EDR vs. XDR vs. MDR:</b><br><br>" +
+                "• <b>EDR (Endpoint Detection &amp; Response):</b> Software installed on servers/laptops monitoring processes, memory, and file modifications.<br>" +
+                "• <b>XDR (Extended Detection &amp; Response):</b> Correlates endpoint data with cloud, email, and network logs.<br>" +
+                "• <b>MDR (Managed Detection &amp; Response):</b> A managed 24/7 team (like Riskcurity SOC) triaging and neutralizing alerts around the clock.",
+          chips: [
+            { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
+            { label: '📡 SIEM Engineering', topic: 'siem' }
+          ]
+        };
+      }
+
+      // 13. Red Teaming vs Blue Teaming vs Purple Teaming
+      if (q.indexOf('red team') !== -1 || q.indexOf('blue team') !== -1 || q.indexOf('purple team') !== -1) {
+        return {
+          text: "<b>Red vs. Blue vs. Purple Security Teams:</b><br><br>" +
+                "• ⚔️ <b>Red Team (Offensive):</b> Simulates real-world adversary attacks to uncover vulnerabilities and test defenses (our VAPT experts).<br>" +
+                "• 🛡️ <b>Blue Team (Defensive):</b> Protects infrastructure, configures SIEM, and responds to attacks (our 24/7 SOC analysts).<br>" +
+                "• 🔮 <b>Purple Team (Collaborative):</b> Direct collaboration where Red tests techniques to ensure Blue's detection rules trigger instantly.",
+          chips: [
+            { label: '⚔️ VAPT Testing', topic: 'vapt' },
+            { label: '👁️ 24/7 SOC Operations', topic: 'soc' }
+          ]
+        };
+      }
+
+      // 14. ISO 27001 vs SOC 2 vs NIST
+      if (q.indexOf('iso 27001') !== -1 || q.indexOf('iso27001') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('soc2') !== -1 || q.indexOf('nist') !== -1 || q.indexOf('gdpr') !== -1 || q.indexOf('hipaa') !== -1) {
+        return {
+          text: "<b>Enterprise Compliance Frameworks Compared:</b><br><br>" +
+                "• <b>ISO 27001:</b> International standard for establishing an Information Security Management System (ISMS) across 93 Annex A controls.<br>" +
+                "• <b>SOC 2 Type II:</b> Reports on operational effectiveness of security, availability, and confidentiality controls over a 3–12 month period.<br>" +
+                "• <b>NIST CSF 2.0:</b> US standard structured around Govern, Identify, Protect, Detect, Respond, and Recover.<br><br>" +
+                "Riskcurity automates continuous evidence gathering for all three frameworks!",
+          chips: [
+            { label: '🛡️ GRC Compliance', topic: 'grc' },
+            { label: '🔄 4-Stage Process', topic: 'process' },
+            { label: '📩 Book GRC Review', topic: 'lead', highlight: true }
+          ]
+        };
+      }
+
+      // 15. AI Autonomous Agents & Multi-Agent Swarms
+      if (q.indexOf('ai agent') !== -1 || q.indexOf('autonomous agent') !== -1 || q.indexOf('swarm') !== -1 || q.indexOf('crewai') !== -1 || q.indexOf('langgraph') !== -1 || q.indexOf('autogen') !== -1) {
+        return {
+          text: "<b>What are Autonomous AI Agents?</b><br><br>" +
+                "Unlike static chatbots, <b>Autonomous AI Agents</b> perceive environments, plan steps, call external APIs, query databases, and execute multi-step workflows independently.<br><br>" +
+                "<b>Riskcurity Enterprise Agent Architecture:</b><br>" +
+                "• Tool &amp; API calling with strict permission sandboxes.<br>" +
+                "• Long-term vector memory for contextual continuity.<br>" +
+                "• Human-in-the-loop checkpoints for critical actions.",
+          chips: [
+            { label: '🤖 AI Automation', topic: 'ai' },
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '📩 Build an AI Agent', topic: 'lead', highlight: true }
+          ]
+        };
+      }
+
+      // 16. RAG (Retrieval-Augmented Generation) & Vector DBs
+      if (q.indexOf('rag') !== -1 || q.indexOf('retrieval augmented') !== -1 || q.indexOf('vector') !== -1 || q.indexOf('embedding') !== -1 || q.indexOf('pinecone') !== -1 || q.indexOf('chroma') !== -1) {
+        return {
+          text: "<b>What is RAG (Retrieval-Augmented Generation)?</b><br><br>" +
+                "<b>RAG</b> connects Large Language Models to your private company data (PDFs, docs, databases) without expensive model re-training.<br><br>" +
+                "<b>How It Works:</b><br>" +
+                "1. Documents are converted into mathematical vector embeddings.<br>" +
+                "2. When a user asks a query, the vector database retrieves the exact relevant excerpts via cosine similarity.<br>" +
+                "3. The LLM synthesizes an accurate, hallucination-free answer with exact source citations.",
+          chips: [
+            { label: '🤖 AI Automation', topic: 'ai' },
+            { label: '🌐 Web Development', topic: 'web' }
+          ]
+        };
+      }
+
+      // 17. Prompt Injection & AI Security Vulnerabilities
+      if (q.indexOf('prompt injection') !== -1 || q.indexOf('jailbreak') !== -1 || q.indexOf('ai security') !== -1 || q.indexOf('llm security') !== -1) {
+        return {
+          text: "<b>AI Security &amp; Prompt Injection Defense:</b><br><br>" +
+                "<b>Prompt Injection</b> is the AI equivalent of SQLi — an attacker feeds crafted inputs to hijack the LLM's system instructions, leak proprietary context, or execute unauthorized tool calls.<br><br>" +
+                "<b>Riskcurity AI Hardening:</b><br>" +
+                "• Input/Output guardrails (NeMo Guardrails, semantic filtering).<br>" +
+                "• Strict separation between system prompts and untrusted user data.<br>" +
+                "• Least-privilege function calling with parameter validation.",
+          chips: [
+            { label: '🤖 AI Automation', topic: 'ai' },
+            { label: '⚔️ VAPT Testing', topic: 'vapt' }
+          ]
+        };
+      }
+
+      // 18. LLMs (Large Language Models), GPT, Fine-Tuning
+      if (q.indexOf('llm') !== -1 || q.indexOf('large language model') !== -1 || q.indexOf('gpt') !== -1 || q.indexOf('claude') !== -1 || q.indexOf('llama') !== -1 || q.indexOf('fine-tun') !== -1 || q.indexOf('finetun') !== -1) {
+        return {
+          text: "<b>LLMs &amp; Enterprise AI Engineering:</b><br><br>" +
+                "Large Language Models (LLMs) process natural language by predicting token sequences. In enterprise applications, we deploy LLMs via:<br>" +
+                "• <b>RAG Architecture:</b> For grounding models on proprietary enterprise data.<br>" +
+                "• <b>Fine-Tuning:</b> For teaching models specialized formats, tones, or classification tasks.<br>" +
+                "• <b>Agentic Tool Calling:</b> Connecting models to live SQL databases, CRMs, and APIs.",
+          chips: [
+            { label: '🤖 AI Automation', topic: 'ai' },
+            { label: '🌐 Web Development', topic: 'web' }
+          ]
+        };
+      }
+
+      // 19. Web Development Services
       if (q.indexOf('web') !== -1 || q.indexOf('site') !== -1 || q.indexOf('dev') !== -1 || q.indexOf('app') !== -1 || q.indexOf('react') !== -1 || q.indexOf('frontend') !== -1 || q.indexOf('backend') !== -1 || q.indexOf('api') !== -1 || q.indexOf('software') !== -1) {
         return {
           text: kbAnswers.web.text,
@@ -671,8 +880,8 @@
         };
       }
 
-      // 7. AI Automation & Autonomous Agents
-      if (q.indexOf('ai') !== -1 || q.indexOf('agent') !== -1 || q.indexOf('autom') !== -1 || q.indexOf('llm') !== -1 || q.indexOf('rag') !== -1 || q.indexOf('bot') !== -1 || q.indexOf('gpt') !== -1 || q.indexOf('workflow') !== -1) {
+      // 20. AI Automation Services
+      if (q.indexOf('ai') !== -1 || q.indexOf('agent') !== -1 || q.indexOf('autom') !== -1 || q.indexOf('bot') !== -1 || q.indexOf('workflow') !== -1) {
         return {
           text: kbAnswers.ai.text,
           chips: kbAnswers.ai.followUps,
@@ -680,7 +889,7 @@
         };
       }
 
-      // 8. SOC (Security Operations Center) & 24/7 Monitoring
+      // 21. SOC Services
       if (q.indexOf('soc') !== -1 || q.indexOf('monitoring') !== -1 || q.indexOf('24/7') !== -1 || q.indexOf('threat') !== -1 || q.indexOf('incident') !== -1 || q.indexOf('analyst') !== -1) {
         return {
           text: kbAnswers.soc.text,
@@ -689,7 +898,7 @@
         };
       }
 
-      // 9. SIEM Engineering & Logs
+      // 22. SIEM Services
       if (q.indexOf('siem') !== -1 || q.indexOf('log') !== -1 || q.indexOf('detection') !== -1 || q.indexOf('splunk') !== -1 || q.indexOf('sentinel') !== -1 || q.indexOf('elastic') !== -1) {
         return {
           text: kbAnswers.siem.text,
@@ -698,8 +907,8 @@
         };
       }
 
-      // 10. GRC & Compliance (ISO 27001 / SOC 2 / NIST)
-      if (q.indexOf('grc') !== -1 || q.indexOf('iso') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1 || q.indexOf('nist') !== -1 || q.indexOf('gdpr') !== -1 || q.indexOf('framework') !== -1) {
+      // 23. GRC Services
+      if (q.indexOf('grc') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1 || q.indexOf('framework') !== -1) {
         return {
           text: kbAnswers.grc.text,
           chips: kbAnswers.grc.followUps,
@@ -707,7 +916,7 @@
         };
       }
 
-      // 11. VAPT & Penetration Testing
+      // 24. VAPT Services
       if (q.indexOf('vapt') !== -1 || q.indexOf('pen') !== -1 || q.indexOf('test') !== -1 || q.indexOf('hack') !== -1 || q.indexOf('vuln') !== -1 || q.indexOf('scan') !== -1 || q.indexOf('exploit') !== -1) {
         return {
           text: kbAnswers.vapt.text,
@@ -716,8 +925,8 @@
         };
       }
 
-      // 12. Process / Methodology / How do you work
-      if (q.indexOf('how') !== -1 || q.indexOf('process') !== -1 || q.indexOf('stage') !== -1 || q.indexOf('method') !== -1 || q.indexOf('work') !== -1 || q.indexOf('timeline') !== -1 || q.indexOf('lifecycle') !== -1) {
+      // 25. Methodology & Process
+      if (q.indexOf('how') !== -1 || q.indexOf('process') !== -1 || q.indexOf('stage') !== -1 || q.indexOf('method') !== -1 || q.indexOf('work') !== -1 || q.indexOf('timeline') !== -1) {
         return {
           text: kbAnswers.process.text,
           chips: kbAnswers.process.followUps,
@@ -725,7 +934,7 @@
         };
       }
 
-      // 13. Pricing / Cost / Quotes / Budget
+      // 26. Pricing & Estimates
       if (q.indexOf('price') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('quote') !== -1 || q.indexOf('rate') !== -1 || q.indexOf('fee') !== -1 || q.indexOf('budget') !== -1 || q.indexOf('how much') !== -1) {
         return {
           text: "<b>Our Pricing &amp; Engagement Models:</b><br>" +
@@ -742,7 +951,7 @@
         };
       }
 
-      // 14. Contact Info / Phone / Location
+      // 27. Contact Info
       if (q.indexOf('contact') !== -1 || q.indexOf('email') !== -1 || q.indexOf('phone') !== -1 || q.indexOf('call') !== -1 || q.indexOf('reach') !== -1 || q.indexOf('location') !== -1 || q.indexOf('where') !== -1 || q.indexOf('address') !== -1) {
         return {
           text: kbAnswers.contact_info.text,
@@ -751,14 +960,14 @@
         };
       }
 
-      // 15. Conversational Technical Fallback
+      // 28. Intelligent Dynamic Technical Fallback
       return {
-        text: "I'd be glad to assist you, <b>" + name + "</b>! At <b>Riskcurity</b>, our engineering team specializes in:<br>" +
-              "• 🌐 <b>Secure Web Development:</b> Hardened, modern web applications &amp; SaaS.<br>" +
-              "• 🤖 <b>AI Automation:</b> Autonomous agents, RAG engines &amp; workflow bots.<br>" +
-              "• 👁️ <b>24/7 SOC &amp; SIEM:</b> Round-the-clock analyst threat monitoring.<br>" +
-              "• 🛡️ <b>GRC Compliance:</b> ISO 27001, SOC 2 Type II, and NIST automation.<br>" +
-              "• ⚔️ <b>VAPT:</b> Penetration testing with impact-ranked fix guides.<br><br>" +
+        text: "I'd be glad to assist you with that, <b>" + name + "</b>! At <b>Riskcurity</b>, our engineering team unites deep technical expertise across:<br><br>" +
+              "• 🌐 <b>Secure Web Development:</b> Hardened SaaS platforms, microservices &amp; OWASP Top 10 defense.<br>" +
+              "• 🤖 <b>AI Agents &amp; Automation:</b> Autonomous LLM workflows, RAG pipelines &amp; operational bots.<br>" +
+              "• 👁️ <b>24/7 SOC &amp; SIEM:</b> Continuous threat monitoring, triage &amp; incident response.<br>" +
+              "• 🛡️ <b>GRC Compliance:</b> ISO 27001, SOC 2 Type II, and NIST automated evidence.<br>" +
+              "• ⚔️ <b>VAPT:</b> Ethical hacking across web, network, cloud &amp; API vectors.<br><br>" +
               "Which area would you like to explore, or would you like to discuss your specific requirements?",
         chips: [
           { label: '🌐 Web Development', topic: 'web' },
@@ -813,7 +1022,7 @@
             }
           }
         }
-      }, 450);
+      }, 400);
     }
 
     chatBody.addEventListener('click', function (e) {
@@ -822,7 +1031,7 @@
         var topic = btn.getAttribute('data-topic');
         if (topic) {
           appendMessage(btn.textContent, 'user');
-          chatSessionTranscript.push('Client (Clicked Option): ' + btn.textContent);
+          chatSessionTranscript.push('Client (Selected): ' + btn.textContent);
           silentSyncChatLeadToBackend();
           triggerResponse(topic);
         }
