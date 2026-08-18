@@ -1,9 +1,9 @@
 /* =========================================================
    RISKCURITY — DYNAMIC CLIENT ENGINES & RISKMATE AI
-   - Interactive Cyber Particle Canvas
+   - Interactive Cyber Particle Canvas (Neon Green/Cyan)
    - IntersectionObserver Staggered Scroll Reveals
    - Responsive Navigation & Micro-Interactions
-   - Contact Form Web3Forms Lead Dispatch
+   - Contact Form Web3Forms Lead Dispatch to riskecurity@gmail.com
    - Riskmate AI Technical Guide & Silent Lead Sync
    ========================================================= */
 
@@ -15,7 +15,7 @@
   if (canvas) {
     var ctx = canvas.getContext('2d');
     var particles = [];
-    var particleCount = window.innerWidth < 768 ? 30 : 60;
+    var particleCount = window.innerWidth < 768 ? 30 : 65;
     var mouse = { x: null, y: null, maxDist: 130 };
 
     function resizeCanvas() {
@@ -38,10 +38,10 @@
     function Particle() {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
-      this.vx = (Math.random() - 0.5) * 0.7;
-      this.vy = (Math.random() - 0.5) * 0.7;
+      this.vx = (Math.random() - 0.5) * 0.75;
+      this.vy = (Math.random() - 0.5) * 0.75;
       this.radius = Math.random() * 2 + 1;
-      this.color = Math.random() > 0.3 ? 'rgba(56, 189, 248, ' : 'rgba(147, 197, 253, ';
+      this.color = Math.random() > 0.35 ? 'rgba(0, 255, 136, ' : 'rgba(56, 189, 248, ';
     }
 
     Particle.prototype.update = function () {
@@ -51,7 +51,7 @@
       if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
       if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
 
-      // Mouse interaction
+      // Mouse proximity interaction
       if (mouse.x !== null && mouse.y !== null) {
         var dx = mouse.x - this.x;
         var dy = mouse.y - this.y;
@@ -86,7 +86,7 @@
           if (dist < 130) {
             var opacity = (1 - dist / 130) * 0.22;
             ctx.beginPath();
-            ctx.strokeStyle = 'rgba(56, 189, 248, ' + opacity + ')';
+            ctx.strokeStyle = 'rgba(0, 255, 136, ' + opacity + ')';
             ctx.lineWidth = 1;
             ctx.moveTo(particles[a].x, particles[a].y);
             ctx.lineTo(particles[b].x, particles[b].y);
@@ -129,7 +129,7 @@
         navLinks.style.top = '100%';
         navLinks.style.left = '0';
         navLinks.style.right = '0';
-        navLinks.style.background = '#0e1320';
+        navLinks.style.background = '#0a0e20';
         navLinks.style.padding = '24px';
         navLinks.style.borderBottom = '1px solid var(--line)';
         navLinks.style.gap = '16px';
@@ -201,10 +201,10 @@
       })
       .catch(function () {
         formResult.style.display = 'block';
-        formResult.style.background = 'var(--accent-subtle)';
-        formResult.style.border = '1px solid var(--accent-border)';
+        formResult.style.background = 'var(--neon-subtle)';
+        formResult.style.border = '1px solid var(--neon-border)';
         formResult.style.color = 'var(--text-main)';
-        formResult.innerHTML = "Request noted! You can also reach our engineering leadership directly at <a href='mailto:hello@riskcurity.com' style='color:var(--accent); text-decoration:underline;'>hello@riskcurity.com</a>.";
+        formResult.innerHTML = "Request noted! You can also reach our engineering leadership directly at <a href='mailto:riskecurity@gmail.com' style='color:var(--neon); text-decoration:underline;'>riskecurity@gmail.com</a>.";
       })
       .finally(function () {
         if (submitBtn) {
@@ -289,14 +289,14 @@
       var userName = currentUser ? currentUser.name : 'there';
       chatBody.innerHTML = '';
       appendMessage(
-        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your technical guide for <b>Offensive Security, VAPT, SOC 2 Audits, and AI Engineering</b>.<br><br>I can answer any technical question about penetration testing, compliance, or our engineering scopes. What would you like to explore?</p>',
+        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your technical guide for <b>Offensive Security, VAPT, ISO 27001 / SOC 2 / PCI DSS Audits, and AI Engineering</b>.<br><br>I can answer any technical question about penetration testing, compliance, or our engineering scopes. What would you like to explore?</p>',
         'bot',
         [
           { label: '⚔️ VAPT & Penetration Testing', topic: 'vapt' },
-          { label: '🛡️ SOC 2 & ISO 27001 Audits', topic: 'grc' },
+          { label: '🛡️ ISO 27001 & SOC 2 & PCI DSS', topic: 'grc' },
           { label: '🤖 AI Automation & Agents', topic: 'ai' },
           { label: '👁️ 24/7 SOC Threat Watch', topic: 'soc' },
-          { label: '🔄 Engagement Methodology', topic: 'process' },
+          { label: '🔄 4-Stage Lifecycle', topic: 'process' },
           { label: '📩 Book a Risk Assessment', topic: 'lead', highlight: true }
         ]
       );
@@ -356,28 +356,28 @@
     var kbAnswers = {
       vapt: {
         title: "⚔️ VAPT Penetration Testing",
-        text: "<b>Our VAPT Engagement Model for Startups:</b><br>" +
+        text: "<b>Our VAPT Engagement Model for Enterprises:</b><br>" +
               "1. <b>Threat Modeling &amp; Scoping:</b> We map your web applications, cloud APIs, and auth boundaries (5–7 day turnaround).<br>" +
-              "2. <b>Manual Adversarial Exploitation:</b> Certified ethical hackers simulate OWASP Top 10 and business-logic bypass attacks.<br>" +
+              "2. <b>Manual Adversarial Exploitation:</b> Certified ethical hackers simulate OWASP Top 10, business-logic bypass attacks, and cloud misconfigurations.<br>" +
               "3. <b>Developer Code Fixes:</b> Impact-ranked report with exact code snippets and Slack collaboration with your engineers.<br>" +
-              "4. <b>Attestation Sign-Off:</b> Free re-testing and an executive Letter of Attestation accepted by enterprise buyers and SOC 2 auditors.",
+              "4. <b>Attestation Sign-Off:</b> Free re-testing and an executive Letter of Attestation accepted by enterprise buyers, PCI QSAs, and SOC 2 auditors.",
         serviceVal: "VAPT Penetration Testing (Web / API / Cloud)",
         followUps: [
-          { label: '🛡️ SOC 2 & ISO 27001', topic: 'grc' },
+          { label: '🛡️ ISO 27001 & SOC 2 & PCI DSS', topic: 'grc' },
           { label: '🤖 AI Automation', topic: 'ai' },
           { label: '📩 Book VAPT Assessment', topic: 'lead', highlight: true }
         ]
       },
       grc: {
         title: "🛡️ GRC Compliance Automation",
-        text: "<b>How We Automate SOC 2 &amp; ISO 27001 Compliance:</b><br>" +
-              "1. <b>Control Mapping:</b> Map controls across ISO 27001, SOC 2 Type II, and NIST CSF without spreadsheet chaos.<br>" +
+        text: "<b>How We Automate ISO 27001, SOC 2 &amp; PCI DSS:</b><br>" +
+              "1. <b>Control Mapping:</b> Map controls across ISO 27001, SOC 2 Type II, PCI DSS Level 1, and NIST CSF without spreadsheet chaos.<br>" +
               "2. <b>Automated Evidence Sync:</b> Continuous API scrapers gather compliance proof from AWS, Azure, GitHub, and Okta.<br>" +
               "3. <b>Audit Attestation:</b> Real-time audit readiness dashboards and pre-packaged evidence bundles for auditors.",
-        serviceVal: "SOC 2 / ISO 27001 Technical Audit Clearance",
+        serviceVal: "ISO 27001 / SOC 2 / PCI DSS Compliance Automation",
         followUps: [
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
-          { label: '🔄 Methodology', topic: 'process' },
+          { label: '🔄 4-Stage Lifecycle', topic: 'process' },
           { label: '📩 Book Compliance Review', topic: 'lead', highlight: true }
         ]
       },
@@ -387,7 +387,7 @@
               "1. <b>Workflow Auditing:</b> We identify high-toil operational bottlenecks, ticket queues, and data extraction tasks.<br>" +
               "2. <b>Agent Swarm Architecture:</b> Autonomous LLM agents, RAG vector pipelines, and Python/Node automated workflows.<br>" +
               "3. <b>Supervised Guardrails:</b> Strict human-in-the-loop validation checkpoints with zero unreviewed destructive runs.",
-        serviceVal: "Autonomous AI Agent Security & Automation",
+        serviceVal: "Autonomous AI Agent Swarms & Automation",
         followUps: [
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
           { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
@@ -400,7 +400,7 @@
               "1. <b>Log Ingestion:</b> Connects cloud infrastructure (AWS/GCP), identity providers (Okta), and servers.<br>" +
               "2. <b>Real-Time Analyst Triage:</b> Security analysts and AI filters investigate alerts, cutting through 99% of false alarms.<br>" +
               "3. <b>Active Containment:</b> Anomaly isolation, token revocation, and guided incident response.",
-        serviceVal: "24/7 SOC Threat Monitoring",
+        serviceVal: "24/7 SOC Threat Monitoring & Incident Response",
         followUps: [
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
           { label: '🛡️ GRC Compliance', topic: 'grc' }
@@ -410,20 +410,20 @@
         title: "🌐 Secure Web Development",
         text: "<b>Secure-by-Design Web Development:</b><br>" +
               "We engineer high-performance SaaS platforms, client portals, and APIs with built-in OWASP Top 10 defenses, parameterized queries, strict CSP headers, and JWT/OAuth2 RBAC authentication.",
-        serviceVal: "Custom Scope / Not Sure Yet",
+        serviceVal: "Secure Web Application Development",
         followUps: [
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
           { label: '🤖 AI Automation', topic: 'ai' }
         ]
       },
       process: {
-        title: "🔄 4-Step Engagement Lifecycle",
-        text: "<b>Our 4-Step Methodology:</b><br>" +
-              "• <b>01 Threat Modeling &amp; Scoping:</b> Define attack surface, API endpoints, and compliance goals.<br>" +
-              "• <b>02 Adversarial Exploitation:</b> Manual and tool-assisted penetration testing.<br>" +
-              "• <b>03 Developer Remediation:</b> Line-by-line code fix snippets and direct Slack collaboration.<br>" +
-              "• <b>04 Attestation Sign-Off:</b> Free re-testing and executive Letter of Attestation for enterprise buyers.",
-        serviceVal: "Custom Scope / Not Sure Yet",
+        title: "🔄 4-Stage Security & Automation Lifecycle",
+        text: "<b>Our 4-Stage Lifecycle:</b><br>" +
+              "• <b>Stage 01 Assess:</b> Threat modeling, cloud configuration audits, and attack surface discovery.<br>" +
+              "• <b>Stage 02 Defend:</b> Adversarial penetration testing, 24/7 SOC deployment, and zero-trust boundaries.<br>" +
+              "• <b>Stage 03 Automate:</b> Continuous GRC evidence pipelines and autonomous AI agent workflows.<br>" +
+              "• <b>Stage 04 Evolve:</b> Continuous red teaming and executive Letter of Attestation audit sign-offs.",
+        serviceVal: "Comprehensive Full-Stack Assessment",
         followUps: [
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
           { label: '📩 Book Assessment', topic: 'lead', highlight: true }
@@ -432,9 +432,10 @@
       contact_info: {
         title: "📞 Direct Contact & Scheduling",
         text: "You can reach our engineering team directly at:<br>" +
-              "• <b>Email:</b> <a href='mailto:hello@riskcurity.com' style='color:var(--accent); text-decoration:underline;'>hello@riskcurity.com</a><br>" +
+              "• <b>Email:</b> <a href='mailto:riskecurity@gmail.com' style='color:var(--neon); text-decoration:underline;'>riskecurity@gmail.com</a><br>" +
+              "• <b>Phone / WhatsApp:</b> <a href='tel:+923423717545' style='color:var(--neon); text-decoration:underline;'>+92 342 3717545</a><br>" +
               "• <b>Turnaround:</b> Fixed proposal delivered within 24 business hours.",
-        serviceVal: "Custom Scope / Not Sure Yet",
+        serviceVal: "Comprehensive Full-Stack Assessment",
         followUps: [
           { label: '📩 Book a Risk Assessment', topic: 'lead', highlight: true }
         ]
@@ -445,7 +446,7 @@
         serviceVal: "VAPT Penetration Testing (Web / API / Cloud)",
         followUps: [
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
-          { label: '🛡️ SOC 2 Compliance', topic: 'grc' }
+          { label: '🛡️ ISO 27001 & SOC 2', topic: 'grc' }
         ]
       }
     };
@@ -489,10 +490,10 @@
       // 1. Social Greetings & Courtesies
       if (/^(hi|hello|hey|greetings|good morning|good afternoon|good evening|yo|sup|hola)\b/i.test(q) || q === 'hi' || q === 'hello' || q === 'hey') {
         return {
-          text: "Hello <b>" + name + "</b>! 👋 I'm <b>Riskmate AI</b>, your technical guide at Riskcurity.<br><br>I can explain our VAPT penetration testing methodology, SOC 2 / ISO 27001 audit clearance, AI automation engineering, or answer any technical security questions. What are you looking to test or protect?",
+          text: "Hello <b>" + name + "</b>! 👋 I'm <b>Riskmate AI</b>, your technical guide at Riskcurity.<br><br>I can explain our VAPT penetration testing, ISO 27001 / SOC 2 / PCI DSS compliance automation, 24/7 SOC operations, or AI agent engineering. What are you looking to test or protect?",
           chips: [
             { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' },
-            { label: '🛡️ SOC 2 & ISO 27001', topic: 'grc' },
+            { label: '🛡️ ISO 27001 & SOC 2 & PCI DSS', topic: 'grc' },
             { label: '🤖 AI Automation', topic: 'ai' },
             { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
             { label: '📩 Book a Risk Assessment', topic: 'lead', highlight: true }
@@ -505,7 +506,7 @@
           text: "You're very welcome, <b>" + name + "</b>! 😊 Feel free to ask any other questions regarding VAPT, cloud audits, compliance, or AI engineering whenever you're ready.",
           chips: [
             { label: '⚔️ VAPT Testing', topic: 'vapt' },
-            { label: '🛡️ SOC 2 Audits', topic: 'grc' },
+            { label: '🛡️ ISO 27001 Audits', topic: 'grc' },
             { label: '📩 Book a Risk Assessment', topic: 'lead', highlight: true }
           ]
         };
@@ -516,12 +517,12 @@
         return {
           text: "<b>What is a Zero-Day (0-Day) Vulnerability?</b><br><br>" +
                 "A <b>Zero-Day</b> is a security vulnerability completely unknown to the software vendor — meaning developers have had <i>zero days</i> to release a patch.<br><br>" +
-                "<b>How Riskcurity Protects Startups:</b><br>" +
-                "• ⚔️ <b>Proactive VAPT Testing:</b> Our ethical hackers find undiscovered business-logic flaws and auth bypasses in your proprietary code before external adversaries do.<br>" +
+                "<b>How Riskcurity Protects Your Infrastructure:</b><br>" +
+                "• ⚔️ <b>Proactive VAPT Testing:</b> Our ethical hackers uncover undiscovered business-logic flaws and auth bypasses in your proprietary code before adversaries do.<br>" +
                 "• 🛡️ <b>Zero-Trust Segmentation:</b> Limits blast radius so an isolated zero-day cannot compromise your entire cloud infrastructure.",
           chips: [
             { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' },
-            { label: '🛡️ SOC 2 Compliance', topic: 'grc' },
+            { label: '🛡️ ISO 27001 & SOC 2', topic: 'grc' },
             { label: '📩 Book a Risk Assessment', topic: 'lead', highlight: true }
           ]
         };
@@ -536,8 +537,8 @@
         };
       }
 
-      // 4. GRC, SOC 2, ISO 27001 & Compliance
-      if (q.indexOf('grc') !== -1 || q.indexOf('iso') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('soc2') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1 || q.indexOf('nist') !== -1 || q.indexOf('gdpr') !== -1 || q.indexOf('hipaa') !== -1) {
+      // 4. GRC, ISO 27001, SOC 2, PCI DSS & Compliance
+      if (q.indexOf('grc') !== -1 || q.indexOf('iso') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('soc2') !== -1 || q.indexOf('pci') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1 || q.indexOf('nist') !== -1 || q.indexOf('gdpr') !== -1 || q.indexOf('hipaa') !== -1) {
         return {
           text: kbAnswers.grc.text,
           chips: kbAnswers.grc.followUps,
@@ -569,12 +570,12 @@
           text: "<b>Predictable Fixed-Fee Project Pricing:</b><br>" +
                 "We provide transparent fixed-fee project scopes with complimentary re-testing included:<br>" +
                 "• <b>VAPT Penetration Assessments:</b> Fixed turnaround (5–7 days) with Letter of Attestation.<br>" +
-                "• <b>SOC 2 / ISO 27001 Technical Audit Clearance:</b> Full technical compliance prep and auditor-ready deliverables.<br><br>" +
-                "Would you like us to prepare a tailored estimate? You can email us directly at <a href='mailto:hello@riskcurity.com' style='color:var(--accent); text-decoration:underline;'>hello@riskcurity.com</a>.",
+                "• <b>ISO 27001 / SOC 2 / PCI DSS Compliance Prep:</b> Full automated evidence mapping and audit clearance.<br><br>" +
+                "Would you like us to prepare a tailored estimate? You can email us directly at <a href='mailto:riskecurity@gmail.com' style='color:var(--neon); text-decoration:underline;'>riskecurity@gmail.com</a> or WhatsApp <a href='tel:+923423717545' style='color:var(--neon); text-decoration:underline;'>+92 342 3717545</a>.",
           chips: [
             { label: '📩 Book a Risk Assessment', topic: 'lead', highlight: true },
             { label: '⚔️ VAPT Testing', topic: 'vapt' },
-            { label: '🛡️ SOC 2 Compliance', topic: 'grc' }
+            { label: '🛡️ ISO 27001 Compliance', topic: 'grc' }
           ]
         };
       }
@@ -600,13 +601,14 @@
       // 10. Intelligent Fallback
       return {
         text: "I'd be glad to guide you, <b>" + name + "</b>! At <b>Riskcurity</b>, our engineers specialize in:<br><br>" +
-              "• ⚔️ <b>Offensive Security &amp; VAPT:</b> Uncovering critical flaws in Web, Cloud, and APIs before enterprise buyers do.<br>" +
-              "• 🛡️ <b>SOC 2 &amp; ISO 27001 Clearance:</b> Technical penetration testing and audit attestation letters.<br>" +
-              "• 🤖 <b>AI Engineering &amp; Automation:</b> Supervised LLM agents and workflow automations.<br><br>" +
+              "• ⚔️ <b>Offensive Security &amp; VAPT:</b> Uncovering critical flaws in Web, Cloud, and APIs.<br>" +
+              "• 🛡️ <b>ISO 27001, SOC 2 &amp; PCI DSS:</b> Continuous compliance evidence automation.<br>" +
+              "• 👁️ <b>24/7 SOC &amp; SIEM:</b> Real-time threat detection and incident triage.<br>" +
+              "• 🤖 <b>AI Engineering &amp; Automation:</b> Supervised LLM agents and workflows.<br><br>" +
               "Which area would you like to explore, or would you like to discuss your specific scope?",
         chips: [
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
-          { label: '🛡️ SOC 2 Compliance', topic: 'grc' },
+          { label: '🛡️ ISO 27001 & SOC 2', topic: 'grc' },
           { label: '🤖 AI Automation', topic: 'ai' },
           { label: '📩 Book a Risk Assessment', topic: 'lead', highlight: true }
         ]
