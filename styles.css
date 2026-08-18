@@ -297,101 +297,285 @@ button{ font-family:inherit; cursor:pointer; }
   to{ opacity:1; transform:translateY(0); }
 }
 
-/* --- hero visual: animated shield built from the logo's circuit language --- */
-.hero-visual{
+/* --- hero visual: Enterprise Cyber Command Center HUD Visual --- */
+.hero-visual.enterprise-visual{
   position:relative;
   display:flex; align-items:center; justify-content:center;
-  height:460px;
+  width:100%;
   opacity:0;
   animation:riseIn 1s var(--ease) .3s forwards;
 }
-.shield-stage{
-  position:relative;
-  width:340px; height:400px;
-}
-.shield-stage svg{ width:100%; height:100%; overflow:visible; }
-.shield-outline{
-  fill:none;
-  stroke:var(--teal);
-  stroke-width:2;
-  stroke-linejoin:round;
-  stroke-dasharray:1400;
-  stroke-dashoffset:1400;
-  animation:draw 2.6s var(--ease) .3s forwards;
-  filter:drop-shadow(0 0 10px rgba(27,143,134,.5));
-}
-.shield-k{
-  fill:none;
-  stroke:var(--signal);
-  stroke-width:3;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-dasharray:520;
-  stroke-dashoffset:520;
-  animation:draw 1.6s var(--ease) 1.5s forwards;
-  filter:drop-shadow(0 0 12px rgba(34,229,168,.65));
-}
-@keyframes draw{ to{ stroke-dashoffset:0; } }
 
-.radar-ring{
-  transform-origin:170px 180px;
-  animation:radarSpin 16s linear infinite;
-}
-@keyframes radarSpin{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
+.enterprise-hud-container {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--signal);
+  border-radius: var(--radius-l);
+  padding: 22px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(34, 229, 168, 0.15);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
 }
 
-.matrix-text{
-  font-family:var(--font-mono);
-  font-size:9.5px;
-  fill:var(--signal);
-  opacity:0.4;
-  animation:matrixFlow 3s ease-in-out infinite alternate;
-}
-@keyframes matrixFlow{
-  0%{ opacity:0.25; }
-  50%{ opacity:0.65; }
-  100%{ opacity:0.3; }
+.hud-glow-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(34, 229, 168, 0.1), transparent 70%);
+  pointer-events: none;
 }
 
-.core-pulse{
-  animation:coreGlow 2.5s ease-in-out infinite alternate;
+/* Header Bar */
+.hud-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
 }
-@keyframes coreGlow{
-  0%{ filter:drop-shadow(0 0 4px var(--signal)); }
-  100%{ filter:drop-shadow(0 0 16px var(--signal)); }
+.hud-brand-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-hi);
+  letter-spacing: 0.05em;
+}
+.hud-logo-mini {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--signal);
+  box-shadow: 0 0 8px rgba(34, 229, 168, 0.4);
+}
+.hud-live-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--signal);
+  background: rgba(34, 229, 168, 0.1);
+  border: 1px solid rgba(34, 229, 168, 0.3);
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.04em;
+}
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 6px var(--signal);
+  animation: pulseDot 2s infinite;
 }
 
-.scan-sweep{
-  position:absolute; left:8%; right:8%; height:2px;
-  background:linear-gradient(90deg, transparent, var(--signal), transparent);
-  top:10%;
-  opacity:.85;
-  animation:sweep 3.4s ease-in-out 2.2s infinite;
-  filter:drop-shadow(0 0 6px var(--signal));
-}
-@keyframes sweep{
-  0%{ top:8%; opacity:0; }
-  10%{ opacity:.9; }
-  50%{ top:88%; opacity:.9; }
-  60%{ opacity:0; }
-  100%{ top:8%; opacity:0; }
+/* Main Card Body */
+.hud-main-card {
+  margin: 20px 0 16px;
 }
 
-.orbit-node{
-  position:absolute;
-  width:8px; height:8px; border-radius:50%;
-  background:var(--signal);
-  box-shadow:0 0 14px 2px rgba(34,229,168,.7);
-  opacity:0;
-  animation:nodeIn .6s var(--ease) forwards;
+/* Radar & Core */
+.hud-core-wrapper {
+  position: relative;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.orbit-node span{
-  position:absolute; left:14px; top:-6px;
-  font-family:var(--font-mono);
-  font-size:11px; color:var(--text-mid);
-  white-space:nowrap;
+
+.hud-radar-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(34, 229, 168, 0.25);
+  pointer-events: none;
+}
+.hud-radar-ring.outer {
+  width: 210px;
+  height: 210px;
+  animation: radarRotate 20s linear infinite;
+}
+.hud-radar-ring.inner {
+  width: 140px;
+  height: 140px;
+  border: 1px solid rgba(27, 143, 134, 0.35);
+  animation: radarRotateRev 14s linear infinite;
+}
+
+@keyframes radarRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes radarRotateRev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+
+.hud-radar-sweep {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(34, 229, 168, 0.22), transparent 60deg, transparent 360deg);
+  animation: radarSweep 5s linear infinite;
+  pointer-events: none;
+}
+@keyframes radarSweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Brand Center Core */
+.hud-brand-core {
+  position: relative;
+  z-index: 2;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: var(--bg-0);
+  border: 2px solid var(--signal);
+  box-shadow: 0 0 24px rgba(34, 229, 168, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hud-core-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.hud-core-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--signal);
+  opacity: 0.6;
+  animation: corePulse 2.5s ease-in-out infinite alternate;
+}
+@keyframes corePulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(1.1); opacity: 0.9; } }
+
+/* Floating Node Badges */
+.hud-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 4px 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  z-index: 3;
+  transition: transform 0.3s;
+}
+.hud-node:hover {
+  border-color: var(--signal);
+  transform: scale(1.05);
+}
+.hud-node .node-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 6px var(--signal);
+}
+.hud-node .node-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-hi);
+  white-space: nowrap;
+}
+
+.node-top { top: 4px; animation: floatNode 4s ease-in-out infinite alternate; }
+.node-right { right: 0px; top: 95px; animation: floatNode 4.5s ease-in-out 1s infinite alternate; }
+.node-bottom { bottom: 4px; animation: floatNode 3.8s ease-in-out 0.5s infinite alternate; }
+.node-left { left: 0px; top: 95px; animation: floatNode 4.2s ease-in-out 1.5s infinite alternate; }
+
+@keyframes floatNode {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+/* Dynamic Telemetry Grid */
+.hud-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+.telemetry-item {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 10px 12px;
+  transition: border-color 0.25s;
+}
+.telemetry-item:hover {
+  border-color: var(--teal);
+}
+.telemetry-lbl {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-low);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.telemetry-val {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.val-green { color: var(--signal); }
+.val-cyan { color: #38bdf8; }
+
+.telemetry-bar {
+  height: 3px;
+  background: var(--bg-0);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: var(--signal);
+  border-radius: 2px;
+  box-shadow: 0 0 6px var(--signal);
+  transition: width 0.6s var(--ease);
+}
+.fill-100 { width: 100%; }
+.fill-98 { width: 98%; }
+.fill-95 { width: 95%; }
+
+/* Control Selector Tabs */
+.hud-tabs {
+  display: flex;
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  overflow-x: auto;
+}
+.hud-tab-btn {
+  flex: 1;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  color: var(--text-mid);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 7px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s var(--ease);
+  text-align: center;
+}
+.hud-tab-btn:hover {
+  color: var(--signal);
+  border-color: var(--signal);
+  background: rgba(34, 229, 168, 0.08);
+}
+.hud-tab-btn.active {
+  background: var(--signal);
+  color: var(--bg-0);
+  font-weight: 600;
+  border-color: var(--signal);
+  box-shadow: 0 2px 10px rgba(34, 229, 168, 0.3);
 }
 @keyframes nodeIn{ to{ opacity:1; } }
 

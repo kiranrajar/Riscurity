@@ -405,5 +405,54 @@
     }
   }
 
+  /* ---------- ENTERPRISE HUD TABS LOGIC ---------- */
+  var hudTabs = document.getElementById('hudTabs');
+  var hudTelemetry = document.getElementById('hudTelemetry');
+
+  if(hudTabs && hudTelemetry){
+    var hudData = {
+      soc: [
+        { lbl: "ACTIVE DEFENSE", val: "100% OPERATIONAL", class: "val-green", fill: "fill-100" },
+        { lbl: "AI TRIAGE RESPONSE", val: "< 1.2s INSTANT", class: "val-cyan", fill: "fill-95" },
+        { lbl: "SOC COVERAGE", val: "214 NODES WATCHED", class: "val-green", fill: "fill-98" }
+      ],
+      grc: [
+        { lbl: "AUDIT READINESS", val: "98% COMPLIANT", class: "val-green", fill: "fill-98" },
+        { lbl: "FRAMEWORKS", val: "ISO 27001 / SOC 2", class: "val-cyan", fill: "fill-100" },
+        { lbl: "EVIDENCE COLLECTION", val: "100% AUTOMATED", class: "val-green", fill: "fill-100" }
+      ],
+      ai: [
+        { lbl: "AUTONOMOUS PLAYBOOKS", val: "14 AGENTS ONLINE", class: "val-cyan", fill: "fill-95" },
+        { lbl: "TICKET TRIAGE RATE", val: "99.4% AUTOMATED", class: "val-green", fill: "fill-98" },
+        { lbl: "HUMAN SUPERVISION", val: "ZERO UNVETTED RUNS", class: "val-green", fill: "fill-100" }
+      ],
+      vapt: [
+        { lbl: "DEFENSIVE RATING", val: "GRADE A+ ENTERPRISE", class: "val-green", fill: "fill-100" },
+        { lbl: "CRITICAL EXPOSURES", val: "0 ZERO-DAYS", class: "val-cyan", fill: "fill-100" },
+        { lbl: "REMEDIATION VERIFIED", val: "100% PATCHED", class: "val-green", fill: "fill-100" }
+      ]
+    };
+
+    hudTabs.addEventListener('click', function(e){
+      var btn = e.target.closest('.hud-tab-btn');
+      if(btn){
+        hudTabs.querySelectorAll('.hud-tab-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var key = btn.getAttribute('data-hud');
+        if(key && hudData[key]){
+          var items = hudData[key];
+          hudTelemetry.innerHTML = items.map(function(item){
+            return '<div class="telemetry-item">' +
+                     '<div class="telemetry-lbl">' + item.lbl + '</div>' +
+                     '<div class="telemetry-val ' + item.class + '">' + item.val + '</div>' +
+                     '<div class="telemetry-bar"><div class="bar-fill ' + item.fill + '"></div></div>' +
+                   '</div>';
+          }).join('');
+        }
+      }
+    });
+  }
+
 })();
+
 
