@@ -671,6 +671,148 @@ a {
 }
 
 /* =========================================================
+   CYBER QUOTE MEME BANNER
+   ========================================================= */
+.cyber-quote-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  background: linear-gradient(180deg, rgba(6, 9, 19, 0.4) 0%, rgba(10, 14, 32, 0.7) 100%);
+}
+
+.cyber-quote-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 255, 136, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.quote-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.terminal-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--neon);
+  background: var(--neon-subtle);
+  border: 1px solid var(--neon-border);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cyber-quote-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px 40px;
+  gap: 20px;
+  text-align: center;
+}
+
+.quote-mark {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--neon);
+  opacity: 0.3;
+  user-select: none;
+}
+
+.mark-end {
+  opacity: 0.3;
+}
+
+.quote-main {
+  flex: 1;
+}
+
+.quote-phrase {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.neon-highlight {
+  color: var(--neon);
+  text-shadow: 0 0 16px rgba(0, 255, 136, 0.4);
+}
+
+.quote-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.author-name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--neon);
+}
+
+.author-context {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .cyber-quote-body {
+    padding: 24px 20px;
+  }
+  .quote-mark {
+    display: none;
+  }
+  .quote-phrase {
+    font-size: 20px;
+  }
+  .terminal-title {
+    font-size: 9px;
+  }
+}
+
+/* =========================================================
    3. PROOF SECTION — SAUDI PAYMENTS CASE STUDY & METRICS
    ========================================================= */
 .proof-section {
