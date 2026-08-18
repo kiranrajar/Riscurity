@@ -400,7 +400,7 @@
     // Reset Chat
     if(chatReset){
       chatReset.addEventListener('click', function(){
-        chatBody.innerHTML = '<div class="hacker-msg hacker-msg-bot"><div class="hacker-msg-avatar">🤖</div><div class="hacker-msg-content"><p>Welcome to <b>Riskcurity</b>! 🛡️<br>I\'m your <b>Mini Hacker AI</b> guide. How can I assist you with our cyber defense &amp; AI services today?</p><div class="hacker-quick-chips"><button class="chip-btn" data-topic="grc">🛡️ GRC Automation</button><button class="chip-btn" data-topic="soc">👁️ SOC 24/7</button><button class="chip-btn" data-topic="siem">📡 SIEM Engineering</button><button class="chip-btn" data-topic="vapt">⚔️ VAPT Assessment</button><button class="chip-btn" data-topic="ai">🤖 AI Agents</button><button class="chip-btn" data-topic="web">🌐 Secure Web Dev</button><button class="chip-btn chip-highlight" data-topic="contact">📅 Book Review</button></div></div></div>';
+        chatBody.innerHTML = '<div class="hacker-msg hacker-msg-bot"><div class="hacker-msg-avatar">🤖</div><div class="hacker-msg-content"><p>Welcome to <b>Riskcurity</b>! 🛡️<br>I\'m <b>Riskmate</b>, your AI security companion. How can I assist you with our cyber defense &amp; AI services today?</p><div class="hacker-quick-chips"><button class="chip-btn" data-topic="grc">🛡️ GRC Automation</button><button class="chip-btn" data-topic="soc">👁️ SOC 24/7</button><button class="chip-btn" data-topic="siem">📡 SIEM Engineering</button><button class="chip-btn" data-topic="vapt">⚔️ VAPT Assessment</button><button class="chip-btn" data-topic="ai">🤖 AI Agents</button><button class="chip-btn" data-topic="web">🌐 Secure Web Dev</button><button class="chip-btn chip-highlight" data-topic="contact">📅 Book Review</button></div></div></div>';
       });
     }
   }
