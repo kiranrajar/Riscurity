@@ -1,6 +1,8 @@
 /* =========================================================
-   RISKCURITY — CLIENT ENGINES & RISKMATE AI ASSISTANT
-   - Responsive Navigation Toggle
+   RISKCURITY — DYNAMIC CLIENT ENGINES & RISKMATE AI
+   - Interactive Cyber Particle Canvas
+   - IntersectionObserver Staggered Scroll Reveals
+   - Responsive Navigation & Micro-Interactions
    - Contact Form Web3Forms Lead Dispatch
    - Riskmate AI Technical Guide & Silent Lead Sync
    ========================================================= */
@@ -8,7 +10,98 @@
 (function () {
   'use strict';
 
-  /* ---------- 1. NAVBAR SCROLL & MOBILE TOGGLE ---------- */
+  /* ---------- 1. INTERACTIVE CYBER PARTICLE CANVAS ---------- */
+  var canvas = document.getElementById('cyberCanvas');
+  if (canvas) {
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var particleCount = window.innerWidth < 768 ? 30 : 60;
+    var mouse = { x: null, y: null, maxDist: 130 };
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    window.addEventListener('mousemove', function (e) {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    window.addEventListener('mouseout', function () {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    function Particle() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.7;
+      this.vy = (Math.random() - 0.5) * 0.7;
+      this.radius = Math.random() * 2 + 1;
+      this.color = Math.random() > 0.3 ? 'rgba(56, 189, 248, ' : 'rgba(147, 197, 253, ';
+    }
+
+    Particle.prototype.update = function () {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+      if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+
+      // Mouse interaction
+      if (mouse.x !== null && mouse.y !== null) {
+        var dx = mouse.x - this.x;
+        var dy = mouse.y - this.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.maxDist) {
+          this.x -= (dx / dist) * 1.5;
+          this.y -= (dy / dist) * 1.5;
+        }
+      }
+    };
+
+    Particle.prototype.draw = function () {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color + '0.75)';
+      ctx.fill();
+    };
+
+    for (var i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (var a = 0; a < particles.length; a++) {
+        for (var b = a + 1; b < particles.length; b++) {
+          var dx = particles[a].x - particles[b].x;
+          var dy = particles[a].y - particles[b].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 130) {
+            var opacity = (1 - dist / 130) * 0.22;
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(56, 189, 248, ' + opacity + ')';
+            ctx.lineWidth = 1;
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+        particles[a].update();
+        particles[a].draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  }
+
+  /* ---------- 2. NAVBAR SCROLL & MOBILE TOGGLE ---------- */
   var nav = document.getElementById('nav');
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
@@ -37,9 +130,10 @@
         navLinks.style.left = '0';
         navLinks.style.right = '0';
         navLinks.style.background = '#0e1320';
-        navLinks.style.padding = '20px';
+        navLinks.style.padding = '24px';
         navLinks.style.borderBottom = '1px solid var(--line)';
         navLinks.style.gap = '16px';
+        navLinks.style.boxShadow = '0 16px 36px rgba(0,0,0,0.6)';
       }
     });
 
@@ -53,7 +147,28 @@
     });
   }
 
-  /* ---------- 2. CONTACT FORM SUBMIT (WEB3FORMS) ---------- */
+  /* ---------- 3. SCROLL REVEAL (INTERSECTION OBSERVER) ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    reveals.forEach(function (el) {
+      el.classList.add('active');
+    });
+  }
+
+  /* ---------- 4. CONTACT FORM SUBMIT (WEB3FORMS) ---------- */
   var contactForm = document.getElementById('contactForm');
   var formResult = document.getElementById('formResult');
   var submitBtn = document.getElementById('submitBtn');
@@ -100,7 +215,7 @@
     });
   }
 
-  /* ---------- 3. RISKMATE AI CONVERSATIONAL AGENT & SILENT BACKEND LEAD SYNC ---------- */
+  /* ---------- 5. RISKMATE AI CONVERSATIONAL AGENT & SILENT BACKEND LEAD SYNC ---------- */
   var chatToggle = document.getElementById('hackerChatToggle');
   var chatWindow = document.getElementById('hackerChatWindow');
   var chatClose = document.getElementById('hackerChatClose');

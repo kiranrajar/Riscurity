@@ -1,5 +1,5 @@
 /* =========================================================
-   RISKCURITY — RESTRAINED MODERN ENTERPRISE DESIGN SYSTEM
+   RISKCURITY — DYNAMIC ANIMATED ENTERPRISE DESIGN SYSTEM
    Offensive Security & VAPT for High-Growth Startups
    ========================================================= */
 
@@ -8,11 +8,11 @@
   --bg-0: #080b12;
   --bg-1: #0e1320;
   --bg-2: #141a2c;
-  --bg-card: rgba(14, 19, 32, 0.85);
+  --bg-card: rgba(14, 19, 32, 0.82);
   --bg-card-hover: rgba(20, 26, 44, 0.95);
   
   --line: rgba(148, 163, 184, 0.12);
-  --line-strong: rgba(148, 163, 184, 0.22);
+  --line-strong: rgba(148, 163, 184, 0.24);
   --line-focus: #38bdf8;
 
   --text-main: #f8fafc;
@@ -20,9 +20,10 @@
   --text-dim: #64748b;
 
   --accent: #38bdf8;
-  --accent-hover: #0284c7;
+  --accent-hover: #7dd3fc;
   --accent-subtle: rgba(56, 189, 248, 0.08);
-  --accent-border: rgba(56, 189, 248, 0.25);
+  --accent-border: rgba(56, 189, 248, 0.28);
+  --accent-glow: rgba(56, 189, 248, 0.25);
 
   --danger-bg: rgba(239, 68, 68, 0.08);
   --danger-border: rgba(239, 68, 68, 0.3);
@@ -42,7 +43,8 @@
   --radius-xl: 22px;
 
   --wrap-max: 1200px;
-  --transition: 0.2s ease-in-out;
+  --ease-smooth: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --transition: 0.3s var(--ease-smooth);
 }
 
 *, *::before, *::after {
@@ -64,6 +66,54 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================================================
+   CANVAS & AMBIENT GLOW ANIMATIONS
+   ========================================================= */
+.cyber-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.ambient-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.4;
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%);
+  top: -100px;
+  right: -100px;
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 70%);
+  bottom: 10%;
+  left: -200px;
+  animation-delay: -9s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 60px) scale(1.1); }
+  100% { transform: translate(-30px, -40px) scale(0.95); }
 }
 
 /* Layout Wrapper */
@@ -74,6 +124,8 @@ body {
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Typography Helpers */
@@ -94,12 +146,63 @@ a {
   text-decoration: none;
 }
 
+/* Animated Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #f8fafc 0%, #38bdf8 45%, #93c5fd 85%, #38bdf8 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShimmer 6s linear infinite;
+  display: inline;
+}
+
+@keyframes gradientShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulse Dot */
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+  animation: pulseDot 1.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+/* Live Pulse */
+.live-pulse {
+  position: relative;
+}
+
+.live-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  animation: rippleRing 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+@keyframes rippleRing {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
 /* Reusable Badges & Eyebrows */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .badge-pill {
@@ -111,8 +214,15 @@ a {
   color: var(--accent);
   background: var(--accent-subtle);
   border: 1px solid var(--accent-border);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.badge-pill:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent);
 }
 
 .eyebrow-text {
@@ -131,7 +241,7 @@ a {
 }
 
 .section-head h2 {
-  font-size: 32px;
+  font-size: 34px;
   margin-bottom: 14px;
   color: var(--text-main);
 }
@@ -150,33 +260,38 @@ a {
   font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 600;
-  padding: 11px 22px;
+  padding: 12px 24px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
   border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
   background: var(--accent);
   color: #050811;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25);
 }
 
-.btn-primary:hover {
-  background: #7dd3fc;
-  transform: translateY(-1px);
+.btn-glow:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
   background: rgba(255, 255, 255, 0.04);
   color: var(--text-main);
   border-color: var(--line);
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--line-strong);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn-nav {
@@ -190,15 +305,51 @@ a {
 .btn-nav:hover {
   background: var(--accent);
   color: #050811;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
 }
 
 .btn-arrow {
   font-family: var(--font-mono);
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
 .btn:hover .btn-arrow {
-  transform: translateX(3px);
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   SCROLL REVEAL & HOVER LIFT ANIMATIONS
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-lift {
+  transition: transform 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.06);
+}
+
+.hover-glow {
+  transition: var(--transition);
+}
+
+.hover-glow:hover {
+  border-color: var(--accent-border);
+  background: var(--bg-card-hover);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.08);
+  transform: translateY(-2px);
 }
 
 /* =========================================================
@@ -208,12 +359,18 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(8, 11, 18, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(8, 11, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   padding: 14px 0;
   transition: var(--transition);
+}
+
+.nav.scrolled {
+  background: rgba(8, 11, 18, 0.95);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  padding: 11px 0;
 }
 
 .nav-inner {
@@ -226,6 +383,12 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: var(--transition);
+}
+
+.brand:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
 .brand-logo {
@@ -257,11 +420,28 @@ a {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
-  transition: color 0.15s ease;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+  border-radius: 2px;
 }
 
 .nav-link:hover {
   color: var(--text-main);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-actions {
@@ -291,9 +471,10 @@ a {
    2. HERO SECTION
    ========================================================= */
 .hero {
-  padding: 80px 0 90px 0;
+  padding: 90px 0 100px 0;
   border-bottom: 1px solid var(--line);
-  background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-container {
@@ -304,34 +485,30 @@ a {
 }
 
 .hero-title {
-  font-size: 42px;
-  line-height: 1.16;
-  margin-bottom: 20px;
+  font-size: 44px;
+  line-height: 1.15;
+  margin-bottom: 22px;
   color: var(--text-main);
-}
-
-.text-highlight {
-  color: var(--accent);
 }
 
 .hero-content .lead {
   font-size: 17px;
   line-height: 1.6;
   color: var(--text-muted);
-  margin-bottom: 32px;
+  margin-bottom: 34px;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 36px;
+  margin-bottom: 38px;
 }
 
 .hero-metadata {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 22px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
@@ -343,24 +520,43 @@ a {
   font-size: 13px;
   color: var(--text-muted);
   font-weight: 500;
+  transition: var(--transition);
+}
+
+.meta-item:hover {
+  color: var(--text-main);
+  transform: translateX(2px);
 }
 
 .meta-icon {
   color: var(--accent);
-  font-size: 12px;
+  font-size: 13px;
 }
 
-/* Hero Deliverable Package Card */
+/* Hero Deliverable Package Card with Ambient Floating */
 .hero-card-panel {
   position: relative;
+}
+
+.animated-floating-card {
+  animation: cardFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes cardFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
 .deliverable-card {
   background: var(--bg-card);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  padding: 26px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.08);
+  position: relative;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .deliverable-card .card-header {
@@ -375,7 +571,7 @@ a {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .status-indicator {
@@ -406,17 +602,24 @@ a {
 .card-body {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .deliverable-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 11px 13px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.deliverable-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--line-strong);
+  transform: translateX(4px);
 }
 
 .item-badge {
@@ -468,32 +671,34 @@ a {
    3. PRIMARY SERVICE SECTION
    ========================================================= */
 .primary-service {
-  padding: 96px 0;
+  padding: 100px 0;
   border-bottom: 1px solid var(--line);
+  position: relative;
 }
 
 .primary-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 36px;
 }
 
 .primary-info-card, .outcomes-card {
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: 38px;
+  backdrop-filter: blur(14px);
 }
 
 .primary-info-card h3, .outcomes-card h3 {
-  font-size: 20px;
+  font-size: 21px;
   margin-bottom: 18px;
   color: var(--text-main);
 }
 
 .primary-info-card p {
   font-size: 15px;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
   line-height: 1.6;
 }
 
@@ -509,6 +714,11 @@ a {
   gap: 12px;
   font-size: 14px;
   line-height: 1.5;
+  transition: var(--transition);
+}
+
+.delivery-item:hover {
+  transform: translateX(4px);
 }
 
 .delivery-icon {
@@ -536,16 +746,11 @@ a {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  padding: 16px 18px;
+  padding: 18px 20px;
   background: var(--bg-1);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  transition: var(--transition);
-}
-
-.outcome-box:hover {
-  border-color: var(--line-strong);
-  background: var(--bg-2);
+  cursor: default;
 }
 
 .outcome-num {
@@ -573,9 +778,9 @@ a {
    4. PROOF SECTION (Real Case Walkthrough Narrative)
    ========================================================= */
 .proof-section {
-  padding: 96px 0;
+  padding: 100px 0;
   border-bottom: 1px solid var(--line);
-  background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 60%);
+  position: relative;
 }
 
 .case-study-panel {
@@ -583,13 +788,14 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  backdrop-filter: blur(14px);
 }
 
 .case-header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  padding: 20px 28px;
+  padding: 22px 30px;
   background: var(--bg-1);
   border-bottom: 1px solid var(--line);
 }
@@ -621,9 +827,14 @@ a {
 
 .case-step {
   background: var(--bg-0);
-  padding: 28px 24px;
+  padding: 30px 24px;
   display: flex;
   flex-direction: column;
+  transition: var(--transition);
+}
+
+.case-step:hover {
+  background: var(--bg-1);
 }
 
 .step-tag {
@@ -659,7 +870,7 @@ a {
   font-family: var(--font-mono);
   font-size: 12px;
   background: rgba(255, 255, 255, 0.06);
-  padding: 2px 4px;
+  padding: 2px 5px;
   border-radius: 4px;
   color: #bae6fd;
 }
@@ -678,14 +889,15 @@ a {
    5. SECONDARY SERVICES (Collapsed Compact Grid)
    ========================================================= */
 .secondary-services {
-  padding: 96px 0;
+  padding: 100px 0;
   border-bottom: 1px solid var(--line);
+  position: relative;
 }
 
 .compact-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 22px;
 }
 
 .compact-grid .compact-card:nth-child(4),
@@ -697,23 +909,18 @@ a {
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: var(--transition);
-}
-
-.compact-card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
+  backdrop-filter: blur(10px);
 }
 
 .compact-card-header {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .compact-num {
@@ -733,8 +940,8 @@ a {
 .compact-card p {
   font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 16px;
+  line-height: 1.55;
+  margin-bottom: 18px;
 }
 
 .compact-tag {
@@ -742,34 +949,31 @@ a {
   font-size: 11px;
   color: var(--text-dim);
   border-top: 1px solid var(--line);
-  padding-top: 10px;
+  padding-top: 12px;
 }
 
 /* =========================================================
    6. METHODOLOGY / APPROACH
    ========================================================= */
 .approach {
-  padding: 96px 0;
+  padding: 100px 0;
   border-bottom: 1px solid var(--line);
+  position: relative;
 }
 
 .methodology-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 22px;
 }
 
 .method-card {
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 28px 22px;
+  padding: 30px 24px;
   position: relative;
-  transition: var(--transition);
-}
-
-.method-card:hover {
-  border-color: var(--line-strong);
+  backdrop-filter: blur(10px);
 }
 
 .method-index {
@@ -782,7 +986,14 @@ a {
   padding: 3px 8px;
   border-radius: var(--radius-sm);
   display: inline-block;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+
+.method-card:hover .method-index {
+  transform: scale(1.08);
+  background: var(--accent);
+  color: #050811;
 }
 
 .method-card h3 {
@@ -800,26 +1011,23 @@ a {
    7. WHY US SECTION
    ========================================================= */
 .why {
-  padding: 96px 0;
+  padding: 100px 0;
   border-bottom: 1px solid var(--line);
+  position: relative;
 }
 
 .why-pillars-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 26px;
 }
 
 .why-card {
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 32px 28px;
-  transition: var(--transition);
-}
-
-.why-card:hover {
-  border-color: var(--line-strong);
+  padding: 34px 30px;
+  backdrop-filter: blur(10px);
 }
 
 .why-num {
@@ -831,7 +1039,12 @@ a {
   padding: 3px 7px;
   border-radius: 4px;
   display: inline-block;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+
+.why-card:hover .why-num {
+  transform: scale(1.08);
 }
 
 .why-card h3 {
@@ -849,9 +1062,9 @@ a {
    8. CONTACT SECTION
    ========================================================= */
 .contact {
-  padding: 96px 0;
+  padding: 100px 0;
   border-bottom: 1px solid var(--line);
-  background: radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.03) 0%, transparent 60%);
+  position: relative;
 }
 
 .contact-grid {
@@ -861,39 +1074,35 @@ a {
 }
 
 .contact-info h2 {
-  font-size: 32px;
+  font-size: 34px;
   margin-bottom: 14px;
 }
 
 .contact-info p {
   font-size: 16px;
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: 34px;
 }
 
 .contact-cards-stack {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .contact-card-link {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px;
+  padding: 16px 18px;
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  transition: var(--transition);
-}
-
-.contact-card-link:hover {
-  border-color: var(--line-strong);
+  backdrop-filter: blur(10px);
 }
 
 .contact-icon {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .contact-meta {
@@ -919,7 +1128,8 @@ a {
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: 38px;
+  backdrop-filter: blur(16px);
 }
 
 .form-row {
@@ -954,7 +1164,7 @@ a {
   font-family: var(--font-body);
   font-size: 14px;
   color: var(--text-main);
-  transition: border-color 0.15s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-form input:focus,
@@ -962,6 +1172,7 @@ a {
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
 }
 
 .contact-form select {
@@ -973,15 +1184,16 @@ a {
 }
 
 .form-result {
-  padding: 12px;
+  padding: 14px;
   border-radius: var(--radius-sm);
   font-size: 13px;
   margin-bottom: 16px;
+  animation: fadeIn 0.3s ease;
 }
 
 .btn-submit {
   width: 100%;
-  padding: 13px;
+  padding: 14px;
   font-size: 15px;
 }
 
@@ -999,6 +1211,8 @@ a {
   padding: 72px 0 36px 0;
   background: #05070c;
   border-top: 1px solid var(--line);
+  position: relative;
+  z-index: 1;
 }
 
 .footer-grid {
@@ -1028,11 +1242,12 @@ a {
   font-size: 13px;
   color: var(--text-muted);
   margin-bottom: 10px;
-  transition: color 0.15s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-col a:hover {
-  color: var(--text-main);
+  color: var(--accent);
+  transform: translateX(2px);
 }
 
 .footer-bottom {
@@ -1062,9 +1277,9 @@ a {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
   padding: 14px 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
   display: none;
-  animation: fadeIn 0.2s ease-out forwards;
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .hacker-bubble.visible {
@@ -1102,18 +1317,32 @@ a {
   border-radius: 50%;
   background: var(--bg-1);
   border: 1px solid var(--accent-border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.2);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hacker-trigger-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
   border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+}
+
+.hacker-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  animation: rippleRing 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+.hacker-pulse-ring.delay {
+  animation-delay: 1.2s;
 }
 
 .hacker-avatar-container {
@@ -1159,15 +1388,15 @@ a {
   background: var(--bg-1);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(12px) scale(0.98);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(14px) scale(0.97);
+  transition: opacity 0.25s var(--ease-smooth), transform 0.25s var(--ease-smooth);
 }
 
 .hacker-chat-window.active {
@@ -1243,6 +1472,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: var(--transition);
 }
 
 .hacker-chat-btn:hover {
@@ -1265,6 +1495,7 @@ a {
   display: flex;
   gap: 8px;
   max-width: 90%;
+  animation: fadeIn 0.3s ease;
 }
 
 .hacker-msg-bot {
@@ -1333,6 +1564,7 @@ a {
   color: var(--text-main);
   border-color: var(--accent);
   background: var(--accent-subtle);
+  transform: translateY(-1px);
 }
 
 .chip-highlight {
@@ -1385,10 +1617,12 @@ a {
   font-size: 13px;
   color: var(--text-main);
   outline: none;
+  transition: var(--transition);
 }
 
 .hacker-chat-footer input:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
 .hacker-chat-footer button {
@@ -1402,6 +1636,12 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: var(--transition);
+}
+
+.hacker-chat-footer button:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
 }
 
 /* Login Modal Inside Chat */
@@ -1484,11 +1724,6 @@ a {
   padding: 10px;
 }
 
-/* Scroll Reveals */
-.reveal {
-  opacity: 1;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
@@ -1542,11 +1777,11 @@ a {
 
 @media (max-width: 680px) {
   .hero {
-    padding: 56px 0 64px 0;
+    padding: 60px 0 68px 0;
   }
 
   .hero-title {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   .nav-links {
