@@ -480,43 +480,43 @@
       <!-- RISKMATE AI LOGIN / LEAD CAPTURE OVERLAY -->
       <div class="riskmate-login-overlay" id="riskmateLoginOverlay">
         <div class="login-card">
-          <div class="login-icon">🤖</div>
-          <h3>Welcome to Riskmate AI!</h3>
-          <p>Please log in with your name &amp; work email to access instant AI guidance &amp; contact our team.</p>
+          <div class="login-icon-badge">
+            <span class="pulse-ring"></span>
+            🤖
+          </div>
+          <h3>Welcome to Riskmate AI</h3>
+          <p>Enter your details below to unlock instant AI assistance &amp; direct team support.</p>
           
           <form id="riskmateLoginForm">
             <div class="login-field">
-              <label for="riskmateName">Your Name</label>
+              <label for="riskmateName"><span class="label-dot"></span> Your Name</label>
               <input type="text" id="riskmateName" placeholder="e.g. Alex Morgan" required />
             </div>
             <div class="login-field">
-              <label for="riskmateEmail">Work Email</label>
+              <label for="riskmateEmail"><span class="label-dot"></span> Work Email</label>
               <input type="email" id="riskmateEmail" placeholder="you@company.com" required />
             </div>
-            <button type="submit" class="btn" style="width:100%; justify-content:center; margin-top:8px;">Start Chatting with Riskmate →</button>
+            <button type="submit" class="btn login-submit-btn">
+              <span>Start Chatting with Riskmate</span>
+              <span>→</span>
+            </button>
           </form>
         </div>
       </div>
 
       <div class="hacker-chat-body" id="hackerChatBody">
-              <button class="chip-btn" data-topic="vapt">⚔️ VAPT Assessment</button>
-              <button class="chip-btn" data-topic="ai">🤖 AI Agents</button>
-              <button class="chip-btn" data-topic="web">🌐 Secure Web Dev</button>
-              <button class="chip-btn chip-highlight" data-topic="contact">📅 Book Review</button>
-            </div>
-          </div>
-        </div>
+        <!-- Messages rendered dynamically by JS -->
       </div>
 
       <!-- Typing Indicator -->
       <div class="hacker-typing" id="hackerTyping" style="display: none;">
         <span></span><span></span><span></span>
-        <span class="typing-lbl">Riskmate is typing...</span>
+        <span class="typing-lbl">Riskmate is analyzing...</span>
       </div>
 
       <div class="hacker-chat-footer">
         <form id="hackerChatForm">
-          <input type="text" id="hackerChatInput" placeholder="Ask Riskmate about GRC, SOC, VAPT, AI agents..." autocomplete="off" />
+          <input type="text" id="hackerChatInput" placeholder="Ask Riskmate about Web Dev, AI, SOC, GRC..." autocomplete="off" />
           <button type="submit" id="hackerChatSend" aria-label="Send message">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
