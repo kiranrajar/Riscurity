@@ -373,11 +373,10 @@ button{ font-family:inherit; cursor:pointer; }
   justify-content: center;
   animation: orbFloat 4s ease-in-out infinite alternate;
 }
-.engine-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.engine-core-icon {
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 0 12px var(--signal));
 }
 .engine-pulse-ring {
   position: absolute;
