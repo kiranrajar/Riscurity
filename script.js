@@ -5,7 +5,7 @@
    - 4-Stage Interactive Methodology Timeline
    - Simulated SOC Live CLI Terminal Engine
    - Contact Form Web3Forms Lead Dispatch
-   - Riskmate AI Chatbot & Lead Collection System
+   - Riskmate AI Conversational Agent & Lead Engine
    ========================================================= */
 
 (function () {
@@ -283,7 +283,7 @@
     });
   }
 
-  /* ---------- 7. RISKMATE AI CHATBOT & COMPREHENSIVE GUIDE ENGINE ---------- */
+  /* ---------- 7. RISKMATE AI CONVERSATIONAL AGENT & GUIDE ENGINE ---------- */
   var chatToggle = document.getElementById('hackerChatToggle');
   var chatWindow = document.getElementById('hackerChatWindow');
   var chatClose = document.getElementById('hackerChatClose');
@@ -328,7 +328,7 @@
       var userName = currentUser ? currentUser.name : 'there';
       chatBody.innerHTML = '';
       appendMessage(
-        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your engineering guide for <b>Web Development, AI Automation, 24/7 SOC, SIEM &amp; GRC Compliance</b>.<br><br>How can I guide you today? Select a service below or type your question!</p>',
+        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your technical guide for <b>Web Development, AI Automation, 24/7 SOC, SIEM &amp; GRC Compliance</b>.<br><br>How can I assist you today? Select a service below or type any question!</p>',
         'bot',
         [
           { label: '🌐 Web Development', topic: 'web' },
@@ -560,6 +560,157 @@
       .catch(function () { done(false); });
     }
 
+    // Natural Language Agent Response Handler
+    function getAgentResponse(userInput) {
+      var q = userInput.toLowerCase().trim();
+      var name = currentUser ? currentUser.name : 'there';
+
+      // 1. Greetings
+      if (/^(hi|hello|hey|greetings|good morning|good afternoon|good evening|yo|sup|hola)\b/i.test(q) || q === 'hi' || q === 'hello' || q === 'hey') {
+        return {
+          text: "Hello <b>" + name + "</b>! 👋 I'm <b>Riskmate AI</b>, your technical guide at Riskcurity.<br><br>I can explain how our engineering services work, guide you through our 4-stage methodology, answer technical questions, or connect you with our team. What are you looking to build or protect today?",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '🤖 AI Automation', topic: 'ai' },
+            { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+            { label: '🛡️ GRC Compliance', topic: 'grc' },
+            { label: '⚔️ VAPT Testing', topic: 'vapt' },
+            { label: '📩 Contact Engineers', topic: 'lead', highlight: true }
+          ]
+        };
+      }
+
+      // 2. Who are you / About Riskcurity / What do you do
+      if (q.indexOf('who are you') !== -1 || q.indexOf('what do you do') !== -1 || q.indexOf('about riskcurity') !== -1 || q.indexOf('what is riskcurity') !== -1 || q.indexOf('services') !== -1 || q.indexOf('overview') !== -1) {
+        return {
+          text: "<b>Riskcurity</b> is an integrated cybersecurity defense and AI automation engineering practice. We unite two vital disciplines under one roof:<br><br>" +
+                "• <b>Cyber Defense:</b> 24/7 SOC monitoring, SIEM detection engineering, VAPT ethical hacking, and automated GRC (ISO 27001 / SOC 2).<br>" +
+                "• <b>AI &amp; Software Engineering:</b> Autonomous AI agents, intelligent workflow automation, and OWASP-hardened secure web platforms.<br><br>" +
+                "Which area would you like to explore in detail?",
+          chips: [
+            { label: '🌐 Web Development', topic: 'web' },
+            { label: '🤖 AI Automation', topic: 'ai' },
+            { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
+            { label: '🛡️ GRC Compliance', topic: 'grc' },
+            { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' }
+          ]
+        };
+      }
+
+      // 3. Web Development
+      if (q.indexOf('web') !== -1 || q.indexOf('site') !== -1 || q.indexOf('dev') !== -1 || q.indexOf('app') !== -1 || q.indexOf('react') !== -1 || q.indexOf('frontend') !== -1 || q.indexOf('backend') !== -1 || q.indexOf('api') !== -1 || q.indexOf('software') !== -1) {
+        return {
+          text: kbAnswers.web.text,
+          chips: kbAnswers.web.followUps,
+          serviceVal: kbAnswers.web.serviceVal
+        };
+      }
+
+      // 4. AI Automation & Autonomous Agents
+      if (q.indexOf('ai') !== -1 || q.indexOf('agent') !== -1 || q.indexOf('autom') !== -1 || q.indexOf('llm') !== -1 || q.indexOf('rag') !== -1 || q.indexOf('bot') !== -1 || q.indexOf('gpt') !== -1 || q.indexOf('workflow') !== -1) {
+        return {
+          text: kbAnswers.ai.text,
+          chips: kbAnswers.ai.followUps,
+          serviceVal: kbAnswers.ai.serviceVal
+        };
+      }
+
+      // 5. SOC (Security Operations Center) & 24/7 Monitoring
+      if (q.indexOf('soc') !== -1 || q.indexOf('monitoring') !== -1 || q.indexOf('24/7') !== -1 || q.indexOf('threat') !== -1 || q.indexOf('incident') !== -1 || q.indexOf('analyst') !== -1) {
+        return {
+          text: kbAnswers.soc.text,
+          chips: kbAnswers.soc.followUps,
+          serviceVal: kbAnswers.soc.serviceVal
+        };
+      }
+
+      // 6. SIEM Engineering & Logs
+      if (q.indexOf('siem') !== -1 || q.indexOf('log') !== -1 || q.indexOf('detection') !== -1 || q.indexOf('splunk') !== -1 || q.indexOf('sentinel') !== -1 || q.indexOf('elastic') !== -1) {
+        return {
+          text: kbAnswers.siem.text,
+          chips: kbAnswers.siem.followUps,
+          serviceVal: kbAnswers.siem.serviceVal
+        };
+      }
+
+      // 7. GRC & Compliance (ISO 27001 / SOC 2 / NIST)
+      if (q.indexOf('grc') !== -1 || q.indexOf('iso') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1 || q.indexOf('nist') !== -1 || q.indexOf('gdpr') !== -1 || q.indexOf('framework') !== -1) {
+        return {
+          text: kbAnswers.grc.text,
+          chips: kbAnswers.grc.followUps,
+          serviceVal: kbAnswers.grc.serviceVal
+        };
+      }
+
+      // 8. VAPT & Penetration Testing
+      if (q.indexOf('vapt') !== -1 || q.indexOf('pen') !== -1 || q.indexOf('test') !== -1 || q.indexOf('hack') !== -1 || q.indexOf('vuln') !== -1 || q.indexOf('scan') !== -1 || q.indexOf('exploit') !== -1) {
+        return {
+          text: kbAnswers.vapt.text,
+          chips: kbAnswers.vapt.followUps,
+          serviceVal: kbAnswers.vapt.serviceVal
+        };
+      }
+
+      // 9. Process / Methodology / How do you work
+      if (q.indexOf('how') !== -1 || q.indexOf('process') !== -1 || q.indexOf('stage') !== -1 || q.indexOf('method') !== -1 || q.indexOf('work') !== -1 || q.indexOf('timeline') !== -1 || q.indexOf('lifecycle') !== -1) {
+        return {
+          text: kbAnswers.process.text,
+          chips: kbAnswers.process.followUps,
+          serviceVal: kbAnswers.process.serviceVal
+        };
+      }
+
+      // 10. Pricing / Cost / Quotes / Budget
+      if (q.indexOf('price') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('quote') !== -1 || q.indexOf('rate') !== -1 || q.indexOf('fee') !== -1 || q.indexOf('budget') !== -1 || q.indexOf('how much') !== -1) {
+        return {
+          text: "<b>Our Pricing &amp; Engagement Models:</b><br>" +
+                "We structure proposals around your infrastructure scale, compliance targets, and requirements:<br>" +
+                "• <b>Fixed-Price Deliverables:</b> VAPT penetration testing assessments, ISO 27001/SOC 2 compliance setup, and custom web engineering.<br>" +
+                "• <b>Continuous Retainers:</b> 24/7 SOC operations, SIEM detection tuning, and ongoing AI agent management.<br><br>" +
+                "Would you like us to prepare a tailored estimate? You can reach us at <a href='mailto:riskecurity@gmail.com'>riskecurity@gmail.com</a> or phone <b>+92 342 3717545</b>.",
+          chips: [
+            { label: '📩 Request Custom Quote', topic: 'lead', highlight: true },
+            { label: '👁️ SOC Operations', topic: 'soc' },
+            { label: '🛡️ GRC Compliance', topic: 'grc' },
+            { label: '🌐 Web Development', topic: 'web' }
+          ]
+        };
+      }
+
+      // 11. Contact Info / Phone / Location
+      if (q.indexOf('contact') !== -1 || q.indexOf('email') !== -1 || q.indexOf('phone') !== -1 || q.indexOf('call') !== -1 || q.indexOf('reach') !== -1 || q.indexOf('location') !== -1 || q.indexOf('where') !== -1 || q.indexOf('address') !== -1) {
+        return {
+          text: kbAnswers.contact_info.text,
+          chips: kbAnswers.contact_info.followUps,
+          serviceVal: kbAnswers.contact_info.serviceVal
+        };
+      }
+
+      // 12. Explicit email lead dispatch triggers
+      if (q.indexOf('send email') !== -1 || q.indexOf('dispatch') !== -1 || q.indexOf('submit lead') !== -1 || q.indexOf('send inquiry') !== -1 || q.indexOf('send message') !== -1) {
+        return null; // Will trigger sendLeadToEmail
+      }
+
+      // 13. Conversational Fallback (Responds like an intelligent AI agent instead of immediately saying inquiry sent!)
+      return {
+        text: "I'd be glad to guide you! At <b>Riskcurity</b>, our engineering team specializes in:<br>" +
+              "• 🌐 <b>Secure Web Development:</b> Hardened, modern web applications &amp; SaaS.<br>" +
+              "• 🤖 <b>AI Automation:</b> Autonomous agents, RAG engines &amp; workflow bots.<br>" +
+              "• 👁️ <b>24/7 SOC &amp; SIEM:</b> Round-the-clock analyst threat monitoring.<br>" +
+              "• 🛡️ <b>GRC Compliance:</b> ISO 27001, SOC 2 Type II, and NIST automation.<br>" +
+              "• ⚔️ <b>VAPT:</b> Penetration testing with impact-ranked fix guides.<br><br>" +
+              "Which area would you like to explore, or would you like to send a direct inquiry to our team at <a href='mailto:riskecurity@gmail.com'>riskecurity@gmail.com</a>?",
+        chips: [
+          { label: '🌐 Web Development', topic: 'web' },
+          { label: '🤖 AI Automation', topic: 'ai' },
+          { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+          { label: '🛡️ GRC Compliance', topic: 'grc' },
+          { label: '⚔️ VAPT Testing', topic: 'vapt' },
+          { label: '📩 Send Inquiry to Team', topic: 'lead', highlight: true }
+        ]
+      };
+    }
+
     function triggerResponse(topicKey, customQuery) {
       chatTyping.style.display = 'flex';
       chatBody.scrollTop = chatBody.scrollHeight;
@@ -584,46 +735,20 @@
           }
 
         } else if (customQuery) {
-          var q = customQuery.toLowerCase();
-          var matchedTopic = null;
+          var agentResult = getAgentResponse(customQuery);
 
-          // Intelligent Keyword & Topic Resolution
-          if (q.indexOf('web') !== -1 || q.indexOf('site') !== -1 || q.indexOf('dev') !== -1 || q.indexOf('app') !== -1 || q.indexOf('react') !== -1 || q.indexOf('portal') !== -1 || q.indexOf('api') !== -1) {
-            matchedTopic = 'web';
-          } else if (q.indexOf('ai') !== -1 || q.indexOf('agent') !== -1 || q.indexOf('autom') !== -1 || q.indexOf('llm') !== -1 || q.indexOf('rag') !== -1 || q.indexOf('bot') !== -1) {
-            matchedTopic = 'ai';
-          } else if (q.indexOf('soc') !== -1 || q.indexOf('monitoring') !== -1 || q.indexOf('24/7') !== -1 || q.indexOf('threat') !== -1) {
-            matchedTopic = 'soc';
-          } else if (q.indexOf('siem') !== -1 || q.indexOf('log') !== -1) {
-            matchedTopic = 'siem';
-          } else if (q.indexOf('grc') !== -1 || q.indexOf('iso') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1 || q.indexOf('nist') !== -1) {
-            matchedTopic = 'grc';
-          } else if (q.indexOf('vapt') !== -1 || q.indexOf('pen') !== -1 || q.indexOf('test') !== -1 || q.indexOf('hack') !== -1 || q.indexOf('vuln') !== -1) {
-            matchedTopic = 'vapt';
-          } else if (q.indexOf('how') !== -1 || q.indexOf('process') !== -1 || q.indexOf('stage') !== -1 || q.indexOf('method') !== -1 || q.indexOf('work') !== -1) {
-            matchedTopic = 'process';
-          } else if (q.indexOf('contact') !== -1 || q.indexOf('email') !== -1 || q.indexOf('phone') !== -1 || q.indexOf('call') !== -1 || q.indexOf('reach') !== -1 || q.indexOf('book') !== -1 || q.indexOf('price') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('quote') !== -1) {
-            matchedTopic = 'contact_info';
-          } else if (q.indexOf('hello') !== -1 || q.indexOf('hi') !== -1 || q.indexOf('hey') !== -1) {
-            appendMessage(
-              '<p>Hello! 👋 I\'m <b>Riskmate AI</b>. I\'m here to guide you on how Riskcurity protects enterprises and automates AI systems. Which area would you like to explore?</p>',
-              'bot',
-              [
-                { label: '🌐 Web Development', topic: 'web' },
-                { label: '🤖 AI Automation', topic: 'ai' },
-                { label: '👁️ SOC 24/7', topic: 'soc' },
-                { label: '🛡️ GRC Compliance', topic: 'grc' },
-                { label: '⚔️ VAPT Testing', topic: 'vapt' },
-                { label: '📩 Contact Team', topic: 'lead', highlight: true }
-              ]
-            );
-            return;
-          }
-
-          if (matchedTopic) {
-            triggerResponse(matchedTopic);
+          if (agentResult) {
+            appendMessage('<p>' + agentResult.text + '</p>', 'bot', agentResult.chips);
+            if (fserviceSelect && agentResult.serviceVal) {
+              for (var j = 0; j < fserviceSelect.options.length; j++) {
+                if (fserviceSelect.options[j].text.indexOf(agentResult.serviceVal) !== -1) {
+                  fserviceSelect.selectedIndex = j;
+                  break;
+                }
+              }
+            }
           } else {
-            // Dispatch general question / customized query as lead to riskecurity@gmail.com
+            // Explicit lead dispatch
             chatTyping.style.display = 'flex';
             sendLeadToEmail(customQuery, function (success) {
               chatTyping.style.display = 'none';
@@ -652,7 +777,7 @@
             });
           }
         }
-      }, 500);
+      }, 450);
     }
 
     chatBody.addEventListener('click', function (e) {
