@@ -4,17 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riskcurity — Cyber Defense, GRC &amp; AI Automation</title>
+  <title>Riskcurity — Offensive Security &amp; VAPT for High-Growth Startups</title>
   <meta name="description"
-    content="Enterprise cyber defense and AI automation. GRC automation, 24/7 SOC operations, VAPT, Autonomous AI Agents, and Secure Web Platforms.">
+    content="Offensive security and penetration testing for seed-to-Series B startups closing enterprise deals and clearing SOC 2 audits — without hiring a security team.">
   <link rel="icon" href="Riskcuritylogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
-  <!-- Interactive Cyber Matrix / Particle Network Canvas -->
-  <canvas id="cyberCanvas" class="cyber-canvas" aria-hidden="true"></canvas>
 
   <!-- NAVIGATION -->
   <nav class="nav" id="nav">
@@ -24,15 +24,16 @@
         <span class="brand-name">RISK<b>CURITY</b></span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#services" class="nav-link">Capabilities</a>
-        <a href="#approach" class="nav-link">How We Work</a>
+        <a href="#services" class="nav-link">Primary Discipline</a>
+        <a href="#case-walkthrough" class="nav-link">Case Walkthrough</a>
+        <a href="#secondary-services" class="nav-link">Additional Capabilities</a>
+        <a href="#approach" class="nav-link">Methodology</a>
         <a href="#why" class="nav-link">Why Us</a>
-        <a href="#terminal" class="nav-link">Live SOC</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
       <div class="nav-actions">
         <a href="#contact" class="btn btn-nav">
-          <span>Book Assessment</span>
+          <span>Book a Risk Assessment</span>
           <span class="btn-arrow">→</span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation" aria-expanded="false">
@@ -42,478 +43,402 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- 1. HERO SECTION -->
   <header class="hero" id="top">
-    <div class="wrap hero-grid">
+    <div class="wrap hero-container">
       <div class="hero-content">
         <div class="eyebrow reveal">
-          <span class="pulse-dot"></span>
-          <span>ENTERPRISE CYBER DEFENSE &amp; AI AUTOMATION</span>
+          <span class="badge-pill">OFFENSIVE SECURITY &amp; VAPT</span>
+          <span class="eyebrow-text">FOR SEED-TO-SERIES B STARTUPS</span>
         </div>
         
         <h1 class="hero-title reveal">
-          We defend your systems and <span class="gradient-text">automate the AI</span> that runs them.
+          Offensive Security &amp; VAPT for funded startups who need enterprise security clearance — <span class="text-highlight">without hiring a security team.</span>
         </h1>
         
         <p class="lead reveal">
-          Riskcurity is a specialized cybersecurity and AI automation engineering practice. From 24/7 SOC monitoring and GRC compliance automation to VAPT and secure web platforms — one unified team, end to end.
+          Built for seed-to-Series B startups closing six-figure enterprise contracts who need rigorous third-party penetration testing, vulnerability remediation, and audit-ready attestation reports without spending $250k+ on in-house security hires.
         </p>
 
-        <div class="hero-motto reveal">
-          <span class="motto-icon">❖</span>
-          <span>A Socratic idea for modern risk: <i>“Know thyself, know thy risk, build thy future.”</i></span>
-        </div>
-
-        <div class="hero-cta reveal">
+        <div class="hero-actions reveal">
           <a href="#contact" class="btn btn-primary">
             <span>Book a Risk Assessment</span>
             <span class="btn-arrow">→</span>
           </a>
           <a href="#services" class="btn btn-secondary">
-            <span>Explore Capabilities</span>
+            <span>Explore Discipline &amp; Scope</span>
             <span class="btn-arrow">↓</span>
           </a>
         </div>
 
-        <div class="hero-stats reveal">
-          <div class="stat-card">
-            <span class="stat-num" data-count="6">6</span>
-            <span class="stat-lbl">Core Disciplines</span>
+        <div class="hero-metadata reveal">
+          <div class="meta-item">
+            <span class="meta-icon">✓</span>
+            <span>Accepted by Big 4 &amp; SOC 2 Auditors</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-num" data-text="24/7">24/7</span>
-            <span class="stat-lbl">SOC Live Watch</span>
+          <div class="meta-item">
+            <span class="meta-icon">✓</span>
+            <span>5–7 Day Assessment Sprints</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-num" data-text="0-Day">0-Day</span>
-            <span class="stat-lbl">Engineered Defense</span>
+          <div class="meta-item">
+            <span class="meta-icon">✓</span>
+            <span>Engineer-to-Engineer Code Fixes</span>
           </div>
         </div>
       </div>
 
-      <!-- 3D Holographic Cyber Engine Visual -->
-      <div class="hero-visual cyber-engine-visual reveal">
-        <div class="cyber-engine-container">
-          <div class="engine-glow-orb"></div>
+      <!-- Clean Architectural Deliverable Card -->
+      <div class="hero-card-panel reveal">
+        <div class="deliverable-card">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="status-indicator"></span>
+              <span class="header-title">VAPT Audit Deliverable Package</span>
+            </div>
+            <span class="header-tag">SERIES A / B READY</span>
+          </div>
           
-          <div class="holo-ring ring-1"></div>
-          <div class="holo-ring ring-2"></div>
-          <div class="holo-ring ring-3"></div>
+          <div class="card-body">
+            <div class="deliverable-item">
+              <div class="item-badge">01</div>
+              <div class="item-text">
+                <b>Letter of Attestation</b>
+                <span>Executive sign-off accepted by enterprise procurement &amp; compliance auditors.</span>
+              </div>
+            </div>
 
-          <!-- Central Shield Core -->
-          <div class="engine-core-orb">
-            <svg class="engine-core-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/>
-              <path d="M12 6v12M7 11h10"/>
-            </svg>
-            <div class="engine-pulse-ring"></div>
-            <div class="engine-core-shield-badge">
-              <span class="shield-dot"></span>
-              <span>ACTIVE DEFENSE</span>
+            <div class="deliverable-item">
+              <div class="item-badge">02</div>
+              <div class="item-text">
+                <b>Proof-of-Concept Exploit Report</b>
+                <span>Impact-ranked vulnerability analysis with step-by-step reproduction steps.</span>
+              </div>
+            </div>
+
+            <div class="deliverable-item">
+              <div class="item-badge">03</div>
+              <div class="item-text">
+                <b>Direct Developer Fix Guidance</b>
+                <span>Exact code-level snippets, configuration patches, and Slack collaboration.</span>
+              </div>
+            </div>
+
+            <div class="deliverable-item">
+              <div class="item-badge">04</div>
+              <div class="item-text">
+                <b>Complimentary Re-Testing</b>
+                <span>Free validation scan and clean re-test report after your engineers patch findings.</span>
+              </div>
             </div>
           </div>
 
-          <!-- Floating Orbiting Capability Badges -->
-          <div class="holo-card card-ai">
-            <span class="card-icon">🤖</span>
-            <div class="card-text">
-              <b>AI AUTOMATION</b>
-              <span>Autonomous Agents</span>
-            </div>
-          </div>
-
-          <div class="holo-card card-soc">
-            <span class="card-icon">👁️</span>
-            <div class="card-text">
-              <b>24/7 SOC WATCH</b>
-              <span>Threat Triage &amp; Defense</span>
-            </div>
-          </div>
-
-          <div class="holo-card card-grc">
-            <span class="card-icon">🛡️</span>
-            <div class="card-text">
-              <b>GRC PLATFORM</b>
-              <span>ISO 27001 · SOC 2</span>
-            </div>
-          </div>
-
-          <div class="holo-card card-vapt">
-            <span class="card-icon">⚔️</span>
-            <div class="card-text">
-              <b>VAPT AUDIT</b>
-              <span>Impact-Ranked Testing</span>
-            </div>
-          </div>
-
-          <div class="holo-card card-web">
-            <span class="card-icon">🌐</span>
-            <div class="card-text">
-              <b>WEB PLATFORMS</b>
-              <span>Secure By Design</span>
-            </div>
+          <div class="card-footer">
+            <span class="footer-label">Scope Turnaround:</span>
+            <span class="footer-value">5–7 Business Days</span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- CAPABILITIES SECTION -->
-  <section class="services" id="services">
+  <!-- 2. PRIMARY SERVICE SECTION (Lead with ONE Discipline: VAPT & Offensive Security) -->
+  <section class="primary-service" id="services">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow"><span class="pulse-dot"></span> CORE DISCIPLINES</div>
-        <h2>Integrated Security Operations &amp; AI Automation</h2>
-        <p>Six specialized disciplines engineered under one roof, so your detection pipelines and automated workflows operate in sync.</p>
+        <div class="eyebrow"><span class="badge-pill">PRIMARY DISCIPLINE</span></div>
+        <h2>Vulnerability Assessment &amp; Penetration Testing (VAPT)</h2>
+        <p>A comprehensive adversarial assessment designed to uncover critical security vulnerabilities across your web applications, cloud APIs, and infrastructure before enterprise buyers or attackers find them.</p>
       </div>
 
-      <div class="service-grid">
-
-        <!-- 01 GRC Automation -->
-        <div class="service-card reveal">
-          <div class="card-top">
-            <span class="card-num">01</span>
-            <div class="card-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="3" y="4" width="18" height="14" rx="2" />
-                <path d="M7 20h10M9 14l2-2 2 2 4-4" />
-              </svg>
+      <div class="primary-grid">
+        <!-- What It Is & Delivers -->
+        <div class="primary-info-card reveal">
+          <h3>What It Is &amp; What We Deliver</h3>
+          <p>
+            Unlike automated vulnerability scanners that dump false positives, our offensive security engineers perform rigorous manual and tool-assisted penetration testing simulating real-world adversary tactics (OWASP Top 10, MITRE ATT&amp;CK, and business-logic bypasses).
+          </p>
+          <div class="delivery-list">
+            <div class="delivery-item">
+              <span class="delivery-icon">✦</span>
+              <div>
+                <b>Full Attack Surface Coverage:</b>
+                <span>Web applications, Single Page Apps (React/Next.js), REST/GraphQL APIs, mobile apps, and AWS/GCP cloud environments.</span>
+              </div>
             </div>
-          </div>
-          <h3>GRC Automation</h3>
-          <p>Automated policy management, live risk registers, and continuous compliance evidence mapping for <b>ISO 27001</b>, <b>SOC 2 Type II</b>, and NIST frameworks without spreadsheet chaos.</p>
-          <div class="telemetry-bar"><div class="bar-fill" style="width: 98%;"></div></div>
-          <div class="card-footer">
-            <span class="tag">ISO 27001 · SOC 2</span>
-            <span class="tag-status">98% Automated</span>
+            <div class="delivery-item">
+              <span class="delivery-icon">✦</span>
+              <div>
+                <b>Zero Scanner Bloat:</b>
+                <span>Every finding is manually verified with a documented Proof of Concept (PoC) demonstrating real business risk.</span>
+              </div>
+            </div>
+            <div class="delivery-item">
+              <span class="delivery-icon">✦</span>
+              <div>
+                <b>Actionable Code-Level Fixes:</b>
+                <span>We provide specific code snippets, framework configuration fixes, and architecture adjustments tailored to your stack.</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 02 24/7 SOC Operations -->
-        <div class="service-card reveal">
-          <div class="card-top">
-            <span class="card-num">02</span>
-            <div class="card-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 3" />
-              </svg>
+        <!-- 3 Concrete Business Outcomes -->
+        <div class="outcomes-card reveal">
+          <h3>Concrete Business Outcomes</h3>
+          <div class="outcome-box">
+            <div class="outcome-num">01</div>
+            <div class="outcome-content">
+              <h4>Unblock Delayed Enterprise Sales Cycles</h4>
+              <p>Pass strict Fortune 500 vendor security questionnaires and unblock six-figure contract negotiations on the first review.</p>
             </div>
           </div>
-          <h3>24/7 SOC Operations</h3>
-          <p>Dedicated round-the-clock analyst monitoring to ingest alerts, filter false positives, isolate malicious activity, and neutralize zero-day cyber threats in real time.</p>
-          <div class="telemetry-bar"><div class="bar-fill" style="width: 100%;"></div></div>
-          <div class="card-footer">
-            <span class="tag">24/7 Live Watch</span>
-            <span class="tag-status">&lt; 2min Response</span>
-          </div>
-        </div>
 
-        <!-- 03 SIEM Engineering -->
-        <div class="service-card reveal">
-          <div class="card-top">
-            <span class="card-num">03</span>
-            <div class="card-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M4 19V9l8-5 8 5v10" />
-                <path d="M4 19h16M9 19v-6h6v6" />
-              </svg>
+          <div class="outcome-box">
+            <div class="outcome-num">02</div>
+            <div class="outcome-content">
+              <h4>Clear SOC 2 &amp; ISO 27001 Technical Audits</h4>
+              <p>Satisfy mandatory annual third-party penetration testing requirements with audit-ready documentation accepted by certification bodies.</p>
             </div>
           </div>
-          <h3>SIEM Engineering</h3>
-          <p>Custom log ingestion pipelines, fine-tuned correlation rules, and tailored detection dashboards built to ensure critical threats stand out immediately without noise.</p>
-          <div class="telemetry-bar"><div class="bar-fill" style="width: 95%;"></div></div>
-          <div class="card-footer">
-            <span class="tag">Detection Engineering</span>
-            <span class="tag-status">Zero Blindspots</span>
-          </div>
-        </div>
 
-        <!-- 04 VAPT Assessment -->
-        <div class="service-card reveal">
-          <div class="card-top">
-            <span class="card-num">04</span>
-            <div class="card-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
+          <div class="outcome-box">
+            <div class="outcome-num">03</div>
+            <div class="outcome-content">
+              <h4>Eliminate Due Diligence Red Flags Prior to Fundraise</h4>
+              <p>Provide lead investors with verified proof of institutional security posture before closing your Series A or Series B round.</p>
             </div>
           </div>
-          <h3>VAPT Penetration Testing</h3>
-          <p>Vulnerability Assessment &amp; Penetration Testing across Web, APIs, Cloud, Network, and Mobile environments — delivered with business-impact ranked fix guides.</p>
-          <div class="telemetry-bar"><div class="bar-fill" style="width: 100%;"></div></div>
-          <div class="card-footer">
-            <span class="tag">Web · Cloud · Network</span>
-            <span class="tag-status">Grade A+ Audit</span>
-          </div>
         </div>
-
-        <!-- 05 AI Agents & Automation -->
-        <div class="service-card reveal">
-          <div class="card-top">
-            <span class="card-num">05</span>
-            <div class="card-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="3" y="3" width="7" height="7" rx="1.5" />
-                <rect x="14" y="3" width="7" height="7" rx="1.5" />
-                <rect x="14" y="14" width="7" height="7" rx="1.5" />
-                <rect x="3" y="14" width="7" height="7" rx="1.5" />
-                <path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4" />
-              </svg>
-            </div>
-          </div>
-          <h3>AI Agents &amp; Automation</h3>
-          <p>Autonomous AI Agents and intelligent workflow bots that investigate alerts, triage repetitive security tickets, and execute SOC playbooks under strict human supervision.</p>
-          <div class="telemetry-bar"><div class="bar-fill" style="width: 96%;"></div></div>
-          <div class="card-footer">
-            <span class="tag">Autonomous Agents</span>
-            <span class="tag-status">Human Supervised</span>
-          </div>
-        </div>
-
-        <!-- 06 Secure Web Development -->
-        <div class="service-card reveal">
-          <div class="card-top">
-            <span class="card-num">06</span>
-            <div class="card-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M4 4h16v12H8l-4 4z" />
-                <path d="M8 9h8M8 12h5" />
-              </svg>
-            </div>
-          </div>
-          <h3>Secure Web Development</h3>
-          <p>High-performance, secure-by-design web applications, SaaS platforms, and enterprise portals hardened against OWASP Top 10 exploits, API leaks, and data breaches.</p>
-          <div class="telemetry-bar"><div class="bar-fill" style="width: 100%;"></div></div>
-          <div class="card-footer">
-            <span class="tag">OWASP Hardened</span>
-            <span class="tag-status">Enterprise Grade</span>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- 4-STAGE PROCESS SECTION ("HOW WE WORK") -->
+  <!-- 3. PROOF SECTION (Real Case Walkthrough Narrative) -->
+  <section class="proof-section" id="case-walkthrough">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow"><span class="badge-pill">CASE WALKTHROUGH</span></div>
+        <h2>Real Audit Finding: Unblocking a $280k Enterprise Deal</h2>
+        <p>A real walkthrough of how our offensive testing uncovered a deal-breaking vulnerability and delivered an audit-ready resolution in 4 business days.</p>
+      </div>
+
+      <div class="case-study-panel reveal">
+        <div class="case-header">
+          <div class="case-meta">
+            <span class="client-label">Client Profile:</span>
+            <span class="client-type">Series A B2B Fintech SaaS (22 FTEs)</span>
+          </div>
+          <div class="case-meta">
+            <span class="client-label">Target Environment:</span>
+            <span class="client-type">AWS ECS · Next.js / Node.js API · PostgreSQL</span>
+          </div>
+          <div class="case-meta">
+            <span class="client-label">Engagement Goal:</span>
+            <span class="client-type">Pre-Enterprise Customer Vendor Assessment</span>
+          </div>
+        </div>
+
+        <div class="case-timeline-grid">
+          <!-- Step 1: The Context -->
+          <div class="case-step">
+            <div class="step-tag">01 · SCENARIO</div>
+            <h4>Mid-Sales Enterprise Block</h4>
+            <p>The client was finalizing a $280,000/year contract with a regional banking partner. The enterprise buyer required third-party penetration test results and an executive attestation letter within 10 days before signature.</p>
+          </div>
+
+          <!-- Step 2: The Audit Finding -->
+          <div class="case-step alert-step">
+            <div class="step-tag tag-finding">02 · CRITICAL FINDING</div>
+            <h4>Cross-Tenant Broken Object Authorization (BOLA/IDOR)</h4>
+            <p>During authenticated API testing, our engineers discovered an IDOR vulnerability in the <code>/api/v2/analytics/reports/{id}</code> endpoint. By tampering with the report UUID parameter, a user in Organization A could query confidential financial telemetry from Organization B without authorization.</p>
+          </div>
+
+          <!-- Step 3: The Remediation -->
+          <div class="case-step">
+            <div class="step-tag">03 · ENGINEERING FIX</div>
+            <h4>Collaborative 48-Hour Patch &amp; Test Suite</h4>
+            <p>Instead of sending a detached PDF, our engineers hopped on Slack with their backend team, authored scoped tenant-isolation middleware, and added automated integration tests to their CI pipeline to prevent future regressions.</p>
+          </div>
+
+          <!-- Step 4: The Outcome -->
+          <div class="case-step success-step">
+            <div class="step-tag tag-outcome">04 · BUSINESS OUTCOME</div>
+            <h4>Contract Signed &amp; Clean Attestation Issued</h4>
+            <p>We re-tested the environment within 24 hours of patch deployment, confirmed zero vulnerability residue, and issued an official Letter of Attestation. The bank approved the vendor security review with zero objections and signed the contract.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SECONDARY SERVICES (Collapsed Compact Grid) -->
+  <section class="secondary-services" id="secondary-services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow"><span class="badge-pill">ADDITIONAL CAPABILITIES</span></div>
+        <h2>Also Available in Our Engineering Practice</h2>
+        <p>Modular security engineering and AI automation capabilities available as add-ons or standalone engagements.</p>
+      </div>
+
+      <div class="compact-grid">
+        <!-- GRC Automation -->
+        <div class="compact-card reveal">
+          <div class="compact-card-header">
+            <span class="compact-num">01</span>
+            <h4>GRC Compliance Automation</h4>
+          </div>
+          <p>Automated policy mapping and continuous evidence collection for ISO 27001, SOC 2 Type II, and NIST frameworks without spreadsheet toil.</p>
+          <span class="compact-tag">ISO 27001 · SOC 2 · NIST</span>
+        </div>
+
+        <!-- 24/7 SOC Operations -->
+        <div class="compact-card reveal">
+          <div class="compact-card-header">
+            <span class="compact-num">02</span>
+            <h4>24/7 SOC Threat Monitoring</h4>
+          </div>
+          <p>Continuous security analyst monitoring and behavioral alert triage to detect, isolate, and neutralize anomalous intrusion attempts in real time.</p>
+          <span class="compact-tag">Continuous Triage &amp; Response</span>
+        </div>
+
+        <!-- SIEM Engineering -->
+        <div class="compact-card reveal">
+          <div class="compact-card-header">
+            <span class="compact-num">03</span>
+            <h4>SIEM Detection Engineering</h4>
+          </div>
+          <p>Custom log ingestion pipelines, MITRE ATT&amp;CK correlation rules, and zero-noise dashboards built for AWS, Azure, GCP, and Okta.</p>
+          <span class="compact-tag">Log Pipelines &amp; Detection Rules</span>
+        </div>
+
+        <!-- Autonomous AI Agents -->
+        <div class="compact-card reveal">
+          <div class="compact-card-header">
+            <span class="compact-num">04</span>
+            <h4>Autonomous AI Agents &amp; Workflows</h4>
+          </div>
+          <p>Custom LLM RAG pipelines and autonomous operational bots engineered with strict permission guardrails and human-in-the-loop validation.</p>
+          <span class="compact-tag">RAG Pipelines &amp; Supervised Agents</span>
+        </div>
+
+        <!-- Secure Web Engineering -->
+        <div class="compact-card reveal">
+          <div class="compact-card-header">
+            <span class="compact-num">05</span>
+            <h4>Secure Web Application Development</h4>
+          </div>
+          <p>High-performance SaaS platforms and client portals built secure-by-design, hardened against OWASP Top 10 vulnerabilities from line one.</p>
+          <span class="compact-tag">Next.js · React · Hardened APIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DEFENSE METHODOLOGY / APPROACH -->
   <section class="approach" id="approach">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow"><span class="pulse-dot"></span> DEFENSE METHODOLOGY</div>
-        <h2>A Defensible 4-Stage Security &amp; Automation Lifecycle</h2>
-        <p>Every client engagement follows our systematic framework to baseline exposure, close gaps, automate workflows, and build compounding capability.</p>
+        <div class="eyebrow"><span class="badge-pill">METHODOLOGY</span></div>
+        <h2>A Pragmatic 4-Step Engagement Lifecycle</h2>
+        <p>How we take your team from initial scope definition to audit-ready attestation in days.</p>
       </div>
 
-      <div class="process-timeline-nav reveal" id="processTimelineNav">
-        <button class="stage-btn active" data-stage="0">
-          <span class="stage-index">01</span>
-          <span class="stage-title">Assess</span>
-        </button>
-        <button class="stage-btn" data-stage="1">
-          <span class="stage-index">02</span>
-          <span class="stage-title">Defend</span>
-        </button>
-        <button class="stage-btn" data-stage="2">
-          <span class="stage-index">03</span>
-          <span class="stage-title">Automate</span>
-        </button>
-        <button class="stage-btn" data-stage="3">
-          <span class="stage-index">04</span>
-          <span class="stage-title">Evolve</span>
-        </button>
-      </div>
-
-      <div class="process-card-display reveal" id="processCardDisplay">
-        <div class="process-card active" id="stageCard0">
-          <div class="stage-badge">STAGE 01 / ASSESS</div>
-          <h3>Map Attack Surface &amp; Risk Baseline</h3>
-          <p>We discover all internet-facing assets, baseline security posture against ISO 27001 / SOC 2 controls, identify vulnerable dependencies, and produce an executive risk register ranked by tangible business impact.</p>
-          <ul class="process-checklist">
-            <li>✓ Asset Discovery &amp; Attack Surface Mapping</li>
-            <li>✓ Compliance Gap Analysis (ISO 27001 / SOC 2 / NIST)</li>
-            <li>✓ Threat Modeling &amp; Prioritized Risk Matrix</li>
-          </ul>
+      <div class="methodology-grid">
+        <div class="method-card reveal">
+          <span class="method-index">01</span>
+          <h3>Threat Modeling &amp; Scope Definition</h3>
+          <p>We review your cloud architecture, API surface, authentication boundaries, and compliance goals to define an efficient testing roadmap.</p>
         </div>
 
-        <div class="process-card" id="stageCard1">
-          <div class="stage-badge">STAGE 02 / DEFEND</div>
-          <h3>Close Vulnerabilities &amp; Activate 24/7 SOC</h3>
-          <p>We harden exposed web platforms, deploy SIEM log correlation rules, remediate high-priority VAPT findings, and establish continuous 24/7 security analyst monitoring.</p>
-          <ul class="process-checklist">
-            <li>✓ High-Risk Vulnerability Remediation &amp; Patch Verification</li>
-            <li>✓ SIEM Log Pipeline Configuration &amp; Alert Tuning</li>
-            <li>✓ 24/7 SOC Triage &amp; Incident Escalation Protocol</li>
-          </ul>
+        <div class="method-card reveal">
+          <span class="method-index">02</span>
+          <h3>Adversarial Testing &amp; Exploitation</h3>
+          <p>Certified engineers execute thorough manual testing and custom payloads to identify business logic flaws, auth bypasses, and cloud misconfigurations.</p>
         </div>
 
-        <div class="process-card" id="stageCard2">
-          <div class="stage-badge">STAGE 03 / AUTOMATE</div>
-          <h3>Eliminate Manual Security Toil with AI</h3>
-          <p>We deploy autonomous AI agents to handle repetitive Tier-1 alert triaging, automate compliance evidence gathering, and streamline SOC playbook execution.</p>
-          <ul class="process-checklist">
-            <li>✓ Continuous GRC Evidence Sync &amp; Audit Trail Generation</li>
-            <li>✓ Autonomous AI Alert Investigation with Human Checkpoints</li>
-            <li>✓ Incident Response Playbook Orchestration</li>
-          </ul>
+        <div class="method-card reveal">
+          <span class="method-index">03</span>
+          <h3>Collaborative Developer Remediation</h3>
+          <p>We provide impact-ranked reports with line-by-line code fix snippets and work directly with your engineering team via Slack/PR reviews.</p>
         </div>
 
-        <div class="process-card" id="stageCard3">
-          <div class="stage-badge">STAGE 04 / EVOLVE</div>
-          <h3>Build Compounding Defense &amp; Scale</h3>
-          <p>We continuously evolve detection rules, perform recurring red-team assessments, integrate new AI agent automations, and safeguard your enterprise growth trajectory.</p>
-          <ul class="process-checklist">
-            <li>✓ Scheduled Recurring VAPT &amp; Red-Team Simulations</li>
-            <li>✓ Adaptive AI Threat Modeling as Stack Evolves</li>
-            <li>✓ Audit Readiness Guarantee for Enterprise Growth</li>
-          </ul>
+        <div class="method-card reveal">
+          <span class="method-index">04</span>
+          <h3>Re-Testing &amp; Attestation Sign-Off</h3>
+          <p>Once your engineers deploy patches, we perform a complimentary re-test and issue an executive Letter of Attestation accepted by auditors and enterprise buyers.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY US & COMPARISON SECTION -->
+  <!-- 6. WHY US SECTION -->
   <section class="why" id="why">
-    <div class="wrap why-grid">
-      <div class="why-left reveal">
-        <div class="eyebrow"><span class="pulse-dot"></span> WHY RISKCURITY</div>
-        <h2>Security Engineers Who Ship. AI Teams Who Understand Risk.</h2>
-        <p>Most organizations are forced to juggle disconnected security vendors and unvetted AI tools. Riskcurity unites both disciplines under one engineering roof.</p>
-        
-        <div class="why-pillars">
-          <div class="why-pillar-item">
-            <span class="pillar-num">01</span>
-            <div>
-              <h4>One Unified Engineering Team</h4>
-              <p>No finger-pointing between your security provider and AI builders. The same team owns detection logic and the automation running on top.</p>
-            </div>
-          </div>
-
-          <div class="why-pillar-item">
-            <span class="pillar-num">02</span>
-            <div>
-              <h4>Actionable Business-Ranked Reports</h4>
-              <p>Every VAPT and GRC finding is ranked by tangible business impact and paired with concrete code-level fix steps — never a 200-page scanner dump.</p>
-            </div>
-          </div>
-
-          <div class="why-pillar-item">
-            <span class="pillar-num">03</span>
-            <div>
-              <h4>Supervised Autonomy by Design</h4>
-              <p>Our AI agents and GRC workflows operate with human-in-the-loop controls. Autonomy is deployed where proven, with zero unreviewed actions.</p>
-            </div>
-          </div>
-
-          <div class="why-pillar-item">
-            <span class="pillar-num">04</span>
-            <div>
-              <h4>Framework-Ready Compliance</h4>
-              <p>Whether ISO 27001, SOC 2, or NIST — controls and automated evidence are tuned exactly to what auditors and enterprise buyers demand.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Live Comparison Card -->
-      <div class="why-right reveal">
-        <div class="comparison-card">
-          <div class="comp-header">
-            <h3>Enterprise Readiness Comparison</h3>
-            <span class="badge-live">VERIFIED</span>
-          </div>
-          
-          <div class="comp-row">
-            <span class="comp-feature">Security &amp; AI Integration</span>
-            <span class="comp-val val-yes">✓ Unified In-House</span>
-            <span class="comp-val-alt">✗ Disconnected Vendors</span>
-          </div>
-
-          <div class="comp-row">
-            <span class="comp-feature">24/7 SOC Triage Latency</span>
-            <span class="comp-val val-yes">✓ &lt; 2 Minutes</span>
-            <span class="comp-val-alt">✗ Hours / Next Day</span>
-          </div>
-
-          <div class="comp-row">
-            <span class="comp-feature">GRC Evidence Collection</span>
-            <span class="comp-val val-yes">✓ 100% Automated</span>
-            <span class="comp-val-alt">✗ Manual Spreadsheets</span>
-          </div>
-
-          <div class="comp-row">
-            <span class="comp-feature">VAPT Remediation Guides</span>
-            <span class="comp-val val-yes">✓ Code-Level Steps</span>
-            <span class="comp-val-alt">✗ Generic Tool Dumps</span>
-          </div>
-
-          <div class="comp-row">
-            <span class="comp-feature">AI Supervised Guardrails</span>
-            <span class="comp-val val-yes">✓ Strict Human Review</span>
-            <span class="comp-val-alt">✗ Unvetted Executions</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIVE SOC INTERACTIVE TERMINAL CONSOLE -->
-  <section class="terminal-section" id="terminal">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow"><span class="pulse-dot"></span> LIVE TELEMETRY</div>
-        <h2>Live Security &amp; AI Automation Console</h2>
-        <p>Watch our simulated SOC engine run automated compliance verification, threat detection, and AI agent orchestration in real time.</p>
+        <div class="eyebrow"><span class="badge-pill">WHY RISKCURITY</span></div>
+        <h2>Built Specifically for Startups Mid-Fundraise &amp; Moving Upmarket</h2>
+        <p>Why growth-stage technical founders choose Riskcurity over legacy corporate consulting firms.</p>
       </div>
 
-      <div class="terminal-window reveal">
-        <div class="terminal-bar">
-          <div class="terminal-dots">
-            <span class="dot-red"></span>
-            <span class="dot-yellow"></span>
-            <span class="dot-green"></span>
-          </div>
-          <div class="terminal-title">riskcurity-soc — cli-engine v2.6.4</div>
-          <div class="terminal-status"><span class="pulse-dot"></span> ONLINE</div>
+      <div class="why-pillars-grid">
+        <div class="why-card reveal">
+          <span class="why-num">01</span>
+          <h3>Startup-Speed 5–7 Day Turnarounds</h3>
+          <p>We operate at founder velocity. Full penetration assessments and actionable reports delivered in days, preventing enterprise deal stalls.</p>
         </div>
-        
-        <div class="terminal-body" id="terminalBody">
-          <!-- Animated terminal lines typed dynamically by JS -->
+
+        <div class="why-card reveal">
+          <span class="why-num">02</span>
+          <h3>Engineer-to-Engineer Collaboration</h3>
+          <p>You work directly with offensive security engineers who provide exact code snippets and PR feedback — never unhelpful 200-page scanner dumps.</p>
+        </div>
+
+        <div class="why-card reveal">
+          <span class="why-num">03</span>
+          <h3>Auditor- &amp; Enterprise-Accepted Attestation</h3>
+          <p>Our deliverables are structured specifically to satisfy Big 4 auditors, SOC 2 / ISO 27001 certification bodies, and enterprise procurement reviews.</p>
+        </div>
+
+        <div class="why-card reveal">
+          <span class="why-num">04</span>
+          <h3>Transparent Fixed-Fee Pricing</h3>
+          <p>Clear, predictable project pricing with complimentary re-testing included. Zero surprise retainer lock-ins or bloated hourly invoices.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT & RISK ASSESSMENT BOOKING -->
+  <!-- 7. CONTACT & ASSESSMENT BOOKING -->
   <section class="contact" id="contact">
     <div class="wrap contact-grid">
       <div class="contact-info reveal">
-        <div class="eyebrow"><span class="pulse-dot"></span> INITIATE REVIEW</div>
-        <h2>Let's Scope Your Risk — Before Adversaries Find It.</h2>
-        <p>Tell us about your infrastructure, compliance timeline, or AI automation goals. Our lead security architects will prepare a customized proposal within 24 hours.</p>
+        <div class="eyebrow"><span class="badge-pill">BOOK AN ASSESSMENT</span></div>
+        <h2>Let's Clear Your Security Review Timeline.</h2>
+        <p>Tell us about your application stack, compliance target (SOC 2 / ISO 27001), or pending enterprise deal. An offensive security engineer will review your scope and provide a fixed proposal within 24 hours.</p>
 
         <div class="contact-cards-stack">
-          <a href="mailto:riskecurity@gmail.com" class="contact-card-link">
+          <!-- TODO: Update once custom domain email hello@riskcurity.com is configured -->
+          <a href="mailto:hello@riskcurity.com" class="contact-card-link">
             <div class="contact-icon">📧</div>
             <div class="contact-meta">
-              <span class="contact-label">Direct Email Inquiries</span>
-              <span class="contact-value">riskecurity@gmail.com</span>
-            </div>
-          </a>
-
-          <a href="tel:+923423717545" class="contact-card-link">
-            <div class="contact-icon">📞</div>
-            <div class="contact-meta">
-              <span class="contact-label">Direct Line &amp; Consultations</span>
-              <span class="contact-value">+92 342 3717545</span>
+              <span class="contact-label">Direct Team Email</span>
+              <span class="contact-value">hello@riskcurity.com</span>
             </div>
           </a>
 
           <div class="contact-card-link">
+            <div class="contact-icon">⏱️</div>
+            <div class="contact-meta">
+              <span class="contact-label">Proposal Turnaround</span>
+              <span class="contact-value">Within 24 Business Hours</span>
+            </div>
+          </div>
+
+          <div class="contact-card-link">
             <div class="contact-icon">🌐</div>
             <div class="contact-meta">
-              <span class="contact-label">Operations Model</span>
-              <span class="contact-value">Remote-First · Global Client Base</span>
+              <span class="contact-label">Delivery Model</span>
+              <span class="contact-value">Remote Global Security Engineering</span>
             </div>
           </div>
         </div>
@@ -522,46 +447,46 @@
       <!-- Contact Form -->
       <form class="contact-form reveal" id="contactForm">
         <input type="hidden" name="access_key" id="w3f_key" value="80e27178-2217-47b1-9947-cff9b84e9262">
-        <input type="hidden" name="subject" value="New Client Inquiry — Riskcurity Website">
-        <input type="hidden" name="from_name" value="Riskcurity Website Lead Engine">
+        <input type="hidden" name="subject" value="New Assessment Request — Riskcurity Website">
+        <input type="hidden" name="from_name" value="Riskcurity Client Intake">
         <input type="checkbox" name="botcheck" style="display:none;">
 
         <div class="form-row">
           <div class="form-group">
-            <label for="fname"><span class="label-dot"></span> Your Name</label>
+            <label for="fname">Your Name</label>
             <input id="fname" name="name" type="text" placeholder="e.g. Alex Morgan" required>
           </div>
           <div class="form-group">
-            <label for="femail"><span class="label-dot"></span> Work Email</label>
-            <input id="femail" name="email" type="email" placeholder="alex@company.com" required>
+            <label for="femail">Work Email</label>
+            <input id="femail" name="email" type="email" placeholder="alex@startup.com" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="fservice"><span class="label-dot"></span> Interested Capability</label>
+          <label for="fservice">Engagement Focus</label>
           <select id="fservice" name="service">
-            <option>GRC Automation (ISO 27001 / SOC 2)</option>
-            <option>24/7 SOC &amp; SIEM Engineering</option>
-            <option>VAPT Penetration Testing</option>
-            <option>Autonomous AI Agents &amp; Automation</option>
-            <option>Secure Web Development</option>
-            <option>Full Security &amp; AI Package</option>
+            <option>VAPT Penetration Testing (Web / API / Cloud)</option>
+            <option>SOC 2 / ISO 27001 Technical Audit Clearance</option>
+            <option>Pre-Enterprise Customer Security Review</option>
+            <option>GRC Compliance Automation</option>
+            <option>24/7 SOC Threat Monitoring</option>
+            <option>Autonomous AI Agent Security &amp; Automation</option>
             <option>Custom Scope / Not Sure Yet</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="fmsg"><span class="label-dot"></span> Project Scope or Challenges</label>
-          <textarea id="fmsg" name="message" rows="4" placeholder="Briefly describe your environment, compliance timeline, or security/automation goals..." required></textarea>
+          <label for="fmsg">Project Scope &amp; Target Timeline</label>
+          <textarea id="fmsg" name="message" rows="4" placeholder="Describe your web application / API stack, target audit date, or enterprise buyer requirements..." required></textarea>
         </div>
 
         <div id="formResult" class="form-result" style="display:none;"></div>
 
         <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
-          <span>Send Message &amp; Book Review</span>
+          <span>Book a Risk Assessment</span>
           <span class="btn-arrow">→</span>
         </button>
-        <p class="form-disclaimer">// Your inquiry is dispatched directly to riskecurity@gmail.com</p>
+        <p class="form-disclaimer">No spam. A senior security engineer will review and reply within 24 hours.</p>
       </form>
     </div>
   </section>
@@ -574,49 +499,51 @@
           <img src="Riskcuritylogo.png" alt="Riskcurity Logo" class="brand-logo">
           <span class="brand-name">RISK<b>CURITY</b></span>
         </a>
-        <p>Enterprise Cyber Defense, GRC Compliance Automation &amp; AI Engineering.</p>
+        <p>Offensive security, penetration testing, and compliance engineering for high-growth startups.</p>
       </div>
 
       <div class="footer-col">
-        <h4>Capabilities</h4>
-        <a href="#services">GRC Automation</a>
-        <a href="#services">24/7 SOC Operations</a>
-        <a href="#services">SIEM Engineering</a>
+        <h4>Disciplines</h4>
         <a href="#services">VAPT Penetration Testing</a>
-        <a href="#services">AI Agents &amp; Automation</a>
-        <a href="#services">Secure Web Development</a>
+        <a href="#secondary-services">GRC Compliance Automation</a>
+        <a href="#secondary-services">24/7 SOC Threat Monitoring</a>
+        <a href="#secondary-services">SIEM Detection Engineering</a>
+        <a href="#secondary-services">AI Agent Automations</a>
+        <a href="#secondary-services">Secure Web Development</a>
       </div>
 
       <div class="footer-col">
         <h4>Navigation</h4>
         <a href="#top">Home</a>
-        <a href="#services">Capabilities</a>
-        <a href="#approach">How We Work</a>
+        <a href="#services">Primary Discipline</a>
+        <a href="#case-walkthrough">Case Walkthrough</a>
+        <a href="#secondary-services">Additional Capabilities</a>
+        <a href="#approach">Methodology</a>
         <a href="#why">Why Us</a>
-        <a href="#terminal">Live SOC</a>
         <a href="#contact">Contact</a>
       </div>
 
       <div class="footer-col">
-        <h4>Direct Contact</h4>
-        <p>Email: <a href="mailto:riskecurity@gmail.com">riskecurity@gmail.com</a></p>
-        <p>Phone: <a href="tel:+923423717545">+92 342 3717545</a></p>
-        <p>Global Remote Engineering</p>
+        <h4>Inquiries</h4>
+        <!-- TODO: Update once custom domain email hello@riskcurity.com is configured -->
+        <p>Email: <a href="mailto:hello@riskcurity.com">hello@riskcurity.com</a></p>
+        <p>Response: Within 24 Hours</p>
+        <p>Remote-First Engineering</p>
       </div>
     </div>
     
     <div class="wrap footer-bottom">
-      <p>© 2026 Riskcurity. All rights reserved. Secured by Design.</p>
+      <p>© 2026 Riskcurity. All rights reserved. Offensive Security &amp; Compliance Engineering.</p>
     </div>
   </footer>
 
-  <!-- RISKMATE AI CHATBOT WIDGET -->
+  <!-- RISKMATE AI CHATBOT WIDGET (Preserved Intact) -->
   <div class="hacker-chatbot-wrapper" id="hackerChatbot">
     <!-- Floating Greeting Bubble -->
     <div class="hacker-bubble" id="hackerBubble">
       <button class="hacker-bubble-close" id="hackerBubbleClose" aria-label="Close bubble">&times;</button>
       <div class="hacker-bubble-title">⚡ Riskmate AI</div>
-      <div class="hacker-bubble-text">Hi there! Need guidance on Web Dev, AI Agents, SOC, or GRC? Let's chat!</div>
+      <div class="hacker-bubble-text">Hi there! Need guidance on VAPT, SOC 2, AI Agents, or SOC? Let's chat!</div>
     </div>
 
     <!-- Floating Launcher Button -->
@@ -625,14 +552,14 @@
       <span class="hacker-pulse-ring delay"></span>
       <div class="hacker-avatar-container">
         <svg class="hacker-avatar-svg" viewBox="0 0 100 100">
-          <path d="M20 88 C20 62 35 55 50 55 C65 55 80 62 80 88 Z" fill="#0D1614" stroke="#00d9ff" stroke-width="2.5" />
+          <path d="M20 88 C20 62 35 55 50 55 C65 55 80 62 80 88 Z" fill="#0D1614" stroke="#38bdf8" stroke-width="2.5" />
           <path d="M28 88 C28 67 38 61 50 61 C62 61 72 67 72 88 Z" fill="#050814" />
-          <circle cx="50" cy="42" r="24" fill="#0F1828" stroke="#00ff88" stroke-width="2.5" />
-          <rect x="33" y="32" width="34" height="18" rx="7" fill="#050814" stroke="#00d9ff" stroke-width="2" />
-          <text x="37" y="45" fill="#00ff88" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
-          <path d="M26 42 A24 24 0 0 1 74 42" fill="none" stroke="#00d9ff" stroke-width="2" stroke-dasharray="3 2" />
-          <circle cx="26" cy="42" r="3.5" fill="#00ff88" />
-          <circle cx="74" cy="42" r="3.5" fill="#00ff88" />
+          <circle cx="50" cy="42" r="24" fill="#0F1828" stroke="#38bdf8" stroke-width="2.5" />
+          <rect x="33" y="32" width="34" height="18" rx="7" fill="#050814" stroke="#38bdf8" stroke-width="2" />
+          <text x="37" y="45" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
+          <path d="M26 42 A24 24 0 0 1 74 42" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 2" />
+          <circle cx="26" cy="42" r="3.5" fill="#38bdf8" />
+          <circle cx="74" cy="42" r="3.5" fill="#38bdf8" />
         </svg>
         <span class="hacker-status-dot"></span>
         <span class="hacker-badge" id="hackerBadge">1</span>
@@ -645,14 +572,14 @@
         <div class="hacker-chat-header-info">
           <div class="hacker-chat-avatar-mini">
             <svg viewBox="0 0 100 100" width="28" height="28">
-              <circle cx="50" cy="42" r="24" fill="#0F1828" stroke="#00ff88" stroke-width="3" />
-              <rect x="33" y="32" width="34" height="18" rx="7" fill="#050814" stroke="#00d9ff" stroke-width="2" />
-              <text x="37" y="45" fill="#00ff88" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
+              <circle cx="50" cy="42" r="24" fill="#0F1828" stroke="#38bdf8" stroke-width="3" />
+              <rect x="33" y="32" width="34" height="18" rx="7" fill="#050814" stroke="#38bdf8" stroke-width="2" />
+              <text x="37" y="45" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
             </svg>
           </div>
           <div>
             <div class="hacker-chat-name">RISKMATE AI <span class="hacker-chat-tag">ASSISTANT</span></div>
-            <div class="hacker-chat-status"><span class="green-dot"></span> <span id="riskmateUserStatus">Active · Riskcurity Guide</span></div>
+            <div class="hacker-chat-status"><span class="green-dot"></span> <span id="riskmateUserStatus">Active · Technical Guide</span></div>
           </div>
         </div>
         <div class="hacker-chat-actions">
@@ -673,12 +600,12 @@
           
           <form id="riskmateLoginForm">
             <div class="login-field">
-              <label for="riskmateName"><span class="label-dot"></span> Your Name</label>
+              <label for="riskmateName">Your Name</label>
               <input type="text" id="riskmateName" placeholder="e.g. Alex Morgan" required />
             </div>
             <div class="login-field">
-              <label for="riskmateEmail"><span class="label-dot"></span> Work Email</label>
-              <input type="email" id="riskmateEmail" placeholder="alex@company.com" required />
+              <label for="riskmateEmail">Work Email</label>
+              <input type="email" id="riskmateEmail" placeholder="alex@startup.com" required />
             </div>
             <button type="submit" class="btn btn-primary login-submit-btn">
               <span>Start Chatting with Riskmate</span>
@@ -700,7 +627,7 @@
 
       <div class="hacker-chat-footer">
         <form id="hackerChatForm">
-          <input type="text" id="hackerChatInput" placeholder="Ask Riskmate about Web Dev, AI, SOC, GRC..." autocomplete="off" />
+          <input type="text" id="hackerChatInput" placeholder="Ask Riskmate about VAPT, SOC 2, AI Agents, SOC..." autocomplete="off" />
           <button type="submit" id="hackerChatSend" aria-label="Send message">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
