@@ -451,46 +451,50 @@ button{ font-family:inherit; cursor:pointer; }
 }
 @keyframes corePulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(1.1); opacity: 0.9; } }
 
-/* Floating Node Badges */
-.hud-node {
-  position: absolute;
+/* Capability Cards Grid (Mobile Responsive 2x2 Layout) */
+.hud-capabilities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+.cap-card {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: var(--bg-2);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 4px 10px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-  z-index: 3;
-  transition: transform 0.3s;
+  border-radius: var(--radius-s);
+  padding: 8px 10px;
+  transition: border-color 0.25s, transform 0.25s;
 }
-.hud-node:hover {
+.cap-card:hover {
   border-color: var(--signal);
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
-.hud-node .node-dot {
+.cap-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--signal);
   box-shadow: 0 0 6px var(--signal);
+  flex: none;
 }
-.hud-node .node-label {
+.cap-info {
+  display: flex;
+  flex-direction: column;
+}
+.cap-title {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 10px;
+  font-weight: 600;
   color: var(--text-hi);
-  white-space: nowrap;
+  letter-spacing: 0.03em;
 }
-
-.node-top { top: 4px; animation: floatNode 4s ease-in-out infinite alternate; }
-.node-right { right: 0px; top: 95px; animation: floatNode 4.5s ease-in-out 1s infinite alternate; }
-.node-bottom { bottom: 4px; animation: floatNode 3.8s ease-in-out 0.5s infinite alternate; }
-.node-left { left: 0px; top: 95px; animation: floatNode 4.2s ease-in-out 1.5s infinite alternate; }
-
-@keyframes floatNode {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-5px); }
+.cap-sub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-low);
 }
 
 /* Dynamic Telemetry Grid */
@@ -542,6 +546,66 @@ button{ font-family:inherit; cursor:pointer; }
 .fill-100 { width: 100%; }
 .fill-98 { width: 98%; }
 .fill-95 { width: 95%; }
+
+/* Mobile Optimizations for Hero Visual */
+@media (max-width: 680px) {
+  .hero-visual.enterprise-visual {
+    padding: 0;
+    margin-top: 20px;
+  }
+  .enterprise-hud-container {
+    max-width: 100%;
+    padding: 14px;
+    border-radius: var(--radius-m);
+  }
+  .hud-header-bar {
+    padding-bottom: 10px;
+  }
+  .hud-brand-text {
+    font-size: 10.5px;
+  }
+  .hud-core-wrapper {
+    height: 160px;
+  }
+  .hud-radar-ring.outer, .hud-radar-sweep {
+    width: 140px;
+    height: 140px;
+  }
+  .hud-radar-ring.inner {
+    width: 90px;
+    height: 90px;
+  }
+  .hud-brand-core {
+    width: 60px;
+    height: 60px;
+  }
+  .hud-capabilities-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .cap-card {
+    padding: 6px 8px;
+  }
+  .cap-title {
+    font-size: 8.5px;
+  }
+  .cap-sub {
+    font-size: 7.5px;
+  }
+  .hud-telemetry-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .telemetry-item {
+    padding: 8px 10px;
+  }
+  .telemetry-lbl {
+    font-size: 8.5px;
+  }
+  .telemetry-val {
+    font-size: 10.5px;
+  }
+}
 
 /* Control Selector Tabs */
 .hud-tabs {
