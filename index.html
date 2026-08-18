@@ -149,20 +149,33 @@
                 <path d="M85 255 L115 225 M255 255 L225 225" />
               </g>
 
-              <!-- Central Cyber Security Lock Core Symbol -->
-              <g class="core-pulse" transform="translate(170, 160)">
-                <!-- Lock Shackle -->
-                <path d="M-15 -6 V-20 C-15 -30 15 -30 15 -20 V-6" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" />
-                <!-- Lock Body -->
-                <rect x="-24" y="-6" width="48" height="38" rx="6" fill="#0A100E" stroke="var(--signal)" stroke-width="2.2" />
-                <!-- Keyhole / Core Node -->
-                <circle cx="0" cy="8" r="5" fill="var(--signal)" />
-                <path d="M0 8 V18" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" />
+              <!-- Defs clipPath for shield logo -->
+              <clipPath id="logoClipCircle">
+                <circle cx="0" cy="0" r="32" />
+              </clipPath>
+
+              <!-- Central Cyber Security Core Symbol with Riskcurity Logo -->
+              <g class="core-pulse" transform="translate(170, 165)">
+                <!-- Outer Tech Rotating Ring Accent -->
+                <circle cx="0" cy="0" r="48" stroke="var(--signal)" stroke-width="1.2" stroke-dasharray="6 8" fill="none" opacity="0.6" />
+                <circle cx="0" cy="0" r="41" stroke="var(--teal)" stroke-width="2" fill="#070C0A" />
+
+                <!-- Logo Image embedded inside shield core -->
+                <image href="Riskcuritylogo.png" x="-32" y="-32" width="64" height="64" clip-path="url(#logoClipCircle)" />
+
+                <!-- Outer Glowing Neon Border Ring -->
+                <circle cx="0" cy="0" r="33" fill="none" stroke="var(--signal)" stroke-width="2" opacity="0.95" />
+                
+                <!-- Corner Tech Nodes -->
+                <circle cx="0" cy="-41" r="2.5" fill="var(--signal)" />
+                <circle cx="0" cy="41" r="2.5" fill="var(--signal)" />
+                <circle cx="-41" cy="0" r="2.5" fill="var(--signal)" />
+                <circle cx="41" cy="0" r="2.5" fill="var(--signal)" />
               </g>
 
               <!-- Cyber HUD Status Text -->
-              <text x="170" y="222" text-anchor="middle" fill="var(--signal)" font-size="9" font-family="monospace" letter-spacing="1.5" font-weight="600">CYBER DEFENSE ACTIVE</text>
-              <text x="170" y="235" text-anchor="middle" fill="var(--text-mid)" font-size="8" font-family="monospace" letter-spacing="1">256-BIT ENCRYPTED</text>
+              <text x="170" y="228" text-anchor="middle" fill="var(--signal)" font-size="9" font-family="monospace" letter-spacing="1.5" font-weight="600">CYBER DEFENSE ACTIVE</text>
+              <text x="170" y="240" text-anchor="middle" fill="var(--text-mid)" font-size="8" font-family="monospace" letter-spacing="1">256-BIT ENCRYPTED</text>
 
               <!-- Glowing Circuit Nodes -->
               <circle cx="170" cy="85" r="4" fill="var(--signal)" />
@@ -487,6 +500,104 @@
       <div class="footer-copy">© 2026 Riskcurity. All rights reserved.</div>
     </div>
   </footer>
+
+  <!-- CUTE MINI HACKER AI CHATBOT WIDGET -->
+  <div class="hacker-chatbot-wrapper" id="hackerChatbot">
+    <!-- Floating greeting bubble popup -->
+    <div class="hacker-bubble" id="hackerBubble">
+      <button class="hacker-bubble-close" id="hackerBubbleClose" aria-label="Close notification">&times;</button>
+      <div class="hacker-bubble-title">⚡ Mini Hacker AI</div>
+      <div class="hacker-bubble-text">Hi! Need help with Cyber Security or AI agents? Ask me anything!</div>
+    </div>
+
+    <!-- Floating Cute Mini Hacker Toggle Button -->
+    <button class="hacker-trigger-btn" id="hackerChatToggle" aria-label="Open Hacker AI Chatbot">
+      <span class="hacker-pulse-ring"></span>
+      <span class="hacker-pulse-ring delay"></span>
+      <div class="hacker-avatar-container">
+        <!-- SVG Cute Mini Hacker Icon -->
+        <svg class="hacker-avatar-svg" viewBox="0 0 100 100">
+          <!-- Hoodie Base -->
+          <path d="M20 88 C20 62 35 55 50 55 C65 55 80 62 80 88 Z" fill="#0D1614" stroke="#22E5A8" stroke-width="2.5" />
+          <!-- Inner Hoodie Shade -->
+          <path d="M28 88 C28 67 38 61 50 61 C62 61 72 67 72 88 Z" fill="#050807" />
+          <!-- Head / Helmet -->
+          <circle cx="50" cy="42" r="24" fill="#0F1815" stroke="#22E5A8" stroke-width="2.5" />
+          <!-- Hacker Visor Screen -->
+          <rect x="33" y="32" width="34" height="18" rx="7" fill="#050807" stroke="#1B8F86" stroke-width="2" />
+          <!-- Glowing Eyes / Cyber Visor Code -->
+          <text x="37" y="45" fill="#22E5A8" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
+          <!-- Mini Headset/Antenna -->
+          <path d="M26 42 A24 24 0 0 1 74 42" fill="none" stroke="#22E5A8" stroke-width="2" stroke-dasharray="3 2" />
+          <circle cx="26" cy="42" r="3.5" fill="#22E5A8" />
+          <circle cx="74" cy="42" r="3.5" fill="#22E5A8" />
+          <!-- Cute cheeks -->
+          <circle cx="36" cy="53" r="2.5" fill="rgba(34, 229, 168, 0.4)" />
+          <circle cx="64" cy="53" r="2.5" fill="rgba(34, 229, 168, 0.4)" />
+        </svg>
+        <span class="hacker-status-dot"></span>
+        <span class="hacker-badge" id="hackerBadge">1</span>
+      </div>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div class="hacker-chat-window" id="hackerChatWindow" aria-hidden="true">
+      <div class="hacker-chat-header">
+        <div class="hacker-chat-header-info">
+          <div class="hacker-chat-avatar-mini">
+            <svg viewBox="0 0 100 100" width="28" height="28">
+              <circle cx="50" cy="42" r="24" fill="#0F1815" stroke="#22E5A8" stroke-width="3" />
+              <rect x="33" y="32" width="34" height="18" rx="7" fill="#050807" stroke="#1B8F86" stroke-width="2" />
+              <text x="37" y="45" fill="#22E5A8" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
+            </svg>
+          </div>
+          <div>
+            <div class="hacker-chat-name">MINI HACKER AI <span class="hacker-chat-tag">ASSISTANT</span></div>
+            <div class="hacker-chat-status"><span class="green-dot"></span> Active · Riskcurity Guide</div>
+          </div>
+        </div>
+        <div class="hacker-chat-actions">
+          <button class="hacker-chat-btn" id="hackerChatReset" title="Restart conversation">↻</button>
+          <button class="hacker-chat-btn" id="hackerChatClose" title="Close chat">&times;</button>
+        </div>
+      </div>
+
+      <div class="hacker-chat-body" id="hackerChatBody">
+        <div class="hacker-msg hacker-msg-bot">
+          <div class="hacker-msg-avatar">🤖</div>
+          <div class="hacker-msg-content">
+            <p>Welcome to <b>Riskcurity</b>! 🛡️<br>I'm your <b>Mini Hacker AI</b> guide. How can I assist you with our cyber defense &amp; AI services today?</p>
+            <div class="hacker-quick-chips">
+              <button class="chip-btn" data-topic="grc">🛡️ GRC Automation</button>
+              <button class="chip-btn" data-topic="soc">👁️ SOC 24/7</button>
+              <button class="chip-btn" data-topic="siem">📡 SIEM Engineering</button>
+              <button class="chip-btn" data-topic="vapt">⚔️ VAPT Assessment</button>
+              <button class="chip-btn" data-topic="ai">🤖 AI Agents</button>
+              <button class="chip-btn" data-topic="web">🌐 Secure Web Dev</button>
+              <button class="chip-btn chip-highlight" data-topic="contact">📅 Book Review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="hacker-typing" id="hackerTyping" style="display: none;">
+        <span></span><span></span><span></span>
+        <span class="typing-lbl">Mini Hacker AI is typing...</span>
+      </div>
+
+      <div class="hacker-chat-footer">
+        <form id="hackerChatForm">
+          <input type="text" id="hackerChatInput" placeholder="Ask about GRC, SOC, VAPT, AI agents..." autocomplete="off" />
+          <button type="submit" id="hackerChatSend" aria-label="Send message">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

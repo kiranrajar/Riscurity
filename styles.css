@@ -794,3 +794,467 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline:2px solid var(--signal);
   outline-offset:2px;
 }
+
+/* =========================================================
+   CUTE MINI HACKER AI CHATBOT WIDGET
+   ========================================================= */
+.hacker-chatbot-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: var(--font-body);
+}
+
+/* Floating Greeting Bubble */
+.hacker-bubble {
+  position: absolute;
+  bottom: 76px;
+  right: 0;
+  width: 250px;
+  background: var(--bg-2);
+  border: 1px solid var(--signal);
+  border-radius: var(--radius-m);
+  padding: 12px 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 15px rgba(34, 229, 168, 0.25);
+  backdrop-filter: blur(12px);
+  animation: floatBubble 4s ease-in-out infinite alternate;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  transform-origin: bottom right;
+}
+.hacker-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  right: 24px;
+  width: 12px;
+  height: 12px;
+  background: var(--bg-2);
+  border-right: 1px solid var(--signal);
+  border-bottom: 1px solid var(--signal);
+  transform: rotate(45deg);
+}
+.hacker-bubble.closed {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8) translateY(10px);
+}
+.hacker-bubble-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-low);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+.hacker-bubble-close:hover { color: var(--signal); }
+.hacker-bubble-title {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--signal);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.hacker-bubble-text {
+  font-size: 12.5px;
+  color: var(--text-hi);
+  line-height: 1.4;
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* Launcher Button */
+.hacker-trigger-btn {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--bg-1);
+  border: 2px solid var(--signal);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 229, 168, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.hacker-trigger-btn:hover {
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 28px rgba(34, 229, 168, 0.65);
+}
+.hacker-avatar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hacker-avatar-svg {
+  width: 52px;
+  height: 52px;
+  animation: hackerBob 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes hackerBob {
+  0% { transform: translateY(1px); }
+  100% { transform: translateY(-2px); }
+}
+
+/* Pulsing Outer Rings */
+.hacker-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--signal);
+  opacity: 0;
+  animation: pulseOut 2.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  pointer-events: none;
+}
+.hacker-pulse-ring.delay {
+  animation-delay: 1.4s;
+}
+
+@keyframes pulseOut {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.hacker-status-dot {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--signal);
+  border: 2px solid var(--bg-1);
+  box-shadow: 0 0 8px var(--signal);
+}
+.hacker-badge {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  background: var(--danger);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  border: 1.5px solid var(--bg-1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+}
+
+/* Chatbot Drawer / Window */
+.hacker-chat-window {
+  position: absolute;
+  bottom: 76px;
+  right: 0;
+  width: 370px;
+  height: 530px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 100px);
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--signal);
+  border-radius: var(--radius-l);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(34, 229, 168, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.94);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+}
+.hacker-chat-window.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Chat Header */
+.hacker-chat-header {
+  padding: 14px 18px;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hacker-chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hacker-chat-avatar-mini {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-0);
+  border: 1px solid var(--signal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(34, 229, 168, 0.3);
+}
+.hacker-chat-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-hi);
+  letter-spacing: 0.03em;
+}
+.hacker-chat-tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--bg-0);
+  background: var(--signal);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+.hacker-chat-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+.green-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 6px var(--signal);
+}
+.hacker-chat-actions {
+  display: flex;
+  gap: 6px;
+}
+.hacker-chat-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text-mid);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.hacker-chat-btn:hover {
+  color: var(--signal);
+  border-color: var(--signal);
+  background: rgba(34, 229, 168, 0.08);
+}
+
+/* Chat Body */
+.hacker-chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--bg-0);
+}
+.hacker-chat-body::-webkit-scrollbar {
+  width: 4px;
+}
+.hacker-chat-body::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
+}
+
+/* Message Styles */
+.hacker-msg {
+  display: flex;
+  gap: 10px;
+  max-width: 88%;
+}
+.hacker-msg-bot {
+  align-self: flex-start;
+}
+.hacker-msg-user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+.hacker-msg-avatar {
+  font-size: 16px;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-2);
+  border: 1px solid var(--teal-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hacker-msg-content {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: var(--text-hi);
+  line-height: 1.5;
+}
+.hacker-msg-bot .hacker-msg-content {
+  border-top-left-radius: 2px;
+}
+.hacker-msg-user .hacker-msg-content {
+  background: rgba(34, 229, 168, 0.12);
+  border-color: rgba(34, 229, 168, 0.35);
+  color: var(--text-hi);
+  border-top-right-radius: 2px;
+}
+.hacker-msg-content p {
+  margin: 0 0 8px;
+}
+.hacker-msg-content p:last-child {
+  margin-bottom: 0;
+}
+.hacker-msg-content b {
+  color: var(--signal);
+}
+.hacker-msg-content a {
+  color: var(--signal);
+  text-decoration: underline;
+}
+
+/* Quick Chips */
+.hacker-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.chip-btn {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  color: var(--text-mid);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  white-space: nowrap;
+}
+.chip-btn:hover {
+  color: var(--signal);
+  border-color: var(--signal);
+  background: rgba(34, 229, 168, 0.08);
+  transform: translateY(-1px);
+}
+.chip-highlight {
+  border-color: var(--signal);
+  color: var(--bg-0);
+  background: var(--signal);
+  font-weight: 600;
+}
+.chip-highlight:hover {
+  background: var(--signal-dim);
+  color: var(--bg-0);
+}
+
+/* Typing Indicator */
+.hacker-typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  background: var(--bg-0);
+  border-top: 1px solid var(--line-soft);
+}
+.hacker-typing span:not(.typing-lbl) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  animation: typingDot 1.4s infinite ease-in-out both;
+}
+.hacker-typing span:nth-child(1) { animation-delay: -0.32s; }
+.hacker-typing span:nth-child(2) { animation-delay: -0.16s; }
+.typing-lbl {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-low);
+  margin-left: 6px;
+}
+
+@keyframes typingDot {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Chat Footer Form */
+.hacker-chat-footer {
+  padding: 12px 14px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+}
+.hacker-chat-footer form {
+  display: flex;
+  gap: 8px;
+}
+.hacker-chat-footer input {
+  flex: 1;
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 9px 12px;
+  color: var(--text-hi);
+  font-family: var(--font-body);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.hacker-chat-footer input:focus {
+  border-color: var(--signal);
+}
+.hacker-chat-footer button {
+  background: var(--signal);
+  color: var(--bg-0);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.hacker-chat-footer button:hover {
+  background: var(--signal-dim);
+  transform: scale(1.04);
+}
+
+@media (max-width: 480px) {
+  .hacker-chatbot-wrapper {
+    bottom: 16px;
+    right: 16px;
+  }
+  .hacker-chat-window {
+    width: calc(100vw - 32px);
+    height: 480px;
+    bottom: 72px;
+  }
+}
+
