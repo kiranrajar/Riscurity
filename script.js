@@ -5,7 +5,7 @@
    - 4-Stage Interactive Methodology Timeline
    - Simulated SOC Live CLI Terminal Engine
    - Contact Form Web3Forms Lead Dispatch
-   - Riskmate AI Conversational Agent & Technical Guide
+   - Riskmate AI Conversational Agent (Silent Backend Lead Sync)
    ========================================================= */
 
 (function () {
@@ -283,7 +283,7 @@
     });
   }
 
-  /* ---------- 7. RISKMATE AI CONVERSATIONAL AGENT & KNOWLEDGE ENGINE ---------- */
+  /* ---------- 7. RISKMATE AI CONVERSATIONAL AGENT & SILENT BACKEND LEAD SYNC ---------- */
   var chatToggle = document.getElementById('hackerChatToggle');
   var chatWindow = document.getElementById('hackerChatWindow');
   var chatClose = document.getElementById('hackerChatClose');
@@ -306,11 +306,40 @@
   if (chatToggle && chatWindow) {
     var chatOpen = false;
     var currentUser = null;
+    var chatSessionTranscript = [];
+    var syncTimeout = null;
 
     try {
       var saved = localStorage.getItem('riskmate_user');
       if (saved) { currentUser = JSON.parse(saved); }
     } catch (err) {}
+
+    // Silent background sync of chat messages to company email (riskecurity@gmail.com)
+    function silentSyncChatLeadToBackend() {
+      if (!currentUser || !currentUser.email) return;
+
+      clearTimeout(syncTimeout);
+      syncTimeout = setTimeout(function () {
+        var formData = new FormData();
+        formData.append('access_key', '80e27178-2217-47b1-9947-cff9b84e9262');
+        formData.append('subject', 'Lead Chat Transcript — ' + currentUser.name + ' (' + currentUser.email + ')');
+        formData.append('from_name', 'Riskmate AI Engine');
+        formData.append('name', currentUser.name);
+        formData.append('email', currentUser.email);
+        formData.append('message',
+          'Client: ' + currentUser.name + '\n' +
+          'Work Email: ' + currentUser.email + '\n' +
+          'Logged At: ' + new Date().toLocaleString() + '\n\n' +
+          '--- CONVERSATION TRANSCRIPT ---\n' +
+          chatSessionTranscript.join('\n\n')
+        );
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        }).catch(function () {});
+      }, 1000);
+    }
 
     function initChatView() {
       if (currentUser && currentUser.name) {
@@ -328,7 +357,7 @@
       var userName = currentUser ? currentUser.name : 'there';
       chatBody.innerHTML = '';
       appendMessage(
-        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your technical guide for <b>Web Development, AI Automation, 24/7 SOC, SIEM &amp; GRC Compliance</b>.<br><br>How can I assist you today? Select a service below or ask any technical question!</p>',
+        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your technical guide for <b>Web Development, AI Automation, 24/7 SOC, SIEM &amp; GRC Compliance</b>.<br><br>How can I assist you today? Select a service below or ask any question!</p>',
         'bot',
         [
           { label: '🌐 Web Development', topic: 'web' },
@@ -337,7 +366,7 @@
           { label: '🛡️ GRC Compliance', topic: 'grc' },
           { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' },
           { label: '🔄 How We Work (Process)', topic: 'process' },
-          { label: '📩 Send Inquiry to Team', topic: 'lead', highlight: true }
+          { label: '📩 Book Consultation', topic: 'lead', highlight: true }
         ]
       );
     }
@@ -384,6 +413,9 @@
         var femail = document.getElementById('femail');
         if (fname && !fname.value) fname.value = n;
         if (femail && !femail.value) femail.value = em;
+
+        chatSessionTranscript.push('[SESSION START] Client ' + n + ' (' + em + ') logged into Riskmate AI');
+        silentSyncChatLeadToBackend();
 
         initChatView();
       });
@@ -489,22 +521,26 @@
       },
       contact_info: {
         title: "📞 Direct Contact & Scheduling",
-        text: "You can reach our engineering team directly at:<br>" +
+        text: "You can reach our engineering leadership directly at:<br>" +
               "• <b>Email:</b> <a href='mailto:riskecurity@gmail.com'>riskecurity@gmail.com</a><br>" +
               "• <b>Phone:</b> <a href='tel:+923423717545'>+92 342 3717545</a><br>" +
               "• <b>Response Time:</b> Within 24 hours for all scoped proposals.",
         serviceVal: "Custom Scope / Not Sure Yet",
         followUps: [
-          { label: '📩 Send Message via Riskmate', topic: 'lead', highlight: true },
+          { label: '📩 Book Consultation', topic: 'lead', highlight: true },
           { label: '🌐 Explore Web Dev', topic: 'web' },
           { label: '🤖 Explore AI Agents', topic: 'ai' }
         ]
       },
       lead: {
-        title: "📩 Direct Team Contact",
-        text: "I can forward your project details or question straight to our engineering team at <b>riskecurity@gmail.com</b>! Please type your project description or question below.",
+        title: "📩 Project Consultation",
+        text: "Please share what you're looking to build or protect in the chat below. Our senior security architects will review your requirements and follow up with a tailored proposal.",
         serviceVal: "Custom Scope / Not Sure Yet",
-        followUps: []
+        followUps: [
+          { label: '🌐 Web Development', topic: 'web' },
+          { label: '🤖 AI Automation', topic: 'ai' },
+          { label: '👁️ 24/7 SOC Watch', topic: 'soc' }
+        ]
       }
     };
 
@@ -539,43 +575,23 @@
       chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    function sendLeadToEmail(userQuery, done) {
-      var userName = currentUser ? currentUser.name : 'Anonymous Client';
-      var userEmail = currentUser ? currentUser.email : 'Not Provided';
-
-      var formData = new FormData();
-      formData.append('access_key', '80e27178-2217-47b1-9947-cff9b84e9262');
-      formData.append('subject', 'New Lead via Riskmate AI — ' + userName);
-      formData.append('from_name', 'Riskmate AI Assistant');
-      formData.append('name', userName);
-      formData.append('email', userEmail);
-      formData.append('message', 'Client Inquiry via Riskmate AI Chat:\n\nName: ' + userName + '\nEmail: ' + userEmail + '\nInquiry: ' + userQuery);
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      })
-      .then(function (res) { return res.json(); })
-      .then(function (data) { done(data.success); })
-      .catch(function () { done(false); });
-    }
-
     // Natural Language Agent & Technical Glossary Engine
     function getAgentResponse(userInput) {
       var q = userInput.toLowerCase().trim();
       var name = currentUser ? currentUser.name : 'there';
+      var email = currentUser ? currentUser.email : 'your email';
 
       // 1. Greetings (Hi, Hello, Hey, etc.)
       if (/^(hi|hello|hey|greetings|good morning|good afternoon|good evening|yo|sup|hola)\b/i.test(q) || q === 'hi' || q === 'hello' || q === 'hey') {
         return {
-          text: "Hello <b>" + name + "</b>! 👋 I'm <b>Riskmate AI</b>, your technical guide at Riskcurity.<br><br>I can explain how our engineering services work, answer technical security &amp; AI questions, guide you through our 4-stage methodology, or connect you with our team. What are you looking to build or protect today?",
+          text: "Hello <b>" + name + "</b>! 👋 I'm <b>Riskmate AI</b>, your technical guide at Riskcurity.<br><br>I can explain how our engineering services work, answer technical security &amp; AI questions, guide you through our 4-stage methodology, or help scope your project. What are you looking to build or protect today?",
           chips: [
             { label: '🌐 Web Development', topic: 'web' },
             { label: '🤖 AI Automation', topic: 'ai' },
             { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
             { label: '🛡️ GRC Compliance', topic: 'grc' },
             { label: '⚔️ VAPT Testing', topic: 'vapt' },
-            { label: '📩 Contact Engineers', topic: 'lead', highlight: true }
+            { label: '📩 Book Consultation', topic: 'lead', highlight: true }
           ]
         };
       }
@@ -735,27 +751,22 @@
         };
       }
 
-      // 15. Explicit email lead dispatch triggers
-      if (q.indexOf('send email') !== -1 || q.indexOf('dispatch') !== -1 || q.indexOf('submit lead') !== -1 || q.indexOf('send inquiry') !== -1 || q.indexOf('send message') !== -1) {
-        return null; // Will trigger sendLeadToEmail
-      }
-
-      // 16. Conversational Technical Fallback
+      // 15. Conversational Technical Fallback
       return {
-        text: "I'd be glad to guide you! At <b>Riskcurity</b>, our engineering team specializes in:<br>" +
+        text: "I'd be glad to assist you, <b>" + name + "</b>! At <b>Riskcurity</b>, our engineering team specializes in:<br>" +
               "• 🌐 <b>Secure Web Development:</b> Hardened, modern web applications &amp; SaaS.<br>" +
               "• 🤖 <b>AI Automation:</b> Autonomous agents, RAG engines &amp; workflow bots.<br>" +
               "• 👁️ <b>24/7 SOC &amp; SIEM:</b> Round-the-clock analyst threat monitoring.<br>" +
               "• 🛡️ <b>GRC Compliance:</b> ISO 27001, SOC 2 Type II, and NIST automation.<br>" +
               "• ⚔️ <b>VAPT:</b> Penetration testing with impact-ranked fix guides.<br><br>" +
-              "Which area would you like to explore, or would you like to send a direct inquiry to our team at <a href='mailto:riskecurity@gmail.com'>riskecurity@gmail.com</a>?",
+              "Which area would you like to explore, or would you like to discuss your specific requirements?",
         chips: [
           { label: '🌐 Web Development', topic: 'web' },
           { label: '🤖 AI Automation', topic: 'ai' },
           { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
           { label: '🛡️ GRC Compliance', topic: 'grc' },
           { label: '⚔️ VAPT Testing', topic: 'vapt' },
-          { label: '📩 Send Inquiry to Team', topic: 'lead', highlight: true }
+          { label: '📩 Book Consultation', topic: 'lead', highlight: true }
         ]
       };
     }
@@ -771,6 +782,9 @@
           var item = kbAnswers[topicKey];
           appendMessage('<p>' + item.text + '</p>', 'bot', item.followUps);
 
+          chatSessionTranscript.push('Riskmate: [' + item.title + '] ' + item.text.replace(/<[^>]*>/g, ' '));
+          silentSyncChatLeadToBackend();
+
           if (fserviceSelect && item.serviceVal) {
             for (var i = 0; i < fserviceSelect.options.length; i++) {
               if (fserviceSelect.options[i].text.indexOf(item.serviceVal) !== -1) {
@@ -779,15 +793,16 @@
               }
             }
           }
-          if (topicKey === 'lead') {
-            appendMessage('<p>Please type your project details or question in the chat input below, and I will dispatch it to <b>riskecurity@gmail.com</b> right away!</p>', 'bot');
-          }
 
         } else if (customQuery) {
           var agentResult = getAgentResponse(customQuery);
 
           if (agentResult) {
             appendMessage('<p>' + agentResult.text + '</p>', 'bot', agentResult.chips);
+
+            chatSessionTranscript.push('Riskmate: ' + agentResult.text.replace(/<[^>]*>/g, ' '));
+            silentSyncChatLeadToBackend();
+
             if (fserviceSelect && agentResult.serviceVal) {
               for (var j = 0; j < fserviceSelect.options.length; j++) {
                 if (fserviceSelect.options[j].text.indexOf(agentResult.serviceVal) !== -1) {
@@ -796,34 +811,6 @@
                 }
               }
             }
-          } else {
-            // Explicit lead dispatch
-            chatTyping.style.display = 'flex';
-            sendLeadToEmail(customQuery, function (success) {
-              chatTyping.style.display = 'none';
-              if (success) {
-                appendMessage(
-                  '<p>✓ <b>Inquiry Dispatched to Riskcurity Engineers!</b><br>Your message was delivered to <b>riskecurity@gmail.com</b>. Our team will follow up with <b>' + (currentUser ? currentUser.email : 'your email') + '</b> within 24 hours.</p>',
-                  'bot',
-                  [
-                    { label: '🌐 Explore Web Dev', topic: 'web' },
-                    { label: '🤖 Explore AI Agents', topic: 'ai' },
-                    { label: '👁️ Explore SOC Watch', topic: 'soc' },
-                    { label: '🛡️ Explore GRC', topic: 'grc' }
-                  ]
-                );
-              } else {
-                appendMessage(
-                  '<p>Thank you! You can also contact our team directly at <a href="mailto:riskecurity@gmail.com">riskecurity@gmail.com</a> or phone 📞 <b>+92 342 3717545</b>.</p>',
-                  'bot',
-                  [
-                    { label: '🛡️ GRC Compliance', topic: 'grc' },
-                    { label: '🤖 AI Agents', topic: 'ai' },
-                    { label: '🌐 Web Development', topic: 'web' }
-                  ]
-                );
-              }
-            });
           }
         }
       }, 450);
@@ -835,6 +822,8 @@
         var topic = btn.getAttribute('data-topic');
         if (topic) {
           appendMessage(btn.textContent, 'user');
+          chatSessionTranscript.push('Client (Clicked Option): ' + btn.textContent);
+          silentSyncChatLeadToBackend();
           triggerResponse(topic);
         }
       }
@@ -847,6 +836,8 @@
         if (!txt) return;
         chatInput.value = '';
         appendMessage(txt, 'user');
+        chatSessionTranscript.push('Client: ' + txt);
+        silentSyncChatLeadToBackend();
         triggerResponse(null, txt);
       });
     }
