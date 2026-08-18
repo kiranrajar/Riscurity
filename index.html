@@ -4,89 +4,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riskcurity — Cyber Defense, GRC &amp; AI Agents</title>
+  <title>Riskcurity — Cyber Defense, GRC &amp; AI Automation</title>
   <meta name="description"
-    content="Riskcurity secures modern enterprises through GRC automation, SOC &amp; SIEM operations, VAPT, AI agents &amp; automation, and secure web platforms.">
+    content="Enterprise cyber defense and AI automation. GRC automation, 24/7 SOC operations, VAPT, Autonomous AI Agents, and Secure Web Platforms.">
   <link rel="icon" href="Riskcuritylogo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <div class="circuit-field" aria-hidden="true"></div>
+  <!-- Interactive Cyber Matrix / Particle Network Canvas -->
+  <canvas id="cyberCanvas" class="cyber-canvas" aria-hidden="true"></canvas>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav class="nav" id="nav">
-    <div class="nav-inner">
+    <div class="wrap nav-inner">
       <a href="#top" class="brand">
-        <img src="Riskcuritylogo.png" alt="Riskcurity logo">
+        <img src="Riskcuritylogo.png" alt="Riskcurity Logo" class="brand-logo">
         <span class="brand-name">RISK<b>CURITY</b></span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#why">Why Us</a>
-        <a href="#contact">Contact</a>
+        <a href="#services" class="nav-link">Capabilities</a>
+        <a href="#approach" class="nav-link">How We Work</a>
+        <a href="#why" class="nav-link">Why Us</a>
+        <a href="#terminal" class="nav-link">Live SOC</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
-      <div style="display:flex; align-items:center; gap:14px;">
-        <a href="#contact" class="btn">Get a security review</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-nav">
+          <span>Book Assessment</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <header class="hero" id="top">
     <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow"><span class="dot"></span> RISK MANAGEMENT · AUTOMATED &amp; INTELLIGENT</div>
-        <h1>We defend your systems<br>and <span class="accent">automate the AI</span><br>that runs them.</h1>
-        <p class="lead">Riskcurity is a cybersecurity and AI automation partner — from GRC automation and 24/7 SOC
-          monitoring to VAPT, AI agents, and secure web platforms. One team, end to end.</p>
+      <div class="hero-content">
+        <div class="eyebrow reveal">
+          <span class="pulse-dot"></span>
+          <span>ENTERPRISE CYBER DEFENSE &amp; AI AUTOMATION</span>
+        </div>
+        
+        <h1 class="hero-title reveal">
+          We defend your systems and <span class="gradient-text">automate the AI</span> that runs them.
+        </h1>
+        
+        <p class="lead reveal">
+          Riskcurity is a specialized cybersecurity and AI automation engineering practice. From 24/7 SOC monitoring and GRC compliance automation to VAPT and secure web platforms — one unified team, end to end.
+        </p>
 
-        <div class="hero-motto">
+        <div class="hero-motto reveal">
           <span class="motto-icon">❖</span>
-          <span>A Socratic idea for a modern risk: <i>“know thyself, know thy risk, build thy future.”</i></span>
+          <span>A Socratic idea for modern risk: <i>“Know thyself, know thy risk, build thy future.”</i></span>
         </div>
 
-        <div class="hero-cta">
-          <a href="#contact" class="btn">Book a risk assessment</a>
-          <a href="#services" class="link-inline">See what we do →</a>
+        <div class="hero-cta reveal">
+          <a href="#contact" class="btn btn-primary">
+            <span>Book a Risk Assessment</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#services" class="btn btn-secondary">
+            <span>Explore Capabilities</span>
+            <span class="btn-arrow">↓</span>
+          </a>
         </div>
-        <div class="hero-stats">
-          <div><b>6</b><span>Core capabilities</span></div>
-          <div><b>24/7</b><span>SOC coverage</span></div>
-          <div><b>0-day</b><span>to production, engineered</span></div>
+
+        <div class="hero-stats reveal">
+          <div class="stat-card">
+            <span class="stat-num" data-count="6">6</span>
+            <span class="stat-lbl">Core Disciplines</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-text="24/7">24/7</span>
+            <span class="stat-lbl">SOC Live Watch</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-text="0-Day">0-Day</span>
+            <span class="stat-lbl">Engineered Defense</span>
+          </div>
         </div>
       </div>
 
-      <!-- 3D HOLOGRAPHIC CYBER CORE visual -->
-      <div class="hero-visual cyber-engine-visual">
+      <!-- 3D Holographic Cyber Engine Visual -->
+      <div class="hero-visual cyber-engine-visual reveal">
         <div class="cyber-engine-container">
-          <!-- Ambient Glow Backdrop -->
           <div class="engine-glow-orb"></div>
           
-          <!-- Outer Holographic Orbit Rings -->
           <div class="holo-ring ring-1"></div>
           <div class="holo-ring ring-2"></div>
           <div class="holo-ring ring-3"></div>
 
-          <!-- Central 3D Shield Core -->
+          <!-- Central Shield Core -->
           <div class="engine-core-orb">
-            <svg class="engine-core-icon" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.8">
+            <svg class="engine-core-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/>
               <path d="M12 6v12M7 11h10"/>
             </svg>
             <div class="engine-pulse-ring"></div>
             <div class="engine-core-shield-badge">
               <span class="shield-dot"></span>
-              <span>SECURED</span>
+              <span>ACTIVE DEFENSE</span>
             </div>
           </div>
 
-          <!-- Orbiting Glassmorphic Feature Cards -->
+          <!-- Floating Orbiting Capability Badges -->
           <div class="holo-card card-ai">
             <span class="card-icon">🤖</span>
             <div class="card-text">
@@ -99,7 +126,7 @@
             <span class="card-icon">👁️</span>
             <div class="card-text">
               <b>24/7 SOC WATCH</b>
-              <span>Threat Defense</span>
+              <span>Threat Triage &amp; Defense</span>
             </div>
           </div>
 
@@ -107,14 +134,22 @@
             <span class="card-icon">🛡️</span>
             <div class="card-text">
               <b>GRC PLATFORM</b>
-              <span>ISO 27001 / SOC 2</span>
+              <span>ISO 27001 · SOC 2</span>
+            </div>
+          </div>
+
+          <div class="holo-card card-vapt">
+            <span class="card-icon">⚔️</span>
+            <div class="card-text">
+              <b>VAPT AUDIT</b>
+              <span>Impact-Ranked Testing</span>
             </div>
           </div>
 
           <div class="holo-card card-web">
             <span class="card-icon">🌐</span>
             <div class="card-text">
-              <b>WEB ENGINEERING</b>
+              <b>WEB PLATFORMS</b>
               <span>Secure By Design</span>
             </div>
           </div>
@@ -123,349 +158,496 @@
     </div>
   </header>
 
-  <!-- SERVICES -->
+  <!-- CAPABILITIES SECTION -->
   <section class="services" id="services">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow"><span class="dot"></span> CAPABILITIES</div>
-        <h2>Security operations and AI automation, under one roof.</h2>
-        <p>Six core disciplines integrated as one practice, so your defenses and your automation speak the same
-          language.</p>
+        <div class="eyebrow"><span class="pulse-dot"></span> CORE DISCIPLINES</div>
+        <h2>Integrated Security Operations &amp; AI Automation</h2>
+        <p>Six specialized disciplines engineered under one roof, so your detection pipelines and automated workflows operate in sync.</p>
       </div>
 
-      <div class="service-grid reveal">
+      <div class="service-grid">
 
-        <div class="service-card">
-          <div class="scanline"></div>
-          <span class="num">01</span>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <rect x="3" y="4" width="18" height="14" rx="2" />
-            <path d="M7 20h10M9 14l2-2 2 2 4-4" />
-          </svg>
+        <!-- 01 GRC Automation -->
+        <div class="service-card reveal">
+          <div class="card-top">
+            <span class="card-num">01</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="14" rx="2" />
+                <path d="M7 20h10M9 14l2-2 2 2 4-4" />
+              </svg>
+            </div>
+          </div>
           <h3>GRC Automation</h3>
-          <p>Policy, risk registers, and compliance evidence collected and mapped automatically — ISO 27001, SOC 2, and
-            framework-ready audit trails without the spreadsheets.</p>
-          <span class="tag">ISO 27001 · SOC 2</span>
+          <p>Automated policy management, live risk registers, and continuous compliance evidence mapping for <b>ISO 27001</b>, <b>SOC 2 Type II</b>, and NIST frameworks without spreadsheet chaos.</p>
+          <div class="telemetry-bar"><div class="bar-fill" style="width: 98%;"></div></div>
+          <div class="card-footer">
+            <span class="tag">ISO 27001 · SOC 2</span>
+            <span class="tag-status">98% Automated</span>
+          </div>
         </div>
 
-        <div class="service-card">
-          <div class="scanline"></div>
-          <span class="num">02</span>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 7v5l3 3" />
-          </svg>
-          <h3>SOC — Security Operations</h3>
-          <p>A dedicated analyst team watching your environment around the clock, triaging alerts and cutting through
-            noise before it becomes an incident.</p>
-          <span class="tag">24/7 monitoring</span>
+        <!-- 02 24/7 SOC Operations -->
+        <div class="service-card reveal">
+          <div class="card-top">
+            <span class="card-num">02</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg>
+            </div>
+          </div>
+          <h3>24/7 SOC Operations</h3>
+          <p>Dedicated round-the-clock analyst monitoring to ingest alerts, filter false positives, isolate malicious activity, and neutralize zero-day cyber threats in real time.</p>
+          <div class="telemetry-bar"><div class="bar-fill" style="width: 100%;"></div></div>
+          <div class="card-footer">
+            <span class="tag">24/7 Live Watch</span>
+            <span class="tag-status">&lt; 2min Response</span>
+          </div>
         </div>
 
-        <div class="service-card">
-          <div class="scanline"></div>
-          <span class="num">03</span>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M4 19V9l8-5 8 5v10" />
-            <path d="M4 19h16M9 19v-6h6v6" />
-          </svg>
+        <!-- 03 SIEM Engineering -->
+        <div class="service-card reveal">
+          <div class="card-top">
+            <span class="card-num">03</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 19V9l8-5 8 5v10" />
+                <path d="M4 19h16M9 19v-6h6v6" />
+              </svg>
+            </div>
+          </div>
           <h3>SIEM Engineering</h3>
-          <p>Log pipelines, correlation rules, and dashboards tuned to your stack — built so real threats surface fast
-            and false positives don't drown your team.</p>
-          <span class="tag">Detection engineering</span>
+          <p>Custom log ingestion pipelines, fine-tuned correlation rules, and tailored detection dashboards built to ensure critical threats stand out immediately without noise.</p>
+          <div class="telemetry-bar"><div class="bar-fill" style="width: 95%;"></div></div>
+          <div class="card-footer">
+            <span class="tag">Detection Engineering</span>
+            <span class="tag-status">Zero Blindspots</span>
+          </div>
         </div>
 
-        <div class="service-card">
-          <div class="scanline"></div>
-          <span class="num">04</span>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z" />
-            <path d="M9 12l2 2 4-4" />
-          </svg>
-          <h3>VAPT</h3>
-          <p>Vulnerability Assessment &amp; Penetration Testing across web, network, cloud, and mobile — ranked by real
-            business impact, not raw scanner output.</p>
-          <span class="tag">Web · Network · Cloud</span>
+        <!-- 04 VAPT Assessment -->
+        <div class="service-card reveal">
+          <div class="card-top">
+            <span class="card-num">04</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+          </div>
+          <h3>VAPT Penetration Testing</h3>
+          <p>Vulnerability Assessment &amp; Penetration Testing across Web, APIs, Cloud, Network, and Mobile environments — delivered with business-impact ranked fix guides.</p>
+          <div class="telemetry-bar"><div class="bar-fill" style="width: 100%;"></div></div>
+          <div class="card-footer">
+            <span class="tag">Web · Cloud · Network</span>
+            <span class="tag-status">Grade A+ Audit</span>
+          </div>
         </div>
 
-        <div class="service-card">
-          <div class="scanline"></div>
-          <span class="num">05</span>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <rect x="3" y="3" width="7" height="7" rx="1.5" />
-            <rect x="14" y="3" width="7" height="7" rx="1.5" />
-            <rect x="14" y="14" width="7" height="7" rx="1.5" />
-            <rect x="3" y="14" width="7" height="7" rx="1.5" />
-            <path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4" />
-          </svg>
+        <!-- 05 AI Agents & Automation -->
+        <div class="service-card reveal">
+          <div class="card-top">
+            <span class="card-num">05</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                <path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4" />
+              </svg>
+            </div>
+          </div>
           <h3>AI Agents &amp; Automation</h3>
-          <p>Autonomous agents and intelligent workflow automation that investigate alerts, triage tickets, and execute
-            playbooks — supervised by your team, tireless in the loop.</p>
-          <span class="tag">Autonomous Agents · Process Automation</span>
+          <p>Autonomous AI Agents and intelligent workflow bots that investigate alerts, triage repetitive security tickets, and execute SOC playbooks under strict human supervision.</p>
+          <div class="telemetry-bar"><div class="bar-fill" style="width: 96%;"></div></div>
+          <div class="card-footer">
+            <span class="tag">Autonomous Agents</span>
+            <span class="tag-status">Human Supervised</span>
+          </div>
         </div>
 
-        <div class="service-card">
-          <div class="scanline"></div>
-          <span class="num">06</span>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M4 4h16v12H8l-4 4z" />
-            <path d="M8 9h8M8 12h5" />
-          </svg>
-          <h3>Web Development</h3>
-          <p>Secure-by-design web platforms and applications — built with robust defense mechanisms to protect your
-            users and enterprise data.</p>
-          <span class="tag">Secure-by-design</span>
+        <!-- 06 Secure Web Development -->
+        <div class="service-card reveal">
+          <div class="card-top">
+            <span class="card-num">06</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 4h16v12H8l-4 4z" />
+                <path d="M8 9h8M8 12h5" />
+              </svg>
+            </div>
+          </div>
+          <h3>Secure Web Development</h3>
+          <p>High-performance, secure-by-design web applications, SaaS platforms, and enterprise portals hardened against OWASP Top 10 exploits, API leaks, and data breaches.</p>
+          <div class="telemetry-bar"><div class="bar-fill" style="width: 100%;"></div></div>
+          <div class="card-footer">
+            <span class="tag">OWASP Hardened</span>
+            <span class="tag-status">Enterprise Grade</span>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- APPROACH -->
-  <section id="approach">
+  <!-- 4-STAGE PROCESS SECTION ("HOW WE WORK") -->
+  <section class="approach" id="approach">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow"><span class="dot"></span> HOW WE WORK</div>
-        <h2>A defensible process, not a one-off engagement.</h2>
-        <p>Every engagement moves through the same four stages, whether the deliverable is a SOC runbook, a VAPT
-          assessment, or an AI automation workflow.</p>
+        <div class="eyebrow"><span class="pulse-dot"></span> DEFENSE METHODOLOGY</div>
+        <h2>A Defensible 4-Stage Security &amp; Automation Lifecycle</h2>
+        <p>Every client engagement follows our systematic framework to baseline exposure, close gaps, automate workflows, and build compounding capability.</p>
       </div>
 
-      <div class="approach-track reveal">
-        <div class="step">
-          <span class="step-index">01 / Assess</span>
-          <h4>Map the real risk</h4>
-          <p>We baseline your assets, attack surface, and controls against the frameworks that matter to your business.
-          </p>
-          <div class="step-connector"></div>
+      <div class="process-timeline-nav reveal" id="processTimelineNav">
+        <button class="stage-btn active" data-stage="0">
+          <span class="stage-index">01</span>
+          <span class="stage-title">Assess</span>
+        </button>
+        <button class="stage-btn" data-stage="1">
+          <span class="stage-index">02</span>
+          <span class="stage-title">Defend</span>
+        </button>
+        <button class="stage-btn" data-stage="2">
+          <span class="stage-index">03</span>
+          <span class="stage-title">Automate</span>
+        </button>
+        <button class="stage-btn" data-stage="3">
+          <span class="stage-index">04</span>
+          <span class="stage-title">Evolve</span>
+        </button>
+      </div>
+
+      <div class="process-card-display reveal" id="processCardDisplay">
+        <div class="process-card active" id="stageCard0">
+          <div class="stage-badge">STAGE 01 / ASSESS</div>
+          <h3>Map Attack Surface &amp; Risk Baseline</h3>
+          <p>We discover all internet-facing assets, baseline security posture against ISO 27001 / SOC 2 controls, identify vulnerable dependencies, and produce an executive risk register ranked by tangible business impact.</p>
+          <ul class="process-checklist">
+            <li>✓ Asset Discovery &amp; Attack Surface Mapping</li>
+            <li>✓ Compliance Gap Analysis (ISO 27001 / SOC 2 / NIST)</li>
+            <li>✓ Threat Modeling &amp; Prioritized Risk Matrix</li>
+          </ul>
         </div>
-        <div class="step">
-          <span class="step-index">02 / Defend</span>
-          <h4>Close what's exposed</h4>
-          <p>SIEM tuning, SOC coverage, and targeted VAPT close the gaps we find — in priority order, not alphabetical
-            order.</p>
-          <div class="step-connector"></div>
+
+        <div class="process-card" id="stageCard1">
+          <div class="stage-badge">STAGE 02 / DEFEND</div>
+          <h3>Close Vulnerabilities &amp; Activate 24/7 SOC</h3>
+          <p>We harden exposed web platforms, deploy SIEM log correlation rules, remediate high-priority VAPT findings, and establish continuous 24/7 security analyst monitoring.</p>
+          <ul class="process-checklist">
+            <li>✓ High-Risk Vulnerability Remediation &amp; Patch Verification</li>
+            <li>✓ SIEM Log Pipeline Configuration &amp; Alert Tuning</li>
+            <li>✓ 24/7 SOC Triage &amp; Incident Escalation Protocol</li>
+          </ul>
         </div>
-        <div class="step">
-          <span class="step-index">03 / Automate</span>
-          <h4>Remove manual toil</h4>
-          <p>GRC automation and AI agent workflows take over the repeatable work, so your team spends time on judgment
-            calls, not tickets.</p>
-          <div class="step-connector"></div>
+
+        <div class="process-card" id="stageCard2">
+          <div class="stage-badge">STAGE 03 / AUTOMATE</div>
+          <h3>Eliminate Manual Security Toil with AI</h3>
+          <p>We deploy autonomous AI agents to handle repetitive Tier-1 alert triaging, automate compliance evidence gathering, and streamline SOC playbook execution.</p>
+          <ul class="process-checklist">
+            <li>✓ Continuous GRC Evidence Sync &amp; Audit Trail Generation</li>
+            <li>✓ Autonomous AI Alert Investigation with Human Checkpoints</li>
+            <li>✓ Incident Response Playbook Orchestration</li>
+          </ul>
         </div>
-        <div class="step">
-          <span class="step-index">04 / Evolve</span>
-          <h4>Build what's next</h4>
-          <p>AI agent integration and operational automation turn your data into force multipliers for your team —
-            compounding the investment.</p>
-          <div class="step-connector"></div>
+
+        <div class="process-card" id="stageCard3">
+          <div class="stage-badge">STAGE 04 / EVOLVE</div>
+          <h3>Build Compounding Defense &amp; Scale</h3>
+          <p>We continuously evolve detection rules, perform recurring red-team assessments, integrate new AI agent automations, and safeguard your enterprise growth trajectory.</p>
+          <ul class="process-checklist">
+            <li>✓ Scheduled Recurring VAPT &amp; Red-Team Simulations</li>
+            <li>✓ Adaptive AI Threat Modeling as Stack Evolves</li>
+            <li>✓ Audit Readiness Guarantee for Enterprise Growth</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats-strip">
-    <div class="wrap">
-      <div class="stat-box reveal"><b>6</b><span>Integrated disciplines</span></div>
-      <div class="stat-box reveal"><b>24/7</b><span>SOC &amp; SIEM watch</span></div>
-      <div class="stat-box reveal"><b>100%</b><span>Human-reviewed findings</span></div>
-      <div class="stat-box reveal"><b>1 team</b><span>Security + AI, no handoffs</span></div>
-    </div>
-  </div>
-
-  <!-- WHY -->
+  <!-- WHY US & COMPARISON SECTION -->
   <section class="why" id="why">
     <div class="wrap why-grid">
-      <div>
-        <div class="section-head reveal" style="margin-bottom:40px;">
-          <div class="eyebrow"><span class="dot"></span> WHY RISKCURITY</div>
-          <h2>Security teams that ship. AI teams that understand risk.</h2>
-        </div>
-        <div class="why-list reveal">
-          <div class="why-item">
-            <div class="mark">01</div>
+      <div class="why-left reveal">
+        <div class="eyebrow"><span class="pulse-dot"></span> WHY RISKCURITY</div>
+        <h2>Security Engineers Who Ship. AI Teams Who Understand Risk.</h2>
+        <p>Most organizations are forced to juggle disconnected security vendors and unvetted AI tools. Riskcurity unites both disciplines under one engineering roof.</p>
+        
+        <div class="why-pillars">
+          <div class="why-pillar-item">
+            <span class="pillar-num">01</span>
             <div>
-              <h4>One team, both disciplines</h4>
-              <p>No handoff between your security vendor and your AI vendor — the same engineers own detection logic and
-                the automation built on top of it.</p>
+              <h4>One Unified Engineering Team</h4>
+              <p>No finger-pointing between your security provider and AI builders. The same team owns detection logic and the automation running on top.</p>
             </div>
           </div>
-          <div class="why-item">
-            <div class="mark">02</div>
+
+          <div class="why-pillar-item">
+            <span class="pillar-num">02</span>
             <div>
-              <h4>Findings you can act on</h4>
-              <p>Every VAPT report is ranked by business impact and paired with actionable remediation steps, not a
-                200-page scanner dump.</p>
+              <h4>Actionable Business-Ranked Reports</h4>
+              <p>Every VAPT and GRC finding is ranked by tangible business impact and paired with concrete code-level fix steps — never a 200-page scanner dump.</p>
             </div>
           </div>
-          <div class="why-item">
-            <div class="mark">03</div>
+
+          <div class="why-pillar-item">
+            <span class="pillar-num">03</span>
             <div>
-              <h4>Automation that's supervised</h4>
-              <p>AI agents and GRC automation are built with human checkpoints by default — autonomy where it's earned,
-                not everywhere.</p>
+              <h4>Supervised Autonomy by Design</h4>
+              <p>Our AI agents and GRC workflows operate with human-in-the-loop controls. Autonomy is deployed where proven, with zero unreviewed actions.</p>
             </div>
           </div>
-          <div class="why-item">
-            <div class="mark">04</div>
+
+          <div class="why-pillar-item">
+            <span class="pillar-num">04</span>
             <div>
-              <h4>Built to your framework</h4>
-              <p>ISO 27001, SOC 2, NIST, or something bespoke — controls and evidence are mapped to what your auditors
-                and customers actually ask for.</p>
+              <h4>Framework-Ready Compliance</h4>
+              <p>Whether ISO 27001, SOC 2, or NIST — controls and automated evidence are tuned exactly to what auditors and enterprise buyers demand.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="reveal">
-        <div class="console">
-          <div class="console-bar">
-            <span></span><span></span><span></span>
-            <span class="lbl">riskcurity — soc-console</span>
+      <!-- Live Comparison Card -->
+      <div class="why-right reveal">
+        <div class="comparison-card">
+          <div class="comp-header">
+            <h3>Enterprise Readiness Comparison</h3>
+            <span class="badge-live">VERIFIED</span>
           </div>
-          <div class="console-body" id="consoleBody"></div>
+          
+          <div class="comp-row">
+            <span class="comp-feature">Security &amp; AI Integration</span>
+            <span class="comp-val val-yes">✓ Unified In-House</span>
+            <span class="comp-val-alt">✗ Disconnected Vendors</span>
+          </div>
+
+          <div class="comp-row">
+            <span class="comp-feature">24/7 SOC Triage Latency</span>
+            <span class="comp-val val-yes">✓ &lt; 2 Minutes</span>
+            <span class="comp-val-alt">✗ Hours / Next Day</span>
+          </div>
+
+          <div class="comp-row">
+            <span class="comp-feature">GRC Evidence Collection</span>
+            <span class="comp-val val-yes">✓ 100% Automated</span>
+            <span class="comp-val-alt">✗ Manual Spreadsheets</span>
+          </div>
+
+          <div class="comp-row">
+            <span class="comp-feature">VAPT Remediation Guides</span>
+            <span class="comp-val val-yes">✓ Code-Level Steps</span>
+            <span class="comp-val-alt">✗ Generic Tool Dumps</span>
+          </div>
+
+          <div class="comp-row">
+            <span class="comp-feature">AI Supervised Guardrails</span>
+            <span class="comp-val val-yes">✓ Strict Human Review</span>
+            <span class="comp-val-alt">✗ Unvetted Executions</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- LIVE SOC INTERACTIVE TERMINAL CONSOLE -->
+  <section class="terminal-section" id="terminal">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow"><span class="pulse-dot"></span> LIVE TELEMETRY</div>
+        <h2>Live Security &amp; AI Automation Console</h2>
+        <p>Watch our simulated SOC engine run automated compliance verification, threat detection, and AI agent orchestration in real time.</p>
+      </div>
+
+      <div class="terminal-window reveal">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <div class="terminal-title">riskcurity-soc — cli-engine v2.6.4</div>
+          <div class="terminal-status"><span class="pulse-dot"></span> ONLINE</div>
+        </div>
+        
+        <div class="terminal-body" id="terminalBody">
+          <!-- Animated terminal lines typed dynamically by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & RISK ASSESSMENT BOOKING -->
   <section class="contact" id="contact">
     <div class="wrap contact-grid">
       <div class="contact-info reveal">
-        <div class="eyebrow"><span class="dot"></span> GET IN TOUCH</div>
-        <h2>Let's scope your risk — before someone else finds it.</h2>
-        <p>Tell us about your environment, your stack, or the automation you're trying to build. We'll come back with a
-          tailored plan.</p>
+        <div class="eyebrow"><span class="pulse-dot"></span> INITIATE REVIEW</div>
+        <h2>Let's Scope Your Risk — Before Adversaries Find It.</h2>
+        <p>Tell us about your infrastructure, compliance timeline, or AI automation goals. Our lead security architects will prepare a customized proposal within 24 hours.</p>
 
-        <div class="contact-detail">
-          <a href="mailto:riskecurity@gmail.com">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="M3 7l9 6 9-6" />
-            </svg>
-            riskecurity@gmail.com
+        <div class="contact-cards-stack">
+          <a href="mailto:riskecurity@gmail.com" class="contact-card-link">
+            <div class="contact-icon">📧</div>
+            <div class="contact-meta">
+              <span class="contact-label">Direct Email Inquiries</span>
+              <span class="contact-value">riskecurity@gmail.com</span>
+            </div>
           </a>
-          <a href="tel:+923423717545">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path
-                d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2z" />
-            </svg>
-            +92 342 3717545 (Bookings &amp; Appointments)
+
+          <a href="tel:+923423717545" class="contact-card-link">
+            <div class="contact-icon">📞</div>
+            <div class="contact-meta">
+              <span class="contact-label">Direct Line &amp; Consultations</span>
+              <span class="contact-value">+92 342 3717545</span>
+            </div>
           </a>
-          <a href="#contact">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            Remote-first · Global clients
-          </a>
+
+          <div class="contact-card-link">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-meta">
+              <span class="contact-label">Operations Model</span>
+              <span class="contact-value">Remote-First · Global Client Base</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <form class="form reveal" id="contactForm">
-        <!-- Web3Forms access key — replace YOUR_ACCESS_KEY with key from web3forms.com -->
+      <!-- Contact Form -->
+      <form class="contact-form reveal" id="contactForm">
         <input type="hidden" name="access_key" id="w3f_key" value="80e27178-2217-47b1-9947-cff9b84e9262">
-        <input type="hidden" name="subject" value="New Client Inquiry — Riskcurity">
-        <input type="hidden" name="from_name" value="Riskcurity Website">
+        <input type="hidden" name="subject" value="New Client Inquiry — Riskcurity Website">
+        <input type="hidden" name="from_name" value="Riskcurity Website Lead Engine">
         <input type="checkbox" name="botcheck" style="display:none;">
 
         <div class="form-row">
-          <div class="field">
-            <label for="fname">Name</label>
-            <input id="fname" name="name" type="text" placeholder="Your Name" required>
+          <div class="form-group">
+            <label for="fname"><span class="label-dot"></span> Your Name</label>
+            <input id="fname" name="name" type="text" placeholder="e.g. Alex Morgan" required>
           </div>
-          <div class="field">
-            <label for="femail">Work email</label>
-            <input id="femail" name="email" type="email" placeholder="you@company.com" required>
+          <div class="form-group">
+            <label for="femail"><span class="label-dot"></span> Work Email</label>
+            <input id="femail" name="email" type="email" placeholder="alex@company.com" required>
           </div>
         </div>
-        <div class="field">
-          <label for="fservice">Interested in</label>
+
+        <div class="form-group">
+          <label for="fservice"><span class="label-dot"></span> Interested Capability</label>
           <select id="fservice" name="service">
-            <option>GRC Automation</option>
-            <option>SOC &amp; SIEM</option>
-            <option>VAPT</option>
-            <option>AI Agents &amp; Automation</option>
-            <option>Web Development</option>
-            <option>Not sure yet</option>
+            <option>GRC Automation (ISO 27001 / SOC 2)</option>
+            <option>24/7 SOC &amp; SIEM Engineering</option>
+            <option>VAPT Penetration Testing</option>
+            <option>Autonomous AI Agents &amp; Automation</option>
+            <option>Secure Web Development</option>
+            <option>Full Security &amp; AI Package</option>
+            <option>Custom Scope / Not Sure Yet</option>
           </select>
         </div>
-        <div class="field">
-          <label for="fmsg">What are you trying to solve?</label>
-          <textarea id="fmsg" name="message"
-            placeholder="A few lines about your environment, timeline, or the problem you're facing."
-            required></textarea>
+
+        <div class="form-group">
+          <label for="fmsg"><span class="label-dot"></span> Project Scope or Challenges</label>
+          <textarea id="fmsg" name="message" rows="4" placeholder="Briefly describe your environment, compliance timeline, or security/automation goals..." required></textarea>
         </div>
 
-        <div id="formResult"
-          style="display:none; padding:12px 16px; border-radius:8px; margin-bottom:14px; font-family:var(--font-mono); font-size:13px;">
-        </div>
+        <div id="formResult" class="form-result" style="display:none;"></div>
 
-        <button type="submit" class="btn" id="submitBtn" style="width:100%; justify-content:center;">Send Message
-          →</button>
-        <p class="form-note">// your message goes directly to riskecurity@gmail.com</p>
+        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+          <span>Send Message &amp; Book Review</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <p class="form-disclaimer">// Your inquiry is dispatched directly to riskecurity@gmail.com</p>
       </form>
     </div>
   </section>
 
-  <footer>
-    <div class="wrap footer-row">
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-grid">
       <div class="footer-brand">
-        <img src="Riskcuritylogo.png" alt="Riskcurity logo">
-        <span>Security operations &amp; AI automation</span>
+        <a href="#top" class="brand">
+          <img src="Riskcuritylogo.png" alt="Riskcurity Logo" class="brand-logo">
+          <span class="brand-name">RISK<b>CURITY</b></span>
+        </a>
+        <p>Enterprise Cyber Defense, GRC Compliance Automation &amp; AI Engineering.</p>
       </div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
+
+      <div class="footer-col">
+        <h4>Capabilities</h4>
+        <a href="#services">GRC Automation</a>
+        <a href="#services">24/7 SOC Operations</a>
+        <a href="#services">SIEM Engineering</a>
+        <a href="#services">VAPT Penetration Testing</a>
+        <a href="#services">AI Agents &amp; Automation</a>
+        <a href="#services">Secure Web Development</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#top">Home</a>
+        <a href="#services">Capabilities</a>
+        <a href="#approach">How We Work</a>
         <a href="#why">Why Us</a>
+        <a href="#terminal">Live SOC</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="footer-copy">© 2026 Riskcurity. All rights reserved.</div>
+
+      <div class="footer-col">
+        <h4>Direct Contact</h4>
+        <p>Email: <a href="mailto:riskecurity@gmail.com">riskecurity@gmail.com</a></p>
+        <p>Phone: <a href="tel:+923423717545">+92 342 3717545</a></p>
+        <p>Global Remote Engineering</p>
+      </div>
+    </div>
+    
+    <div class="wrap footer-bottom">
+      <p>© 2026 Riskcurity. All rights reserved. Secured by Design.</p>
     </div>
   </footer>
 
-  <!-- CUTE MINI HACKER AI CHATBOT WIDGET (RISKMATE AI) -->
+  <!-- RISKMATE AI CHATBOT WIDGET -->
   <div class="hacker-chatbot-wrapper" id="hackerChatbot">
-    <!-- Floating greeting bubble popup -->
+    <!-- Floating Greeting Bubble -->
     <div class="hacker-bubble" id="hackerBubble">
-      <button class="hacker-bubble-close" id="hackerBubbleClose" aria-label="Close notification">&times;</button>
+      <button class="hacker-bubble-close" id="hackerBubbleClose" aria-label="Close bubble">&times;</button>
       <div class="hacker-bubble-title">⚡ Riskmate AI</div>
-      <div class="hacker-bubble-text">Hi! I'm Riskmate. Need help with Cyber Security, Web Dev or AI? Ask me anything!</div>
+      <div class="hacker-bubble-text">Hi there! Need guidance on Web Dev, AI Agents, SOC, or GRC? Let's chat!</div>
     </div>
 
-    <!-- Floating Cute Mini Hacker Toggle Button -->
+    <!-- Floating Launcher Button -->
     <button class="hacker-trigger-btn" id="hackerChatToggle" aria-label="Open Riskmate AI Chatbot">
       <span class="hacker-pulse-ring"></span>
       <span class="hacker-pulse-ring delay"></span>
       <div class="hacker-avatar-container">
-        <!-- SVG Cute Mini Hacker Icon -->
         <svg class="hacker-avatar-svg" viewBox="0 0 100 100">
-          <path d="M20 88 C20 62 35 55 50 55 C65 55 80 62 80 88 Z" fill="#0D1614" stroke="#22E5A8" stroke-width="2.5" />
-          <path d="M28 88 C28 67 38 61 50 61 C62 61 72 67 72 88 Z" fill="#050807" />
-          <circle cx="50" cy="42" r="24" fill="#0F1815" stroke="#22E5A8" stroke-width="2.5" />
-          <rect x="33" y="32" width="34" height="18" rx="7" fill="#050807" stroke="#1B8F86" stroke-width="2" />
-          <text x="37" y="45" fill="#22E5A8" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
-          <path d="M26 42 A24 24 0 0 1 74 42" fill="none" stroke="#22E5A8" stroke-width="2" stroke-dasharray="3 2" />
-          <circle cx="26" cy="42" r="3.5" fill="#22E5A8" />
-          <circle cx="74" cy="42" r="3.5" fill="#22E5A8" />
-          <circle cx="36" cy="53" r="2.5" fill="rgba(34, 229, 168, 0.4)" />
-          <circle cx="64" cy="53" r="2.5" fill="rgba(34, 229, 168, 0.4)" />
+          <path d="M20 88 C20 62 35 55 50 55 C65 55 80 62 80 88 Z" fill="#0D1614" stroke="#00d9ff" stroke-width="2.5" />
+          <path d="M28 88 C28 67 38 61 50 61 C62 61 72 67 72 88 Z" fill="#050814" />
+          <circle cx="50" cy="42" r="24" fill="#0F1828" stroke="#00ff88" stroke-width="2.5" />
+          <rect x="33" y="32" width="34" height="18" rx="7" fill="#050814" stroke="#00d9ff" stroke-width="2" />
+          <text x="37" y="45" fill="#00ff88" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
+          <path d="M26 42 A24 24 0 0 1 74 42" fill="none" stroke="#00d9ff" stroke-width="2" stroke-dasharray="3 2" />
+          <circle cx="26" cy="42" r="3.5" fill="#00ff88" />
+          <circle cx="74" cy="42" r="3.5" fill="#00ff88" />
         </svg>
         <span class="hacker-status-dot"></span>
         <span class="hacker-badge" id="hackerBadge">1</span>
       </div>
     </button>
 
-    <!-- Chatbot Window -->
+    <!-- Chatbot Window Panel -->
     <div class="hacker-chat-window" id="hackerChatWindow" aria-hidden="true">
       <div class="hacker-chat-header">
         <div class="hacker-chat-header-info">
           <div class="hacker-chat-avatar-mini">
             <svg viewBox="0 0 100 100" width="28" height="28">
-              <circle cx="50" cy="42" r="24" fill="#0F1815" stroke="#22E5A8" stroke-width="3" />
-              <rect x="33" y="32" width="34" height="18" rx="7" fill="#050807" stroke="#1B8F86" stroke-width="2" />
-              <text x="37" y="45" fill="#22E5A8" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
+              <circle cx="50" cy="42" r="24" fill="#0F1828" stroke="#00ff88" stroke-width="3" />
+              <rect x="33" y="32" width="34" height="18" rx="7" fill="#050814" stroke="#00d9ff" stroke-width="2" />
+              <text x="37" y="45" fill="#00ff88" font-family="monospace" font-size="11" font-weight="bold">&gt;_&lt;</text>
             </svg>
           </div>
           <div>
@@ -487,7 +669,7 @@
             🤖
           </div>
           <h3>Welcome to Riskmate AI</h3>
-          <p>Enter your details below to unlock instant AI assistance &amp; direct team support.</p>
+          <p>Please enter your name &amp; work email to unlock instant AI guidance and direct engineering support.</p>
           
           <form id="riskmateLoginForm">
             <div class="login-field">
@@ -496,9 +678,9 @@
             </div>
             <div class="login-field">
               <label for="riskmateEmail"><span class="label-dot"></span> Work Email</label>
-              <input type="email" id="riskmateEmail" placeholder="you@company.com" required />
+              <input type="email" id="riskmateEmail" placeholder="alex@company.com" required />
             </div>
-            <button type="submit" class="btn login-submit-btn">
+            <button type="submit" class="btn btn-primary login-submit-btn">
               <span>Start Chatting with Riskmate</span>
               <span>→</span>
             </button>
@@ -507,7 +689,7 @@
       </div>
 
       <div class="hacker-chat-body" id="hackerChatBody">
-        <!-- Messages rendered dynamically by JS -->
+        <!-- Messages & chips rendered dynamically by JS -->
       </div>
 
       <!-- Typing Indicator -->
