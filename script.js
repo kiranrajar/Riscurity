@@ -283,7 +283,7 @@
     });
   }
 
-  /* ---------- 7. RISKMATE AI CHATBOT & LEAD SYSTEM ---------- */
+  /* ---------- 7. RISKMATE AI CHATBOT & COMPREHENSIVE GUIDE ENGINE ---------- */
   var chatToggle = document.getElementById('hackerChatToggle');
   var chatWindow = document.getElementById('hackerChatWindow');
   var chatClose = document.getElementById('hackerChatClose');
@@ -328,14 +328,15 @@
       var userName = currentUser ? currentUser.name : 'there';
       chatBody.innerHTML = '';
       appendMessage(
-        '<p>Hi <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your engineering guide for <b>Web Development, AI Automation, SOC &amp; GRC</b>. How can I assist you today?</p>',
+        '<p>Hello <b>' + userName + '</b>! 👋 Welcome to <b>Riskcurity</b>.<br>I\'m <b>Riskmate AI</b>, your engineering guide for <b>Web Development, AI Automation, 24/7 SOC, SIEM &amp; GRC Compliance</b>.<br><br>How can I guide you today? Select a service below or type your question!</p>',
         'bot',
         [
           { label: '🌐 Web Development', topic: 'web' },
           { label: '🤖 AI Automation', topic: 'ai' },
-          { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+          { label: '👁️ 24/7 SOC Operations', topic: 'soc' },
           { label: '🛡️ GRC Compliance', topic: 'grc' },
-          { label: '⚔️ VAPT Testing', topic: 'vapt' },
+          { label: '⚔️ VAPT Penetration Testing', topic: 'vapt' },
+          { label: '🔄 How We Work (Process)', topic: 'process' },
           { label: '📩 Send Inquiry to Team', topic: 'lead', highlight: true }
         ]
       );
@@ -388,36 +389,122 @@
       });
     }
 
+    // Comprehensive Technical Knowledge Base & Step-by-Step Guides
     var kbAnswers = {
       web: {
         title: "🌐 Secure Web Development",
-        text: "We engineer <b>secure-by-design web platforms, SaaS applications, and enterprise portals</b> with built-in OWASP vulnerability protection, fast APIs, and modern responsive UI/UX.",
-        serviceVal: "Secure Web Development"
+        text: "<b>How Our Web Development Works:</b><br>" +
+              "1. <b>Architecture &amp; Threat Modeling:</b> We design secure data flows, RBAC permissions, and API boundaries from day one.<br>" +
+              "2. <b>Hardened Engineering:</b> We build full-stack web applications, SaaS platforms, and enterprise portals hardened against the <b>OWASP Top 10</b> (XSS, SQLi, CSRF, IDOR, and auth bypass prevention).<br>" +
+              "3. <b>Automated Security CI/CD:</b> Integrated SAST/DAST vulnerability scanners run on every commit before code reaches production.<br>" +
+              "4. <b>Ultra-Fast Modern UX/UI:</b> Responsive design, sleek dark mode glassmorphism, and sub-second load times.",
+        serviceVal: "Secure Web Development",
+        followUps: [
+          { label: '🤖 AI Automation', topic: 'ai' },
+          { label: '⚔️ VAPT Testing', topic: 'vapt' },
+          { label: '📩 Request Web Dev Proposal', topic: 'lead', highlight: true }
+        ]
       },
       ai: {
-        title: "🤖 AI Agents & Automation",
-        text: "We design <b>Autonomous AI Agents</b>, LLM RAG engines, automated ticket triage bots, Python/Node process automations, and intelligent workflows that eliminate manual operational toil.",
-        serviceVal: "Autonomous AI Agents & Automation"
+        title: "🤖 AI Agents & Workflow Automation",
+        text: "<b>How Our AI Automation Works:</b><br>" +
+              "1. <b>Task &amp; Workflow Discovery:</b> We analyze your repetitive operational tasks, ticket queues, and data extraction pipelines.<br>" +
+              "2. <b>Custom Autonomous Agent Architecture:</b> We build LLM RAG engines, vector search pipelines, and autonomous agent swarms (Python/Node, LangChain/CrewAI).<br>" +
+              "3. <b>Strict Human-Supervised Guardrails:</b> Every agent action is bound by permission boundaries — zero destructive runs without human sign-off.<br>" +
+              "4. <b>Integration &amp; Scaling:</b> Connects seamlessly into Slack, Jira, GitHub, AWS, and internal databases.",
+        serviceVal: "Autonomous AI Agents & Automation",
+        followUps: [
+          { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+          { label: '🛡️ GRC Compliance', topic: 'grc' },
+          { label: '📩 Build an AI Agent', topic: 'lead', highlight: true }
+        ]
       },
       soc: {
-        title: "👁️ 24/7 SOC Operations",
-        text: "Our dedicated <b>Security Operations Center (SOC)</b> provides 24/7 analyst monitoring around the clock, triaging alerts and neutralizing threats before they impact your infrastructure.",
-        serviceVal: "24/7 SOC & SIEM Engineering"
+        title: "👁️ 24/7 SOC Operations & Threat Defense",
+        text: "<b>How Our 24/7 SOC Works:</b><br>" +
+              "1. <b>Continuous Ingestion:</b> Ingests logs from AWS, Azure, Google Cloud, firewalls, Okta, and endpoints 24/7/365.<br>" +
+              "2. <b>Real-Time Analyst Triage (&lt; 2 min):</b> Our security analysts and automated AI filters investigate alerts, cutting through 99% of false alarms.<br>" +
+              "3. <b>Active Incident Containment:</b> Upon anomalous behavior, we immediately isolate affected hosts, revoke breached tokens, and neutralize threats.<br>" +
+              "4. <b>Transparent Executive Reports:</b> Weekly threat landscape analysis and compliance posture updates.",
+        serviceVal: "24/7 SOC & SIEM Engineering",
+        followUps: [
+          { label: '📡 SIEM Engineering', topic: 'siem' },
+          { label: '⚔️ VAPT Testing', topic: 'vapt' },
+          { label: '📩 Get SOC 24/7 Coverage', topic: 'lead', highlight: true }
+        ]
+      },
+      siem: {
+        title: "📡 SIEM Engineering & Detection Rules",
+        text: "<b>How Our SIEM Engineering Works:</b><br>" +
+              "1. <b>Log Pipeline Architecture:</b> We structure log collectors, parsing rules, and schema normalization.<br>" +
+              "2. <b>Detection Correlation:</b> Fine-tuned detection logic mapped against MITRE ATT&amp;CK matrices.<br>" +
+              "3. <b>Zero-Noise Dashboards:</b> Custom telemetry visualizers that surface real zero-day intrusions without alert fatigue.",
+        serviceVal: "24/7 SOC & SIEM Engineering",
+        followUps: [
+          { label: '👁️ 24/7 SOC Watch', topic: 'soc' },
+          { label: '🛡️ GRC Compliance', topic: 'grc' },
+          { label: '📩 Scope SIEM Project', topic: 'lead', highlight: true }
+        ]
       },
       grc: {
         title: "🛡️ GRC Compliance Automation",
-        text: "We automate compliance evidence mapping for <b>ISO 27001</b>, <b>SOC 2 Type II</b>, and NIST audit frameworks — replacing spreadsheets with automated audit trails.",
-        serviceVal: "GRC Automation (ISO 27001 / SOC 2)"
+        text: "<b>How Our GRC Automation Works:</b><br>" +
+              "1. <b>Control Mapping:</b> We map your controls against <b>ISO 27001</b>, <b>SOC 2 Type II</b>, NIST CSF, and GDPR.<br>" +
+              "2. <b>Automated Evidence Collection:</b> Continuous API scrapers automatically gather proof from cloud infrastructure, CI/CD, and identity providers.<br>" +
+              "3. <b>Live Audit Readiness:</b> Continuous compliance scoring, automated gap alerts, and instant auditor portal generation.",
+        serviceVal: "GRC Automation (ISO 27001 / SOC 2)",
+        followUps: [
+          { label: '⚔️ VAPT Audit', topic: 'vapt' },
+          { label: '🔄 Our 4-Stage Process', topic: 'process' },
+          { label: '📩 Book GRC Audit Review', topic: 'lead', highlight: true }
+        ]
       },
       vapt: {
         title: "⚔️ VAPT Penetration Testing",
-        text: "Our <b>VAPT service</b> tests your web apps, APIs, network, and cloud against real-world attack vectors, delivering impact-ranked remediation reports.",
-        serviceVal: "VAPT Penetration Testing"
+        text: "<b>How Our VAPT Process Works:</b><br>" +
+              "1. <b>Scoping &amp; Threat Modeling:</b> Define testing targets across Web, Cloud, APIs, Network, and Mobile.<br>" +
+              "2. <b>Active Ethical Hacking:</b> Manual and tool-assisted exploitation simulating real-world adversary attacks.<br>" +
+              "3. <b>Business-Ranked Fix Guide:</b> Proof-of-concept exploits with clear code-level remediation steps.<br>" +
+              "4. <b>Free Re-Testing:</b> We verify and certify your fixes once your developers deploy patches.",
+        serviceVal: "VAPT Penetration Testing",
+        followUps: [
+          { label: '🌐 Web Development', topic: 'web' },
+          { label: '🛡️ GRC Compliance', topic: 'grc' },
+          { label: '📩 Book Penetration Test', topic: 'lead', highlight: true }
+        ]
+      },
+      process: {
+        title: "🔄 How We Work (4-Stage Engagement)",
+        text: "<b>Our 4-Stage Methodology:</b><br>" +
+              "• <b>01 Assess:</b> Attack surface discovery, compliance baseline, and executive risk register.<br>" +
+              "• <b>02 Defend:</b> Patch critical exposures, configure SIEM, and activate 24/7 SOC monitoring.<br>" +
+              "• <b>03 Automate:</b> Deploy GRC evidence sync and autonomous AI agent triage workflows.<br>" +
+              "• <b>04 Evolve:</b> Continuous red-team tests, adaptive AI detection rules, and compounding security scale.",
+        serviceVal: "Custom Scope / Not Sure Yet",
+        followUps: [
+          { label: '👁️ SOC Operations', topic: 'soc' },
+          { label: '🤖 AI Automation', topic: 'ai' },
+          { label: '📩 Schedule Scoping Call', topic: 'lead', highlight: true }
+        ]
+      },
+      contact_info: {
+        title: "📞 Direct Contact & Scheduling",
+        text: "You can reach our engineering team directly at:<br>" +
+              "• <b>Email:</b> <a href='mailto:riskecurity@gmail.com'>riskecurity@gmail.com</a><br>" +
+              "• <b>Phone:</b> <a href='tel:+923423717545'>+92 342 3717545</a><br>" +
+              "• <b>Response Time:</b> Within 24 hours for all scoped proposals.",
+        serviceVal: "Custom Scope / Not Sure Yet",
+        followUps: [
+          { label: '📩 Send Message via Riskmate', topic: 'lead', highlight: true },
+          { label: '🌐 Explore Web Dev', topic: 'web' },
+          { label: '🤖 Explore AI Agents', topic: 'ai' }
+        ]
       },
       lead: {
         title: "📩 Direct Team Contact",
-        text: "Would you like to send a direct project inquiry or request a quote for our team? Type your inquiry below and Riskmate will send it straight to <b>riskecurity@gmail.com</b>!",
-        serviceVal: "Custom Scope / Not Sure Yet"
+        text: "I can forward your project details or question straight to our engineering team at <b>riskecurity@gmail.com</b>! Please type your project description or question below.",
+        serviceVal: "Custom Scope / Not Sure Yet",
+        followUps: []
       }
     };
 
@@ -482,15 +569,7 @@
 
         if (topicKey && kbAnswers[topicKey]) {
           var item = kbAnswers[topicKey];
-          var followUpChips = [
-            { label: '📩 Send Inquiry to Team', topic: 'lead', highlight: true },
-            { label: '🌐 Web Dev', topic: 'web' },
-            { label: '🤖 AI Agents', topic: 'ai' },
-            { label: '👁️ SOC Watch', topic: 'soc' },
-            { label: '🛡️ GRC Audit', topic: 'grc' }
-          ].filter(function (c) { return c.topic !== topicKey; });
-
-          appendMessage('<p>' + item.text + '</p>', 'bot', followUpChips);
+          appendMessage('<p>' + item.text + '</p>', 'bot', item.followUps);
 
           if (fserviceSelect && item.serviceVal) {
             for (var i = 0; i < fserviceSelect.options.length; i++) {
@@ -501,48 +580,72 @@
             }
           }
           if (topicKey === 'lead') {
-            appendMessage('<p>Please type your project details or question in the box below, and I will dispatch it to riskecurity@gmail.com right away!</p>', 'bot');
+            appendMessage('<p>Please type your project details or question in the chat input below, and I will dispatch it to <b>riskecurity@gmail.com</b> right away!</p>', 'bot');
           }
 
         } else if (customQuery) {
           var q = customQuery.toLowerCase();
           var matchedTopic = null;
 
-          if (q.indexOf('web') !== -1 || q.indexOf('site') !== -1 || q.indexOf('dev') !== -1 || q.indexOf('app') !== -1 || q.indexOf('frontend') !== -1 || q.indexOf('backend') !== -1) {
+          // Intelligent Keyword & Topic Resolution
+          if (q.indexOf('web') !== -1 || q.indexOf('site') !== -1 || q.indexOf('dev') !== -1 || q.indexOf('app') !== -1 || q.indexOf('react') !== -1 || q.indexOf('portal') !== -1 || q.indexOf('api') !== -1) {
             matchedTopic = 'web';
-          } else if (q.indexOf('ai') !== -1 || q.indexOf('agent') !== -1 || q.indexOf('autom') !== -1 || q.indexOf('llm') !== -1 || q.indexOf('bot') !== -1) {
+          } else if (q.indexOf('ai') !== -1 || q.indexOf('agent') !== -1 || q.indexOf('autom') !== -1 || q.indexOf('llm') !== -1 || q.indexOf('rag') !== -1 || q.indexOf('bot') !== -1) {
             matchedTopic = 'ai';
           } else if (q.indexOf('soc') !== -1 || q.indexOf('monitoring') !== -1 || q.indexOf('24/7') !== -1 || q.indexOf('threat') !== -1) {
             matchedTopic = 'soc';
-          } else if (q.indexOf('grc') !== -1 || q.indexOf('iso') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1) {
+          } else if (q.indexOf('siem') !== -1 || q.indexOf('log') !== -1) {
+            matchedTopic = 'siem';
+          } else if (q.indexOf('grc') !== -1 || q.indexOf('iso') !== -1 || q.indexOf('soc 2') !== -1 || q.indexOf('audit') !== -1 || q.indexOf('compliance') !== -1 || q.indexOf('nist') !== -1) {
             matchedTopic = 'grc';
-          } else if (q.indexOf('vapt') !== -1 || q.indexOf('pen') !== -1 || q.indexOf('test') !== -1 || q.indexOf('vuln') !== -1) {
+          } else if (q.indexOf('vapt') !== -1 || q.indexOf('pen') !== -1 || q.indexOf('test') !== -1 || q.indexOf('hack') !== -1 || q.indexOf('vuln') !== -1) {
             matchedTopic = 'vapt';
+          } else if (q.indexOf('how') !== -1 || q.indexOf('process') !== -1 || q.indexOf('stage') !== -1 || q.indexOf('method') !== -1 || q.indexOf('work') !== -1) {
+            matchedTopic = 'process';
+          } else if (q.indexOf('contact') !== -1 || q.indexOf('email') !== -1 || q.indexOf('phone') !== -1 || q.indexOf('call') !== -1 || q.indexOf('reach') !== -1 || q.indexOf('book') !== -1 || q.indexOf('price') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('quote') !== -1) {
+            matchedTopic = 'contact_info';
+          } else if (q.indexOf('hello') !== -1 || q.indexOf('hi') !== -1 || q.indexOf('hey') !== -1) {
+            appendMessage(
+              '<p>Hello! 👋 I\'m <b>Riskmate AI</b>. I\'m here to guide you on how Riskcurity protects enterprises and automates AI systems. Which area would you like to explore?</p>',
+              'bot',
+              [
+                { label: '🌐 Web Development', topic: 'web' },
+                { label: '🤖 AI Automation', topic: 'ai' },
+                { label: '👁️ SOC 24/7', topic: 'soc' },
+                { label: '🛡️ GRC Compliance', topic: 'grc' },
+                { label: '⚔️ VAPT Testing', topic: 'vapt' },
+                { label: '📩 Contact Team', topic: 'lead', highlight: true }
+              ]
+            );
+            return;
           }
 
           if (matchedTopic) {
             triggerResponse(matchedTopic);
           } else {
+            // Dispatch general question / customized query as lead to riskecurity@gmail.com
             chatTyping.style.display = 'flex';
             sendLeadToEmail(customQuery, function (success) {
               chatTyping.style.display = 'none';
               if (success) {
                 appendMessage(
-                  '<p>✓ <b>Inquiry Sent to Riskcurity Engineers!</b><br>Your message was delivered to <b>riskecurity@gmail.com</b>. Our team will reply to <b>' + (currentUser ? currentUser.email : 'your email') + '</b> within 1 business day.</p>',
+                  '<p>✓ <b>Inquiry Dispatched to Riskcurity Engineers!</b><br>Your message was delivered to <b>riskecurity@gmail.com</b>. Our team will follow up with <b>' + (currentUser ? currentUser.email : 'your email') + '</b> within 24 hours.</p>',
                   'bot',
                   [
                     { label: '🌐 Explore Web Dev', topic: 'web' },
                     { label: '🤖 Explore AI Agents', topic: 'ai' },
-                    { label: '👁️ Explore SOC Watch', topic: 'soc' }
+                    { label: '👁️ Explore SOC Watch', topic: 'soc' },
+                    { label: '🛡️ Explore GRC', topic: 'grc' }
                   ]
                 );
               } else {
                 appendMessage(
-                  '<p>I\'ve noted your inquiry! You can also reach our team directly at <a href="mailto:riskecurity@gmail.com">riskecurity@gmail.com</a> or 📞 <b>+92 342 3717545</b>.</p>',
+                  '<p>Thank you! You can also contact our team directly at <a href="mailto:riskecurity@gmail.com">riskecurity@gmail.com</a> or phone 📞 <b>+92 342 3717545</b>.</p>',
                   'bot',
                   [
-                    { label: '🛡️ GRC', topic: 'grc' },
-                    { label: '🤖 AI Agents', topic: 'ai' }
+                    { label: '🛡️ GRC Compliance', topic: 'grc' },
+                    { label: '🤖 AI Agents', topic: 'ai' },
+                    { label: '🌐 Web Development', topic: 'web' }
                   ]
                 );
               }
