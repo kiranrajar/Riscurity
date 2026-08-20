@@ -927,3 +927,68 @@ a{color:inherit;text-decoration:none}
 }
 
 ::selection{background:var(--teal);color:var(--fog-text)}
+
+
+/* ── Riskmate AI launcher wrapper + label ── */
+.rm-launcher{
+  position:fixed;
+  bottom:1.75rem;right:1.75rem;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  opacity:0;
+  animation:rm-appear .5s 1.4s var(--ease) forwards;
+}
+
+.rm-launcher-label{
+  display:flex;align-items:center;gap:.45rem;
+  padding:.42rem .95rem .42rem .65rem;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:100px;
+  font-family:var(--f-body);
+  font-size:.82rem;
+  font-weight:500;
+  color:var(--fog-text);
+  white-space:nowrap;
+  box-shadow:0 4px 16px rgba(0,0,0,.35);
+  cursor:pointer;
+  transition:border-color var(--t-fast), background var(--t-fast);
+}
+.rm-launcher-label:hover{
+  border-color:var(--teal-border);
+  background:var(--surface-3);
+}
+
+.rm-label-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--teal);
+  box-shadow:0 0 0 0 rgba(37,136,111,.5);
+  animation:rm-pulse 2.2s infinite;
+  flex-shrink:0;
+}
+@keyframes rm-pulse{
+  0%  {box-shadow:0 0 0 0 rgba(37,136,111,.55)}
+  70% {box-shadow:0 0 0 7px rgba(37,136,111,0)}
+  100%{box-shadow:0 0 0 0 rgba(37,136,111,0)}
+}
+
+/* Remove the fixed positioning from .rm-trigger
+   since it now lives inside .rm-launcher */
+.rm-trigger{
+  position:static;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--ink);border:1px solid var(--border);
+  box-shadow:0 4px 14px rgba(0,0,0,.35);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:transform var(--t-smooth),box-shadow var(--t-smooth);
+  opacity:1;
+  animation:none;
+}
+.rm-trigger:hover{
+  transform:scale(1.08);
+  box-shadow:0 6px 22px rgba(0,0,0,.45);
+}

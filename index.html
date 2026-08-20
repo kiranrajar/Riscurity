@@ -574,13 +574,18 @@
 </footer>
 
 <!-- ────────────── RISKMATE AI WIDGET ────────────── -->
-<button id="rmTrigger" class="rm-trigger" aria-label="Open chat with our team" aria-expanded="false">
-  <!-- Chat / spark icon -->
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-  </svg>
-  <span class="rm-teal-dot" aria-hidden="true"></span>
-</button>
+<div class="rm-launcher">
+  <span class="rm-launcher-label" id="rmLabel" aria-hidden="true">
+    <span class="rm-label-dot"></span>
+    Riskmate AI
+  </span>
+  <button id="rmTrigger" class="rm-trigger" aria-label="Open Riskmate AI assistant" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span class="rm-teal-dot" aria-hidden="true"></span>
+  </button>
+</div>
 
 <div id="rmPanel" class="rm-panel" role="dialog" aria-label="Chat with Riskmate AI" aria-modal="true">
   <div class="rm-head">

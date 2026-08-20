@@ -150,6 +150,22 @@ document.addEventListener('DOMContentLoaded', () => {
   rmTrigger.addEventListener('click', () =>
     rmPanel.classList.contains('open') ? closePanel() : openPanel()
   );
+
+  // Clicking the "Riskmate AI" label pill also opens the panel
+  const rmLabel = document.getElementById('rmLabel');
+  if (rmLabel) {
+    rmLabel.addEventListener('click', () =>
+      rmPanel.classList.contains('open') ? closePanel() : openPanel()
+    );
+    // Hide label when panel is open (clean look)
+    const panelObserver = new MutationObserver(() => {
+      const isOpen = rmPanel.classList.contains('open');
+      rmLabel.style.opacity      = isOpen ? '0'        : '1';
+      rmLabel.style.pointerEvents = isOpen ? 'none'    : 'auto';
+      rmLabel.style.transform    = isOpen ? 'translateX(8px)' : 'translateX(0)';
+    });
+    panelObserver.observe(rmPanel, { attributes: true, attributeFilter: ['class'] });
+  }
   if (rmClose) rmClose.addEventListener('click', closePanel);
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && rmPanel.classList.contains('open')) closePanel();
