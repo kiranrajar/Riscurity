@@ -70,21 +70,130 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ════════════════════════════════
-     3. SCROLL REVEALS
+     3. SCROLL REVEALS + STAGGER
   ════════════════════════════════ */
-  function observe(sel, threshold, keepWatching) {
+  function observe(sel, threshold, once) {
     const els = document.querySelectorAll(sel);
     if (!els.length) return;
     const ob = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in-view'); if (!keepWatching) ob.unobserve(e.target); }
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          if (once !== false) ob.unobserve(e.target);
+        }
       });
-    }, { threshold });
+    }, { threshold: threshold || 0.1 });
     els.forEach(el => ob.observe(el));
   }
-  observe('.reveal',  0.1);
-  observe('.stage',   0.22, true);
-  observe('.m-card',  0.18, true);
+
+  // Basic reveals (fire once)
+  observe('.reveal', 0.1);
+  observe('.reveal-stagger', 0.08);
+  observe('.form-card', 0.1);
+
+  // Stages — fire once per card
+  observe('.stage', 0.22);
+
+  // Methodology — stagger cards in sequence + draw line
+  const mCards = document.querySelectorAll('.m-card');
+  const mGrid  = document.querySelector('.method-grid');
+  if (mCards.length && mGrid) {
+    const mOb = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          // Stagger: each card gets a slight delay based on index
+          const idx = Array.from(mCards).indexOf(e.target);
+          const delay = idx * 100; // 100ms stagger
+          e.target.style.transitionDelay = `${delay}ms`;
+          e.target.classList.add('in-view');
+          mOb.unobserve(e.target);
+
+          // Draw the connecting line when the first card appears
+          if (!mGrid.classList.contains('line-drawn')) {
+            mGrid.classList.add('line-drawn');
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+    mCards.forEach(c => mOb.observe(c));
+  }
+
+  /* ════════════════════════════════
+     3b. NAV SHRINK ON SCROLL
+  ════════════════════════════════ */
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader && !prefersReducedMotion) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          siteHeader.classList.toggle('scrolled', window.scrollY > 120);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ════════════════════════════════
+     3c. STAT NUMBER COUNTERS
+  ════════════════════════════════ */
+  function animateCounter(el, from, to, suffix, duration) {
+    if (prefersReducedMotion) { el.textContent = to + (suffix || ''); return; }
+    const t0 = performance.now();
+    const isFloat = String(to).includes('.');
+    const dur = duration || 1200;
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      const val = from + (to - from) * eased;
+      el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + (suffix || '');
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  // Watch stat strip for counter triggers
+  const statCells = document.querySelectorAll('.stat-cell');
+  if (statCells.length) {
+    const counterData = [
+      // [sn-before from, sn-before to, sn-after from, sn-after to, suffix]
+      { before: [0, 23, ''], after: [0, 1, ''] },
+      { before: [0, 7.8, ''], after: [0, 2.1, ''] },
+      { after: [0, 68, '%'] },
+      { custom: true }  // "8 wks" — just fade in, no count
+    ];
+
+    let statsRan = false;
+    const statsOb = new IntersectionObserver(([entry], ob) => {
+      if (entry.isIntersecting && !statsRan) {
+        statsRan = true;
+        ob.disconnect();
+
+        statCells.forEach((cell, i) => {
+          const data = counterData[i];
+          if (!data) return;
+          const delay = i * 80; // 80ms stagger
+
+          setTimeout(() => {
+            if (data.custom) return; // "8 wks" already in HTML
+
+            const beforeEl = cell.querySelector('.sn-before');
+            const afterEl  = cell.querySelector('.sn-after');
+
+            if (data.before && beforeEl) {
+              animateCounter(beforeEl, data.before[0], data.before[1], data.before[2], 1100);
+            }
+            if (data.after && afterEl) {
+              animateCounter(afterEl, data.after[0], data.after[1], data.after[2], 1300);
+            }
+          }, delay);
+        });
+      }
+    }, { threshold: 0.3 });
+
+    const statStrip = document.querySelector('.stat-strip');
+    if (statStrip) statsOb.observe(statStrip);
+  }
 
   /* ════════════════════════════════
      4. CONTACT FORM

@@ -1009,3 +1009,102 @@ a{color:inherit;text-decoration:none}
   transform:scale(1.08);
   box-shadow:0 6px 22px rgba(0,0,0,.45);
 }
+
+
+/* ════════════════════════════════════
+   ANIMATION SYSTEM — calm, deliberate
+   ease: cubic-bezier(.16,1,.3,1)
+════════════════════════════════════ */
+
+/* ── Staggered reveals ── */
+.reveal-stagger > *{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .6s var(--ease), transform .6s var(--ease);
+}
+.reveal-stagger.in-view > *{opacity:1;transform:translateY(0)}
+.reveal-stagger.in-view > *:nth-child(1){transition-delay:0ms}
+.reveal-stagger.in-view > *:nth-child(2){transition-delay:70ms}
+.reveal-stagger.in-view > *:nth-child(3){transition-delay:140ms}
+.reveal-stagger.in-view > *:nth-child(4){transition-delay:210ms}
+.reveal-stagger.in-view > *:nth-child(5){transition-delay:280ms}
+.reveal-stagger.in-view > *:nth-child(6){transition-delay:350ms}
+
+/* ── Nav shrink on scroll ── */
+.site-header{
+  transition:height .35s var(--ease), box-shadow .35s ease;
+}
+.site-header.scrolled{
+  height:56px;
+  box-shadow:0 1px 12px rgba(0,0,0,.25);
+}
+.site-header.scrolled .nav-brand{font-size:1.15rem}
+.site-header.scrolled .nav-brand-badge{font-size:.6rem;padding:.14rem .38rem}
+
+/* ── Stat counters ── */
+.stat-num-anim{
+  font-family:var(--f-mono);
+  font-variant-numeric:tabular-nums;
+  display:inline-block;
+  min-width:1.5ch;
+}
+
+/* ── Methodology line draw ── */
+.method-grid::before{
+  transform-origin:left center;
+  transform:scaleX(0);
+  transition:transform 1.2s var(--ease);
+}
+.method-grid.line-drawn::before{
+  transform:scaleX(1);
+}
+
+/* ── Methodology card stagger ── */
+.m-card{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .55s var(--ease), transform .55s var(--ease),
+             border-color .3s ease, box-shadow .3s ease;
+}
+.m-card.in-view{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ── Submit tactile feedback ── */
+.btn-primary:active{
+  transform:scale(0.97)!important;
+  transition:transform .08s ease;
+}
+
+/* ── Contact fields reveal ── */
+.form-card .fg{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+}
+.form-card.in-view .fg{opacity:1;transform:translateY(0)}
+.form-card.in-view .fg:nth-child(1){transition-delay:0ms}
+.form-card.in-view .fg:nth-child(2){transition-delay:60ms}
+.form-card.in-view .fg:nth-child(3){transition-delay:120ms}
+.form-card.in-view .fg:nth-child(4){transition-delay:180ms}
+.form-card.in-view .fg:nth-child(5){transition-delay:240ms}
+.form-card.in-view .fg:nth-child(6){transition-delay:300ms}
+.form-card.in-view .fg:nth-child(7){transition-delay:360ms}
+
+/* ── prefers-reduced-motion overrides ── */
+@media(prefers-reduced-motion:reduce){
+  .reveal-stagger > *,
+  .m-card,
+  .form-card .fg{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  .method-grid::before{
+    transform:scaleX(1)!important;
+    transition:none!important;
+  }
+  .site-header{transition:none!important}
+  .btn-primary:active{transform:none!important}
+}
