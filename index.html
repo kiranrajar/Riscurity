@@ -3,526 +3,540 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riskcurity — Enterprise Cyber Defense & AI Automation</title>
-  <meta name="description" content="Precision adversarial penetration testing, ISO 27001 / SOC 2 / PCI DSS compliance automation, 24/7 SOC monitoring, and AI agent engineering for technical enterprises.">
-
-  <!-- Google Fonts: Newsreader (Display Serif), Inter (Body), IBM Plex Mono (Data/Mono) -->
+  <title>Riskcurity — Security & Compliance for Scaling Companies</title>
+  <meta name="description" content="We test your defences, handle your compliance certifications, and monitor your infrastructure 24/7 — so you can close enterprise deals without security being the blocker.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Site Header & Navigation -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="#top" class="brand">
-        <span>RISKCURITY</span>
-        <span class="brand-tag">ISO 27001 / SOC 2 / PCI DSS</span>
-      </a>
+<!-- ────────────── NAV ────────────── -->
+<header class="site-header">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-brand">
+      RISKCURITY
+      <span class="nav-brand-badge">ISO 27001 · SOC 2 · PCI DSS</span>
+    </a>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="nav-list" id="navList">
+      <li><a href="#disciplines">Disciplines</a></li>
+      <li><a href="#case-study">Case Study</a></li>
+      <li><a href="#approach">Lifecycle</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="btn btn-primary">Book Assessment</a></li>
+    </ul>
+  </div>
+</header>
 
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
+<main id="top">
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#services" class="nav-link">Disciplines</a></li>
-        <li><a href="#case-study" class="nav-link">Case Study</a></li>
-        <li><a href="#approach" class="nav-link">Lifecycle</a></li>
-        <li><a href="#why" class="nav-link">Why Us</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="#contact" class="btn btn-primary">Book Assessment</a></li>
-      </ul>
-    </div>
-  </header>
+<!-- ────────────── HERO ────────────── -->
+<section class="hero">
+  <!-- Animated network topology SVG at low opacity -->
+  <svg class="hero-bg-svg" viewBox="0 0 900 700" fill="none" aria-hidden="true">
+    <path class="hero-bg-path" d="M80 120 L280 240 L520 180 L740 380 M280 240 L420 460 L640 520 M80 120 L180 380 L420 460 M520 180 L580 340 L640 520" stroke="#12181F" stroke-width="1.5"/>
+    <circle cx="80"  cy="120" r="5" fill="#12181F"/>
+    <circle cx="280" cy="240" r="5" fill="#12181F"/>
+    <circle cx="520" cy="180" r="5" fill="#12181F"/>
+    <circle cx="740" cy="380" r="5" fill="#12181F"/>
+    <circle cx="420" cy="460" r="5" fill="#12181F"/>
+    <circle cx="640" cy="520" r="5" fill="#12181F"/>
+    <circle cx="580" cy="340" r="5" fill="#12181F"/>
+    <circle cx="180" cy="380" r="5" fill="#12181F"/>
+  </svg>
 
-  <main id="top">
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <!-- Abstract Line Network Background Graphic -->
-      <svg class="hero-background-graphic" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M100 100 L300 200 L500 150 L700 350 M300 200 L400 400 L600 450 M100 100 L200 350 L400 400" stroke="#12181F" stroke-width="1.5" stroke-dasharray="4 4" />
-        <circle cx="100" cy="100" r="4" fill="#12181F" />
-        <circle cx="300" cy="200" r="4" fill="#12181F" />
-        <circle cx="500" cy="150" r="4" fill="#12181F" />
-        <circle cx="700" cy="350" r="4" fill="#12181F" />
-        <circle cx="400" cy="400" r="4" fill="#12181F" />
-        <circle cx="200" cy="350" r="4" fill="#12181F" />
-      </svg>
-
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="section-label">Enterprise Cyber Defense & AI Automation</span>
-          <h1 class="hero-title">Engineered for Uncompromising Security.</h1>
-          <p class="hero-subhead">
-            We defend your critical infrastructure with 24/7 SOC operations, adversarial VAPT testing, and automated ISO 27001 / SOC 2 / PCI DSS compliance while deploying secure, autonomous AI agent swarms.
-          </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Book a Risk Assessment →</a>
-            <a href="#services" class="btn btn-secondary">Explore 6 Core Disciplines ↓</a>
-          </div>
-        </div>
-
-        <!-- Signature Visual: Animated Risk Score Dial Gauge -->
-        <div class="hero-visual">
-          <div class="risk-gauge-card">
-            <div class="gauge-header">
-              <span class="gauge-title">Composite Risk Thesis</span>
-              <span class="gauge-status-badge" id="gaugeStatus">Audited · High Risk</span>
-            </div>
-
-            <div class="gauge-svg-container">
-              <svg class="gauge-svg" viewBox="0 0 200 120">
-                <path class="gauge-bg-arc" d="M 20 100 A 80 80 0 0 1 180 100" />
-                <path class="gauge-value-arc" id="gaugeArc" d="M 20 100 A 80 80 0 0 1 180 100" />
-              </svg>
-              <div class="gauge-value-readout">
-                <div class="gauge-number" id="gaugeNumber">7.8</div>
-                <div class="gauge-label">Infrastructure Risk Index</div>
-              </div>
-            </div>
-
-            <div class="gauge-comparison-strip">
-              <div class="comp-item">
-                <span class="comp-label">Before Audit</span>
-                <span class="comp-val before">7.8 · High Risk</span>
-              </div>
-              <div class="comp-item">
-                <span class="comp-label">Target Resolution</span>
-                <span class="comp-val after">2.1 · Remediated</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Case Study Section -->
-    <section class="case-study-section" id="case-study">
-      <div class="container">
-        <div class="case-study-header">
-          <span class="section-label">Proven Outcomes</span>
-          <h2 class="section-heading">Case Walkthrough: Regional Payments Processor (Saudi Arabia)</h2>
-          <p class="section-subhead">
-            How we lowered composite risk scores from 7.8 to 2.1 and eliminated 22 critical PCI DSS findings in 8 weeks to unblock a high-stakes banking integration.
-          </p>
-        </div>
-
-        <!-- Horizontal Data Strip -->
-        <div class="data-strip">
-          <div class="stat-card">
-            <div class="stat-number-wrapper">
-              <span class="num-before">23</span>
-              <span class="num-arrow">→</span>
-              <span class="num-after">1</span>
-            </div>
-            <div class="stat-label">PCI DSS & ISO Findings</div>
-            <div class="stat-desc">95.6% total vulnerability remediation rate across payment APIs.</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-number-wrapper">
-              <span class="num-before">7.8</span>
-              <span class="num-arrow">→</span>
-              <span class="num-after">2.1</span>
-            </div>
-            <div class="stat-label">Infrastructure Risk Score</div>
-            <div class="stat-desc">Dramatic hardening across AWS ECS, Kubernetes, and database clusters.</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-number-wrapper">
-              <span class="num-after">68%</span>
-            </div>
-            <div class="stat-label">False Positive Reduction</div>
-            <div class="stat-desc">Noise eliminated across SIEM & SOC telemetry pipelines.</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-number-wrapper">
-              <span class="num-after">8 WEEKS</span>
-            </div>
-            <div class="stat-label">Sprint Time to Compliance</div>
-            <div class="stat-desc">Accelerated QSA review & bank authorization.</div>
-          </div>
-        </div>
-
-        <!-- Narrative Sequence Stages -->
-        <div class="narrative-timeline">
-          <div class="stage-panel">
-            <div class="stage-meta">
-              <span class="stage-step">Stage 01</span>
-              <h3 class="stage-name">Challenge</h3>
-            </div>
-            <div class="stage-body">
-              <p>The client faced an urgent PCI DSS Type II & ISO 27001 audit to authorize their regional payment gateway. Legacy microservices and unpatched AWS clusters had accumulated 23 critical findings, threatening to delay a multi-million dollar banking partnership.</p>
-              <div class="stage-deliverables">
-                <span class="deliv-pill">AWS ECS Audit</span>
-                <span class="deliv-pill">Payment API Scope</span>
-                <span class="deliv-pill">PCI DSS Gap Analysis</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="stage-panel">
-            <div class="stage-meta">
-              <span class="stage-step">Stage 02</span>
-              <h3 class="stage-name">Discovery</h3>
-            </div>
-            <div class="stage-body">
-              <p>Our offensive security team conducted comprehensive manual penetration testing and threat modeling across Web apps, mobile endpoints, and cloud infrastructure. We uncovered business-logic authentication bypasses and database misconfigurations.</p>
-              <div class="stage-deliverables">
-                <span class="deliv-pill">PoC Exploit Reports</span>
-                <span class="deliv-pill">VAPT Code Snippets</span>
-                <span class="deliv-pill">Risk Priority Matrix</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="stage-panel">
-            <div class="stage-meta">
-              <span class="stage-step">Stage 03</span>
-              <h3 class="stage-name">Remediation</h3>
-            </div>
-            <div class="stage-body">
-              <p>Eliminating vendor-to-developer translation layers, our offensive engineers embedded directly into the client's engineering Slack and GitHub PR workflows. We authored custom terraform policies, API patches, and SIEM detection rules.</p>
-              <div class="stage-deliverables">
-                <span class="deliv-pill">Direct PR Code Snippets</span>
-                <span class="deliv-pill">Automated Control Mapping</span>
-                <span class="deliv-pill">SIEM YARA Rules</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="stage-panel">
-            <div class="stage-meta">
-              <span class="stage-step">Stage 04</span>
-              <h3 class="stage-name">Outcome</h3>
-            </div>
-            <div class="stage-body">
-              <p>Within 8 weeks, 22 of 23 findings were fully remediated and verified via complimentary post-patch re-testing. The client achieved PCI DSS compliance sign-off with zero deal friction.</p>
-              <div class="stage-deliverables">
-                <span class="deliv-pill">QSA-Accepted Attestation</span>
-                <span class="deliv-pill">24/7 SOC Telemetry</span>
-                <span class="deliv-pill">SOC 2 Type II Map</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Core Disciplines Section -->
-    <section class="disciplines-section" id="services">
-      <div class="container">
-        <span class="section-label">Core Disciplines</span>
-        <h2 class="section-heading">Comprehensive Cyber Defense & Automation</h2>
-        <p class="section-subhead">
-          Modular security operations, offensive testing, and intelligent engineering designed to scale with your organization.
-        </p>
-
-        <div class="services-grid">
-          <!-- Service 1: VAPT -->
-          <div class="service-card reveal-on-scroll">
-            <div class="service-icon-wrapper">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="service-title">Vulnerability Assessment & Penetration Testing (VAPT)</h3>
-            <p class="service-desc">Rigorous manual and tool-assisted offensive penetration testing across Web apps, APIs, Mobile apps, and Cloud infrastructure (AWS/GCP/Azure) with step-by-step developer remediation code snippets.</p>
-            <ul class="service-features">
-              <li class="feature-item">OWASP Top 10 & Business-Logic Bypasses</li>
-              <li class="feature-item">Verified PoC Exploit Demonstrations</li>
-              <li class="feature-item">Free Post-Patch Validation Re-Testing</li>
-            </ul>
-          </div>
-
-          <!-- Service 2: GRC -->
-          <div class="service-card reveal-on-scroll">
-            <div class="service-icon-wrapper">
-              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <h3 class="service-title">GRC & Compliance Automation</h3>
-            <p class="service-desc">Eliminate spreadsheet compliance toil. We implement automated control mapping and continuous evidence collection for ISO 27001, SOC 2 Type II, PCI DSS, and NIST CSF.</p>
-            <ul class="service-features">
-              <li class="feature-item">Continuous AWS / GitHub / Okta Telemetry</li>
-              <li class="feature-item">Auditor-Approved Policy Templates</li>
-              <li class="feature-item">Zero-Friction Evidence Collection</li>
-            </ul>
-          </div>
-
-          <!-- Service 3: SOC -->
-          <div class="service-card reveal-on-scroll">
-            <div class="service-icon-wrapper">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <h3 class="service-title">24/7 SOC Threat Monitoring</h3>
-            <p class="service-desc">Round-the-clock Security Operations Center (SOC) oversight. We monitor cloud environments, endpoints, and networks to detect, triage, and isolate active adversary intrusion attempts.</p>
-            <ul class="service-features">
-              <li class="feature-item">Sub-15 Minute Threat Triage SLA</li>
-              <li class="feature-item">Human Threat Hunter Escalations</li>
-              <li class="feature-item">Endpoint Isolation & Incident Response</li>
-            </ul>
-          </div>
-
-          <!-- Service 4: SIEM -->
-          <div class="service-card reveal-on-scroll">
-            <div class="service-icon-wrapper">
-              <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 14 15 20 9"/><polyline points="14 9 20 9 20 15"/></svg>
-            </div>
-            <h3 class="service-title">SIEM Detection Engineering</h3>
-            <p class="service-desc">Custom log pipeline ingestion, correlation rule authoring, and detection engineering across AWS CloudTrail, Datadog, Splunk, and Elastic SIEM environments.</p>
-            <ul class="service-features">
-              <li class="feature-item">Custom Sigma & YARA Rule Suites</li>
-              <li class="feature-item">False-Positive Reduction Engineering</li>
-              <li class="feature-item">Automated Threat Correlation Pipelines</li>
-            </ul>
-          </div>
-
-          <!-- Service 5: AI Agent Swarms -->
-          <div class="service-card reveal-on-scroll">
-            <div class="service-icon-wrapper">
-              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
-            </div>
-            <h3 class="service-title">AI Agent Automations</h3>
-            <p class="service-desc">Deploy autonomous AI security agent swarms engineered for SOC alert triage, automated threat intelligence gathering, policy enforcement, and DevSecOps workflow automation.</p>
-            <ul class="service-features">
-              <li class="feature-item">Autonomous SOC Alert Pre-Triage</li>
-              <li class="feature-item">Automated Compliance Evidence Extraction</li>
-              <li class="feature-item">Custom LangChain & LlamaIndex Swarms</li>
-            </ul>
-          </div>
-
-          <!-- Service 6: Secure Web Development -->
-          <div class="service-card reveal-on-scroll">
-            <div class="service-icon-wrapper">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <h3 class="service-title">Secure Web Development</h3>
-            <p class="service-desc">Custom high-performance web applications built with defense-in-depth security architectures, strict Content Security Policies (CSP), and automated vulnerability shielding.</p>
-            <ul class="service-features">
-              <li class="feature-item">Zero-Trust Application Architectures</li>
-              <li class="feature-item">Hardened API Gateway Integrations</li>
-              <li class="feature-item">Automated CI/CD Security Scanning</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Methodology Section -->
-    <section class="methodology-section" id="approach">
-      <div class="container">
-        <span class="section-label">Methodology</span>
-        <h2 class="section-heading">The 4-Stage Security & Automation Lifecycle</h2>
-        <p class="section-subhead">
-          A structured, battle-tested framework taking you from threat discovery to automated operational resilience.
-        </p>
-
-        <div class="methodology-timeline">
-          <div class="method-step-card">
-            <div class="step-num-pill">01</div>
-            <span class="method-step-name">Stage 01</span>
-            <h3 class="method-step-title">Assess</h3>
-            <p class="method-step-desc">We analyze your application architectures, cloud configurations, compliance objectives, and external attack surfaces to identify vulnerabilities and gaps.</p>
-            <div class="method-deliverable">
-              <strong>Deliverable:</strong> Threat Model & VAPT Scope Roadmap
-            </div>
-          </div>
-
-          <div class="method-step-card">
-            <div class="step-num-pill">02</div>
-            <span class="method-step-name">Stage 02</span>
-            <h3 class="method-step-title">Defend</h3>
-            <p class="method-step-desc">Offensive adversarial testing uncovers flaws while our defensive engineers deploy 24/7 SOC monitoring, endpoint protection, and zero-trust network boundaries.</p>
-            <div class="method-deliverable">
-              <strong>Deliverable:</strong> PoC Vulnerability Report & SOC Telemetry
-            </div>
-          </div>
-
-          <div class="method-step-card">
-            <div class="step-num-pill">03</div>
-            <span class="method-step-name">Stage 03</span>
-            <h3 class="method-step-title">Automate</h3>
-            <p class="method-step-desc">We automate spreadsheet compliance via continuous control telemetry (ISO 27001 / SOC 2 / PCI DSS) and deploy AI swarms to eliminate SOC operational noise.</p>
-            <div class="method-deliverable">
-              <strong>Deliverable:</strong> Audit-Ready Compliance Telemetry
-            </div>
-          </div>
-
-          <div class="method-step-card">
-            <div class="step-num-pill">04</div>
-            <span class="method-step-name">Stage 04</span>
-            <h3 class="method-step-title">Evolve</h3>
-            <p class="method-step-desc">Security is an ongoing posture. We perform regular re-testing, SIEM rule tuning, and executive threat briefs as your stack and team scale.</p>
-            <div class="method-deliverable">
-              <strong>Deliverable:</strong> Quarterly Security Posture Reviews
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Riskcurity Section -->
-    <section class="why-section" id="why">
-      <div class="container">
-        <span class="section-label">Why Riskcurity</span>
-        <h2 class="section-heading">Engineered for Technical Founders & Growing Enterprises</h2>
-        <p class="section-subhead">
-          Why modern companies partner with Riskcurity over legacy corporate consulting firms.
-        </p>
-
-        <div class="why-grid">
-          <div class="why-card reveal-on-scroll">
-            <h3 class="why-card-title">Founder Velocity (5–7 Day Sprints)</h3>
-            <p class="why-card-desc">We move at startup speed. Comprehensive VAPT assessments, compliance gap audits, and actionable reports delivered in days, eliminating deal stalls.</p>
-          </div>
-
-          <div class="why-card reveal-on-scroll">
-            <h3 class="why-card-title">Engineer-to-Engineer Remediation</h3>
-            <p class="why-card-desc">Direct Slack and PR collaboration with offensive security engineers who provide exact code snippets — never bloated, unhelpful scanner dumps.</p>
-          </div>
-
-          <div class="why-card reveal-on-scroll">
-            <h3 class="why-card-title">Auditor- & Enterprise-Accepted Proof</h3>
-            <p class="why-card-desc">Our deliverables are structured specifically to satisfy Big 4 auditors, PCI QSAs, SOC 2 / ISO 27001 registrars, and Fortune 500 vendor reviews.</p>
-          </div>
-
-          <div class="why-card reveal-on-scroll">
-            <h3 class="why-card-title">Transparent Fixed-Fee Project Pricing</h3>
-            <p class="why-card-desc">Predictable flat-fee project pricing with complimentary validation re-testing included. Zero surprise retainer lock-ins or bloated hourly invoices.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-info-col">
-          <span class="section-label amber">Get In Touch</span>
-          <h2 class="section-heading">Book a Risk Assessment or Request a Proposal</h2>
-          <p class="section-subhead">
-            Tell us about your application stack, compliance target (ISO 27001 / SOC 2 / PCI DSS), or pending enterprise review. An offensive security engineer will review your scope and provide a fixed proposal within 24 hours.
-          </p>
-
-          <div class="contact-direct-list">
-            <div class="contact-info-item">
-              <span class="info-item-label">Direct Team Email</span>
-              <a href="mailto:riskecurity@gmail.com" class="info-item-val">riskecurity@gmail.com</a>
-            </div>
-
-            <div class="contact-info-item">
-              <span class="info-item-label">Direct Phone / WhatsApp</span>
-              <a href="https://wa.me/923423717545" class="info-item-val">+92 342 3717545</a>
-            </div>
-
-            <div class="contact-info-item">
-              <span class="info-item-label">Proposal Turnaround</span>
-              <span class="info-item-val">Within 24 Business Hours</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form-card">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name" class="form-label">Your Name</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Alex Vance" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email" class="form-label">Work Email</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="alex@company.com" required>
-            </div>
-
-            <div class="form-group">
-              <label for="phone" class="form-label">Phone Number (Optional)</label>
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
-            </div>
-
-            <div class="form-group">
-              <label for="service" class="form-label">Target Scope / Primary Need</label>
-              <select id="service" name="service" class="form-select" required>
-                <option value="" disabled selected>Select primary requirement...</option>
-                <option value="vapt">VAPT Penetration Testing (Web/API/Cloud)</option>
-                <option value="grc">GRC & Compliance Automation (ISO/SOC2/PCI)</option>
-                <option value="soc">24/7 SOC Monitoring & Threat Detection</option>
-                <option value="ai">AI Security Agent Swarms</option>
-                <option value="dev">Secure Web Application Development</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="timeline" class="form-label">Project Timeline</label>
-              <select id="timeline" name="timeline" class="form-select">
-                <option value="urgent">Immediate (Within 1 week)</option>
-                <option value="month" selected>Within 30 days</option>
-                <option value="quarter">Next Quarter</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="details" class="form-label">Project Details & Target Compliance</label>
-              <textarea id="details" name="details" class="form-textarea" placeholder="Tell us about your tech stack, number of endpoints/APIs, or impending enterprise vendor audit..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary form-submit-btn">Submit Request for Proposal →</button>
-          </form>
-
-          <div id="formSuccess" style="display: none; text-align: center; padding: 2rem 0;">
-            <span class="section-label">Proposal Request Received</span>
-            <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin: 1rem 0; color: var(--text-fog);">Thank You.</h3>
-            <p style="color: var(--text-slate-light);">An offensive security engineer has received your scope details. We will reach out via email within 24 business hours with your proposal.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand-col">
-          <a href="#top" class="brand" style="color: var(--text-fog);">
-            <span>RISKCURITY</span>
-          </a>
-          <p>Enterprise cyber defense, GRC compliance automation, 24/7 SOC operations, and AI engineering.</p>
-        </div>
-
-        <div>
-          <h4 class="footer-nav-title">Disciplines</h4>
-          <ul class="footer-links">
-            <li><a href="#services">VAPT Penetration Testing</a></li>
-            <li><a href="#services">GRC Compliance Automation</a></li>
-            <li><a href="#services">24/7 SOC Threat Monitoring</a></li>
-            <li><a href="#services">SIEM Detection Engineering</a></li>
-            <li><a href="#services">AI Agent Automations</a></li>
-            <li><a href="#services">Secure Web Development</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-nav-title">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="#top">Home</a></li>
-            <li><a href="#services">Disciplines</a></li>
-            <li><a href="#case-study">Case Study</a></li>
-            <li><a href="#approach">Lifecycle</a></li>
-            <li><a href="#why">Why Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Riskcurity Inc. All rights reserved.</span>
-        <span>Obsidian & Fog Design System · ISO 27001 / SOC 2 / PCI DSS</span>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="label hero-eyebrow">Enterprise Security & Compliance</span>
+      <h1 class="hero-title">Security that doesn't block your next deal.</h1>
+      <p class="hero-sub">
+        We test your systems for real weaknesses, handle the paperwork for ISO 27001, SOC 2, and PCI DSS, watch your infrastructure around the clock, and build AI tools that work safely with your data.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Book a risk assessment →</a>
+        <a href="#disciplines" class="btn btn-ghost">See what we do ↓</a>
       </div>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+    <!-- Animated Risk Gauge -->
+    <div style="display:flex;justify-content:center">
+      <div class="gauge-card">
+        <div class="gauge-top">
+          <span class="gauge-top-label">Risk Index — Enterprise Payment Co.</span>
+          <span class="gauge-badge" id="gaugeBadge">High Risk</span>
+        </div>
+
+        <div class="gauge-svg-wrap">
+          <svg class="gauge-svg" viewBox="0 0 200 120" aria-hidden="true">
+            <path class="g-track" d="M 18 100 A 82 82 0 0 1 182 100"/>
+            <path class="g-fill"  id="gaugeArc" d="M 18 100 A 82 82 0 0 1 182 100"/>
+          </svg>
+          <div class="gauge-readout">
+            <div class="gauge-num" id="gaugeNum">7.8</div>
+            <div class="gauge-sub">Infrastructure Risk Index</div>
+          </div>
+        </div>
+
+        <div class="gauge-compare">
+          <div class="gc-item">
+            <span class="gc-label">Before</span>
+            <span class="gc-val before mono">7.8 — High</span>
+          </div>
+          <div class="gc-item">
+            <span class="gc-label">After 8 weeks</span>
+            <span class="gc-val after mono">2.1 — Clear</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── CASE STUDY ────────────── -->
+<section class="case-study" id="case-study">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Proven results</span>
+      <h2 class="section-title">What a real engagement looks like</h2>
+      <p class="section-lead">
+        A payments company had 23 security findings blocking a banking deal. We fixed 22 of them in 8 weeks and got them to compliance sign-off on schedule.
+      </p>
+    </div>
+
+    <!-- Stat strip -->
+    <div class="stat-strip">
+      <div class="stat-cell reveal">
+        <div class="stat-nums"><span class="sn-before">23</span><span class="sn-arr">→</span><span class="sn-after">1</span></div>
+        <div class="stat-title">Security findings</div>
+        <div class="stat-desc">95.6% of critical issues fully fixed, verified by re-test.</div>
+      </div>
+      <div class="stat-cell reveal">
+        <div class="stat-nums"><span class="sn-before">7.8</span><span class="sn-arr">→</span><span class="sn-after">2.1</span></div>
+        <div class="stat-title">Risk score</div>
+        <div class="stat-desc">Across cloud infrastructure, APIs, and databases.</div>
+      </div>
+      <div class="stat-cell reveal">
+        <div class="stat-nums"><span class="sn-after">68%</span></div>
+        <div class="stat-title">Fewer false alarms</div>
+        <div class="stat-desc">Security noise reduced so real threats aren't missed.</div>
+      </div>
+      <div class="stat-cell reveal">
+        <div class="stat-nums"><span class="sn-after mono" style="font-size:1.65rem;letter-spacing:-.02em">8 wks</span></div>
+        <div class="stat-title">Time to compliance</div>
+        <div class="stat-desc">Bank integration unblocked on deadline.</div>
+      </div>
+    </div>
+
+    <!-- Narrative stages -->
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-key">
+          <span class="stage-num">Stage 01</span>
+          <h3 class="stage-name">Challenge</h3>
+        </div>
+        <div class="stage-body">
+          <p>The client had an upcoming PCI DSS and ISO 27001 audit to approve their payment gateway — 23 critical findings had built up across ageing cloud servers and APIs, putting a banking partnership at risk. They needed everything fixed before the auditors arrived.</p>
+          <div class="pills">
+            <span class="pill">AWS ECS</span>
+            <span class="pill">Payment APIs</span>
+            <span class="pill">PCI DSS gap analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-key">
+          <span class="stage-num">Stage 02</span>
+          <h3 class="stage-name">Discovery</h3>
+        </div>
+        <div class="stage-body">
+          <p>Our team tried to break in — manually, the way a real attacker would. We found authentication flaws that let one user see another user's payment data <em>(an IDOR vulnerability in the settlement reporting endpoints)</em>, misconfigured databases, and unpatched cloud services. Everything was documented with working proof-of-concept exploits, not just scanner output.</p>
+          <div class="pills">
+            <span class="pill">Manual pen testing</span>
+            <span class="pill">PoC exploit reports</span>
+            <span class="pill">Risk priority matrix</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-key">
+          <span class="stage-num">Stage 03</span>
+          <h3 class="stage-name">Fixing it</h3>
+        </div>
+        <div class="stage-body">
+          <p>We worked directly inside the client's GitHub and Slack — writing the actual code fixes alongside their engineers, not handing over a PDF and leaving. We also updated their cloud security policies and set up smart alerts to filter out false alarms from genuine threats.</p>
+          <div class="pills">
+            <span class="pill">Code fixes in PRs</span>
+            <span class="pill">Cloud policy hardening</span>
+            <span class="pill">Alert tuning (SIEM)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-key">
+          <span class="stage-num">Stage 04</span>
+          <h3 class="stage-name">Outcome</h3>
+        </div>
+        <div class="stage-body">
+          <p>22 of 23 findings fully resolved in 8 weeks, confirmed by a free re-test. The auditors signed off, the banking integration went ahead, and the client now has 24/7 monitoring in place so new issues are caught before they become findings.</p>
+          <div class="pills">
+            <span class="pill">Auditor sign-off</span>
+            <span class="pill">24/7 monitoring live</span>
+            <span class="pill">Zero deal delay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── DISCIPLINES ────────────── -->
+<section class="disciplines" id="disciplines">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">What we do</span>
+      <h2 class="section-title">Six ways we protect and certify your company</h2>
+      <p class="section-lead">Each service works on its own, or as part of a full programme. Pick what you need.</p>
+    </div>
+
+    <div class="disc-grid">
+
+      <!-- 1: VAPT -->
+      <div class="disc-card reveal">
+        <div class="disc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="disc-title">We try to break in — so attackers can't</h3>
+        <p class="disc-plain">Our team attacks your systems the way a real hacker would: your website, APIs, mobile app, and cloud setup. Then we show you exactly what we found and how to fix it — in plain language your developers can act on immediately.</p>
+        <p class="disc-tech">Penetration testing (VAPT) · OWASP Top 10 · Cloud (AWS / GCP / Azure)</p>
+        <ul class="disc-feats">
+          <li>Free re-test after you've applied fixes</li>
+          <li>Working proof of every vulnerability found</li>
+          <li>5–7 day delivery from kickoff</li>
+        </ul>
+      </div>
+
+      <!-- 2: GRC -->
+      <div class="disc-card reveal">
+        <div class="disc-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3 class="disc-title">Compliance paperwork, done automatically</h3>
+        <p class="disc-plain">Instead of your team spending weeks collecting screenshots and spreadsheets for your next audit, we set up systems that gather the right evidence continuously — so it's ready the moment the auditors ask for it.</p>
+        <p class="disc-tech">GRC automation · ISO 27001 · SOC 2 Type II · PCI DSS · NIST CSF</p>
+        <ul class="disc-feats">
+          <li>Automated evidence from AWS, GitHub, Okta, and more</li>
+          <li>Policies written and mapped to framework controls</li>
+          <li>Structured for Big 4 auditors and QSAs</li>
+        </ul>
+      </div>
+
+      <!-- 3: SOC -->
+      <div class="disc-card reveal">
+        <div class="disc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="disc-title">Someone watching your systems, always</h3>
+        <p class="disc-plain">We watch your infrastructure around the clock. When something looks wrong — a suspicious login, an unusual config change, a spike in traffic — we investigate and contain it before it escalates. You get a report, not an apology after the fact.</p>
+        <p class="disc-tech">24/7 SOC monitoring · Threat detection · Incident response</p>
+        <ul class="disc-feats">
+          <li>Under 15-minute response SLA</li>
+          <li>Human analysts, not just automated alerts</li>
+          <li>Covers cloud, endpoints, and network</li>
+        </ul>
+      </div>
+
+      <!-- 4: SIEM -->
+      <div class="disc-card reveal">
+        <div class="disc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 14 15 20 9"/><polyline points="14 9 20 9 20 15"/></svg>
+        </div>
+        <h3 class="disc-title">Smart alerts that flag real threats, not noise</h3>
+        <p class="disc-plain">Security alert tools often produce hundreds of notifications a day, most of them false alarms. We tune your system to surface what matters — your team sees actual threats, not another inbox full of noise to ignore.</p>
+        <p class="disc-tech">SIEM engineering · Detection rules · Splunk · Elastic · Datadog</p>
+        <ul class="disc-feats">
+          <li>Custom detection rules for your environment</li>
+          <li>68% average false-positive reduction</li>
+          <li>Covers AWS CloudTrail, Kubernetes, and more</li>
+        </ul>
+      </div>
+
+      <!-- 5: AI Agents -->
+      <div class="disc-card reveal">
+        <div class="disc-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
+        </div>
+        <h3 class="disc-title">AI that can act on your data — safely</h3>
+        <p class="disc-plain">We build AI assistants that can look up and take action on your company's own information, with limits in place so they can't do anything risky without a human approving it first. Useful for automating security tasks and compliance evidence collection.</p>
+        <p class="disc-tech">AI agent engineering · LangChain · LlamaIndex · DevSecOps automation</p>
+        <ul class="disc-feats">
+          <li>SOC alert pre-triage without analyst fatigue</li>
+          <li>Automated compliance evidence extraction</li>
+          <li>Human-in-the-loop guardrails on all actions</li>
+        </ul>
+      </div>
+
+      <!-- 6: Secure Dev -->
+      <div class="disc-card reveal">
+        <div class="disc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="disc-title">Web products built to be hard to attack</h3>
+        <p class="disc-plain">We design and build web applications with security worked in from the start — not patched on afterwards. Useful if you're building a product that will go through enterprise security reviews or handle sensitive data.</p>
+        <p class="disc-tech">Secure web development · Zero-trust architecture · CI/CD security scanning</p>
+        <ul class="disc-feats">
+          <li>Passes enterprise vendor security questionnaires</li>
+          <li>Hardened API design and authentication</li>
+          <li>Automated checks in your build pipeline</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── METHODOLOGY ────────────── -->
+<section class="methodology" id="approach">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">How we work</span>
+      <h2 class="section-title">Four stages, in order — because the order matters</h2>
+      <p class="section-lead">We follow a structured sequence: understand what's at risk, fix it, automate the maintenance, then keep improving as you scale.</p>
+    </div>
+
+    <div class="method-grid">
+      <div class="m-card">
+        <div class="m-num">01</div>
+        <span class="m-stage-label">Assess</span>
+        <h3 class="m-title">Find out what's actually at risk</h3>
+        <p class="m-desc">We map your systems, compliance requirements, and external attack surface — so we're testing and fixing the things that would actually cause damage, not just running a generic checklist.</p>
+        <div class="m-deliv"><strong>You get:</strong> Threat model &amp; prioritised scope</div>
+      </div>
+
+      <div class="m-card">
+        <div class="m-num">02</div>
+        <span class="m-stage-label">Defend</span>
+        <h3 class="m-title">Fix the weaknesses we find</h3>
+        <p class="m-desc">We test your systems offensively, document everything we find with working proof, and work with your engineers to close the gaps — code-level fixes, cloud policy changes, and monitoring coverage.</p>
+        <div class="m-deliv"><strong>You get:</strong> PoC report &amp; verified fixes</div>
+      </div>
+
+      <div class="m-card">
+        <div class="m-num">03</div>
+        <span class="m-stage-label">Automate</span>
+        <h3 class="m-title">Take the manual work out of compliance</h3>
+        <p class="m-desc">We set up automated evidence collection for your certifications and deploy AI tools to handle repetitive security tasks — your team's time goes to things that actually need human judgement.</p>
+        <div class="m-deliv"><strong>You get:</strong> Audit-ready evidence, always</div>
+      </div>
+
+      <div class="m-card">
+        <div class="m-num">04</div>
+        <span class="m-stage-label">Evolve</span>
+        <h3 class="m-title">Stay secure as you grow</h3>
+        <p class="m-desc">Security isn't a one-time project. We re-test regularly, tune your alert rules, and give your leadership a clear picture of your current risk posture — so you always know where you stand.</p>
+        <div class="m-deliv"><strong>You get:</strong> Quarterly posture reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── WHY ────────────── -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Why Riskcurity</span>
+      <h2 class="section-title">What makes us different from a big consulting firm</h2>
+      <p class="section-lead">We're not a firm that hands over a report and disappears. We work alongside your team until things are actually fixed.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <h3 class="why-title">Results in days, not months</h3>
+        <p class="why-body">A full penetration test, compliance gap audit, or actionable security report in 5–7 days. If you have a deal closing or an audit coming up, we can move at that pace.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3 class="why-title">We write the fixes, not just the findings</h3>
+        <p class="why-body">Our engineers work directly in your GitHub pull requests, writing the actual code changes alongside your team — not handing over a list of vulnerabilities and leaving you to figure out what to do.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3 class="why-title">Deliverables auditors actually accept</h3>
+        <p class="why-body">Our reports and compliance evidence are structured specifically to pass review by Big 4 audit firms, PCI QSAs, and ISO 27001 registrars. We know what they want to see because we've been through it before.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3 class="why-title">A flat fee, with re-testing included</h3>
+        <p class="why-body">We quote a fixed price per project before we start. Re-testing after you've fixed issues is included at no extra charge — no hourly billing, no retainer lock-in, no surprises at invoice time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── CONTACT ────────────── -->
+<section class="contact-section" id="contact">
+  <div class="container contact-grid">
+
+    <div>
+      <span class="label label--amber">Get in touch</span>
+      <h2 class="section-title">Tell us what you're up against</h2>
+      <p class="section-lead">
+        Whether it's an upcoming audit, a security review holding up a deal, or a worry you can't quite name — tell us what's going on and we'll come back with a clear proposal within 24 hours.
+      </p>
+
+      <div class="ci-list">
+        <div class="ci-item">
+          <span class="ci-label">Email</span>
+          <a href="mailto:riskecurity@gmail.com" class="ci-val">riskecurity@gmail.com</a>
+        </div>
+        <div class="ci-item">
+          <span class="ci-label">Phone / WhatsApp</span>
+          <a href="https://wa.me/923423717545" class="ci-val">+92 342 3717545</a>
+        </div>
+        <div class="ci-item">
+          <span class="ci-label">Proposal turnaround</span>
+          <span class="ci-val">24 business hours</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <form id="contactForm">
+        <div class="fg">
+          <label class="fl" for="fc-name">Your name</label>
+          <input class="fi" type="text" id="fc-name" name="name" placeholder="e.g. Sarah Chen" required>
+        </div>
+        <div class="fg">
+          <label class="fl" for="fc-email">Work email</label>
+          <input class="fi" type="email" id="fc-email" name="email" placeholder="sarah@company.com" required>
+        </div>
+        <div class="fg">
+          <label class="fl" for="fc-phone">Phone (optional)</label>
+          <input class="fi" type="tel" id="fc-phone" name="phone" placeholder="+1 555 000 0000">
+        </div>
+        <div class="fg">
+          <label class="fl" for="fc-service">What's the priority?</label>
+          <select class="fsel" id="fc-service" name="service" required>
+            <option value="" disabled selected>Choose the most urgent need…</option>
+            <option value="vapt">I need my systems tested for weaknesses</option>
+            <option value="compliance">I have an ISO 27001 / SOC 2 / PCI DSS audit coming up</option>
+            <option value="soc">I want someone monitoring my infrastructure 24/7</option>
+            <option value="ai">I want to build safe AI tooling</option>
+            <option value="dev">I'm building a product and need it to be secure</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl" for="fc-timeline">When do you need this by?</label>
+          <select class="fsel" id="fc-timeline" name="timeline">
+            <option value="urgent">Within the next week</option>
+            <option value="month" selected>Within 30 days</option>
+            <option value="quarter">Next quarter</option>
+          </select>
+        </div>
+        <div class="fg" style="margin-bottom:2rem">
+          <label class="fl" for="fc-detail">What's going on? (brief description)</label>
+          <textarea class="fta" id="fc-detail" name="detail" placeholder="Tell us about your tech stack, compliance deadline, or what's worrying you. The more specific, the better our proposal."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary fsub">Send request →</button>
+      </form>
+
+      <div id="contactSuccess" style="display:none;padding:2rem 0;text-align:center">
+        <span class="label">Request received</span>
+        <h3 style="font-family:var(--f-display);font-size:1.7rem;color:var(--fog-text);margin:1rem 0">We'll be in touch.</h3>
+        <p style="color:var(--slate-lt)">An engineer will review your details and reply within 24 hours with a proposal.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ────────────── FOOTER ────────────── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">RISKCURITY</div>
+        <p class="footer-brand-desc">Security testing, compliance automation, 24/7 monitoring, and AI engineering for scaling companies.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#disciplines">Penetration testing</a></li>
+          <li><a href="#disciplines">Compliance automation</a></li>
+          <li><a href="#disciplines">24/7 SOC monitoring</a></li>
+          <li><a href="#disciplines">Alert engineering</a></li>
+          <li><a href="#disciplines">AI agent tooling</a></li>
+          <li><a href="#disciplines">Secure development</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#case-study">Case study</a></li>
+          <li><a href="#approach">How we work</a></li>
+          <li><a href="#why">Why us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Riskcurity. All rights reserved.</span>
+      <span class="mono">ISO 27001 · SOC 2 · PCI DSS</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ────────────── RISKMATE AI WIDGET ────────────── -->
+<button id="rmTrigger" class="rm-trigger" aria-label="Open chat with our team" aria-expanded="false">
+  <!-- Chat / spark icon -->
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <span class="rm-teal-dot" aria-hidden="true"></span>
+</button>
+
+<div id="rmPanel" class="rm-panel" role="dialog" aria-label="Chat with Riskmate AI" aria-modal="true">
+  <div class="rm-head">
+    <div class="rm-head-text">
+      <div class="rm-head-name">Riskmate AI</div>
+      <div class="rm-head-sub">Security &amp; scope assistant</div>
+    </div>
+    <button id="rmClose" class="rm-close" aria-label="Close chat">✕</button>
+  </div>
+
+  <!-- Login gate (shown first) -->
+  <div id="rmGate" class="rm-gate">
+    <h3 class="rm-gate-title">Ask us anything.</h3>
+    <p class="rm-gate-sub">Share your details and we'll have a real answer ready — no automated runaround.</p>
+
+    <form id="rmGateForm">
+      <div class="fg">
+        <label class="fl" for="rmName">Your first name</label>
+        <input class="fi" type="text" id="rmName" placeholder="Alex" required>
+      </div>
+      <div class="fg" style="margin-bottom:1.25rem">
+        <label class="fl" for="rmEmail">Work email</label>
+        <input class="fi" type="email" id="rmEmail" placeholder="alex@company.com" required>
+      </div>
+      <button type="submit" class="rm-gate-submit">Start conversation →</button>
+    </form>
+  </div>
+
+  <!-- Chat (shown after login) -->
+  <div id="rmChat" class="rm-chat" style="display:none;flex-direction:column">
+    <div id="rmMsgs" class="rm-msgs"></div>
+    <form id="rmChatForm" class="rm-input-row">
+      <input id="rmInput" class="rm-input" type="text" placeholder="Ask about pen testing, compliance, pricing…" autocomplete="off">
+      <button type="submit" class="rm-send">Send</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
