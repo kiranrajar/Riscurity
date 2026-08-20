@@ -3,7 +3,7 @@
    Gauge · Scroll reveals · Contact form · Riskmate AI
    ================================================= */
 
-const W3F_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // replace with your free key from web3forms.com
+const W3F_KEY = '5c2d72cc-1190-42ee-99b9-04c92e0d50ec'; // replace with your free key from web3forms.com
 
 document.addEventListener('DOMContentLoaded', () => {
 
