@@ -403,7 +403,7 @@
     </div>
 
     <div class="form-card">
-      <form id="contactForm">
+      <form id="contactForm"><input type="checkbox" name="botcheck" style="display:none">
         <div class="fg">
           <label class="fl" for="fc-name">Your name</label>
           <input class="fi" type="text" id="fc-name" name="name" placeholder="e.g. Sarah Chen" required>
@@ -528,7 +528,7 @@
   </div>
 
   <!-- Chat (shown after login) -->
-  <div id="rmChat" class="rm-chat" style="display:none;flex-direction:column">
+  <div id="rmChat" class="rm-chat" style="display:none">
     <div id="rmMsgs" class="rm-msgs"></div>
     <form id="rmChatForm" class="rm-input-row">
       <input id="rmInput" class="rm-input" type="text" placeholder="Ask about pen testing, compliance, pricing…" autocomplete="off">
