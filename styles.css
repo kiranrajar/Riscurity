@@ -1108,3 +1108,116 @@ a{color:inherit;text-decoration:none}
   .site-header{transition:none!important}
   .btn-primary:active{transform:none!important}
 }
+
+
+/* ════════════════════════════════
+   FRAMEWORKS & STANDARDS SECTION
+════════════════════════════════ */
+.frameworks-section{
+  padding:7rem 0;
+  border-bottom:1px solid var(--border);
+  background:var(--fog);
+}
+
+.frameworks-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1.75rem;
+}
+
+.fw-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r2);
+  padding:2rem;
+  display:flex;
+  flex-direction:column;
+  transition:border-color var(--t-smooth), transform var(--t-smooth), background var(--t-smooth);
+}
+.fw-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--teal);
+  background:var(--surface-2);
+}
+
+.fw-card--featured{
+  border-color:rgba(201,151,61,.3);
+  background:linear-gradient(180deg, var(--surface) 0%, rgba(201,151,61,.04) 100%);
+}
+.fw-card--featured:hover{
+  border-color:var(--amber);
+}
+
+.fw-header{
+  margin-bottom:1.5rem;
+  padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+
+.fw-category-tag{
+  font-family:var(--f-mono);
+  font-size:.68rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--teal);
+  margin-bottom:.4rem;
+}
+.fw-category-tag--amber{
+  color:var(--amber);
+}
+
+.fw-card-title{
+  font-family:var(--f-display);
+  font-size:1.3rem;
+  color:var(--fog-text);
+  line-height:1.2;
+}
+
+.fw-items{
+  display:flex;
+  flex-direction:column;
+  gap:1.35rem;
+}
+
+.fw-item{
+  display:flex;
+  flex-direction:column;
+  gap:.2rem;
+}
+
+.fw-code{
+  font-family:var(--f-mono);
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--teal);
+  letter-spacing:-.01em;
+}
+.fw-card--featured .fw-code{
+  color:var(--amber);
+}
+
+.fw-name{
+  font-family:var(--f-body);
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--fog-text);
+}
+
+.fw-desc{
+  font-family:var(--f-body);
+  font-size:.8rem;
+  color:var(--slate);
+  line-height:1.5;
+}
+
+@media(max-width:1024px){
+  .frameworks-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+@media(max-width:768px){
+  .frameworks-grid{
+    grid-template-columns:1fr;
+  }
+}

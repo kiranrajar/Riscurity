@@ -392,8 +392,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (/pen.?test|vapt|penetrat|break.in|hack|attack|vulnerab/.test(l))
       return "We simulate a real attacker trying to break into your systems — web apps, APIs, mobile apps, and cloud infrastructure. Every finding comes with a working proof-of-concept and a code-level fix, not just a list. Sprints take 5–7 days, and re-testing after you've fixed things is always included.";
 
-    if (/compli|iso.?27001|soc.?2|pci|audit|certif|evidence|paperwork/.test(l))
-      return "We automate the evidence collection for ISO 27001, SOC 2, and PCI DSS — pulling data from AWS, GitHub, Okta, and other tools continuously, so it's ready when your auditor asks for it. No more manual screenshot collection before every review.";
+    if (/42001|ai.?govern|ai.?manage|aims|iso.?42001/.test(l))
+      return "We implement ISO/IEC 42001 (Artificial Intelligence Management Systems) for enterprise AI builders — establishing AI risk assessments, training data governance, algorithmic transparency, traceability, and human-in-the-loop oversight.";
+
+    if (/nist|800.?53|csf|cis|safeguard/.test(l))
+      return "We align and audit against NIST CSF 2.0 (Govern, Identify, Protect, Detect, Respond, Recover), NIST SP 800-53 control catalogs for federal/defense contractors, and the CIS Critical Security Controls (18 safeguards).";
+
+    if (/gdpr|ccpa|cpra|hipaa|27701|privacy|pims/.test(l))
+      return "We handle complete privacy engineering and certifications: GDPR (EU), CCPA/CPRA (California), HIPAA (healthcare ePHI), and ISO/IEC 27701 (Privacy Information Management System extension to ISO 27001).";
+
+    if (/fedramp|csa|ccm|cloud.?control/.test(l))
+      return "We support cloud compliance programs including CSA CCM (Cloud Controls Matrix) across AWS/GCP/Azure and FedRAMP authorization readiness for cloud service providers serving US federal agencies.";
+
+    if (/compli|iso.?27001|soc.?2|soc.?1|pci|audit|certif|evidence|paperwork|framework/.test(l))
+      return "We audit and automate compliance across all major frameworks: ISO 27001, ISO 42001 (AI Governance), SOC 1, SOC 2 (Type I & II), PCI DSS 4.0, NIST CSF 2.0, NIST 800-53, CIS Controls, GDPR, HIPAA, and FedRAMP — continuously collecting evidence directly from your cloud and dev tools.";
 
     if (/monitor|soc\b|watch|24.?7|alert|incident|threat|detect/.test(l))
       return "We watch your infrastructure around the clock. When something suspicious appears — an unusual login, a config change, unexpected traffic — our analysts investigate and contain it before it escalates. Response SLA is under 15 minutes.";
