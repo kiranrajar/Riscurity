@@ -568,27 +568,44 @@ a{color:inherit;text-decoration:none}
 
 /* Panel header */
 .rm-head{
-  background:var(--ink);padding:1.1rem 1.4rem;
+  background:#0D1520;
+  padding:1.1rem 1.4rem;
   display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--hair-dk);
+  border-bottom:1px solid rgba(255,255,255,.08);
   flex-shrink:0;
 }
-.rm-head-text{}
+.rm-head-text{
+  display:flex;flex-direction:column;gap:.18rem;
+}
 .rm-head-name{
-  font-family:var(--f-display);font-size:1.05rem;
-  color:var(--fog-text);
+  font-family:var(--f-display);
+  font-size:1.12rem;
+  font-weight:600;
+  color:#F2F1EC;
+  letter-spacing:-.02em;
+  line-height:1.2;
 }
 .rm-head-sub{
-  font-family:var(--f-mono);font-size:.66rem;
-  color:var(--slate-lt);
+  font-family:var(--f-mono);
+  font-size:.66rem;
+  color:#6B7A8D;
+  display:flex;align-items:center;gap:.4rem;
+}
+.rm-head-sub::before{
+  content:'';
+  display:inline-block;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--teal);
+  box-shadow:0 0 6px rgba(37,136,111,.7);
 }
 .rm-close{
   background:none;border:none;
-  color:var(--slate-lt);font-size:1.15rem;
-  cursor:pointer;line-height:1;padding:.25rem;
-  transition:color var(--t-fast);
+  color:#6B7A8D;font-size:1.15rem;
+  cursor:pointer;line-height:1;padding:.3rem;
+  border-radius:var(--r1);
+  transition:color var(--t-fast),background var(--t-fast);
 }
-.rm-close:hover{color:var(--fog-text)}
+.rm-close:hover{color:#F2F1EC;background:rgba(255,255,255,.07)}
 
 /* Login gate */
 .rm-gate{
