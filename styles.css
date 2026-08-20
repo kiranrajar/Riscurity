@@ -1,10 +1,10 @@
 /* =========================================================
    RISKCURITY — ENTERPRISE CYBER DEFENSE & AI AUTOMATION
-   Brand Identity: Obsidian Tech Dark + Cyber Neon Green (#00FF88)
+   Brand Identity: Obsidian Tech Dark + Emerald Accent (#10B981)
    ========================================================= */
 
 :root {
-  /* Obsidian Dark & Electric Cyber Neon Green Palette */
+  /* Obsidian Dark & Refined Emerald Palette */
   --bg-0: #060913;
   --bg-1: #0a0e20;
   --bg-2: #11172e;
@@ -12,19 +12,19 @@
   --bg-card-hover: rgba(17, 23, 46, 0.95);
   
   --line: rgba(148, 163, 184, 0.12);
-  --line-strong: rgba(0, 255, 136, 0.24);
-  --line-focus: #00ff88;
+  --line-strong: rgba(16, 185, 129, 0.24);
+  --line-focus: #10b981;
 
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
 
-  --neon: #00ff88;
-  --neon-bright: #39ff14;
-  --neon-hover: #00e676;
-  --neon-subtle: rgba(0, 255, 136, 0.08);
-  --neon-border: rgba(0, 255, 136, 0.3);
-  --neon-glow: rgba(0, 255, 136, 0.35);
+  --neon: #10b981;
+  --neon-bright: #34d399;
+  --neon-hover: #059669;
+  --neon-subtle: rgba(16, 185, 129, 0.08);
+  --neon-border: rgba(16, 185, 129, 0.3);
+  --neon-glow: rgba(16, 185, 129, 0.35);
 
   --cyan: #38bdf8;
   --cyan-subtle: rgba(56, 189, 248, 0.08);
@@ -33,9 +33,9 @@
   --danger-border: rgba(239, 68, 68, 0.3);
   --danger-text: #f87171;
 
-  --success-bg: rgba(0, 255, 136, 0.08);
-  --success-border: rgba(0, 255, 136, 0.35);
-  --success-text: #00ff88;
+  --success-bg: rgba(16, 185, 129, 0.08);
+  --success-border: rgba(16, 185, 129, 0.35);
+  --success-text: #10b981;
 
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -100,7 +100,7 @@ body {
 .orb-1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0, 255, 136, 0.15), transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 70%);
   top: -100px;
   right: -100px;
 }
@@ -150,10 +150,11 @@ a {
   text-decoration: none;
 }
 
-/* Neon Text */
+/* Accent Text */
+/* Refined accent text color */
 .neon-text {
   color: var(--neon);
-  text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
 }
 
 /* Pulse Dot */
@@ -215,7 +216,7 @@ a {
 }
 
 .badge-pill:hover {
-  background: rgba(0, 255, 136, 0.15);
+  background: rgba(16, 185, 129, 0.15);
   border-color: var(--neon);
 }
 
@@ -266,13 +267,13 @@ a {
 .btn-primary {
   background: var(--neon);
   color: #050811;
-  box-shadow: 0 4px 16px rgba(0, 255, 136, 0.25);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
   font-weight: 700;
 }
 
 .btn-glow:hover {
   background: #25ff96;
-  box-shadow: 0 6px 24px rgba(0, 255, 136, 0.5);
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.5);
   transform: translateY(-2px);
 }
 
@@ -300,7 +301,7 @@ a {
 .btn-nav:hover {
   background: var(--neon);
   color: #050811;
-  box-shadow: 0 4px 14px rgba(0, 255, 136, 0.35);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
 }
 
 .btn-arrow {
@@ -333,7 +334,7 @@ a {
 .hover-lift:hover {
   transform: translateY(-5px);
   border-color: var(--line-strong);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 136, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.08);
 }
 
 /* =========================================================
@@ -556,7 +557,7 @@ a {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
   padding: 26px;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 255, 136, 0.08);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(16, 185, 129, 0.08);
   position: relative;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -685,7 +686,7 @@ a {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 255, 136, 0.06);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(16, 185, 129, 0.06);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -773,7 +774,7 @@ a {
 
 .neon-highlight {
   color: var(--neon);
-  text-shadow: 0 0 16px rgba(0, 255, 136, 0.4);
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.15);
 }
 
 .quote-author-row {
@@ -851,7 +852,7 @@ a {
 
 .num-neon {
   color: var(--neon);
-  text-shadow: 0 0 16px rgba(0, 255, 136, 0.4);
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.15);
 }
 
 .metric-label {
@@ -958,7 +959,7 @@ a {
 }
 
 .success-step {
-  background: rgba(0, 255, 136, 0.02);
+  background: rgba(16, 185, 129, 0.02);
   border-left: 2px solid var(--neon);
 }
 
@@ -1282,7 +1283,7 @@ a {
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--neon);
-  box-shadow: 0 0 14px rgba(0, 255, 136, 0.25);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
 }
 
 .contact-form select {
@@ -1387,7 +1388,7 @@ a {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
   padding: 14px 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 136, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(16, 185, 129, 0.1);
   display: none;
   animation: fadeIn 0.3s ease-out forwards;
 }
@@ -1427,7 +1428,7 @@ a {
   border-radius: 50%;
   background: var(--bg-1);
   border: 1px solid var(--neon-border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 136, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.25);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1439,7 +1440,7 @@ a {
 .hacker-trigger-btn:hover {
   transform: scale(1.08);
   border-color: var(--neon);
-  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.45);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.45);
 }
 
 .hacker-pulse-ring {
@@ -1498,7 +1499,7 @@ a {
   background: var(--bg-1);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 255, 136, 0.1);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1733,7 +1734,7 @@ a {
 
 .hacker-chat-footer input:focus {
   border-color: var(--neon);
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
 }
 
 .hacker-chat-footer button {

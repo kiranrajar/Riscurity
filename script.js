@@ -41,7 +41,7 @@
       this.vx = (Math.random() - 0.5) * 0.75;
       this.vy = (Math.random() - 0.5) * 0.75;
       this.radius = Math.random() * 2 + 1;
-      this.color = Math.random() > 0.35 ? 'rgba(0, 255, 136, ' : 'rgba(56, 189, 248, ';
+      this.color = Math.random() > 0.35 ? 'rgba(16, 185, 129, ' : 'rgba(56, 189, 248, ';
     }
 
     Particle.prototype.update = function () {
@@ -86,7 +86,7 @@
           if (dist < 130) {
             var opacity = (1 - dist / 130) * 0.22;
             ctx.beginPath();
-            ctx.strokeStyle = 'rgba(0, 255, 136, ' + opacity + ')';
+            ctx.strokeStyle = 'rgba(16, 185, 129, ' + opacity + ')';
             ctx.lineWidth = 1;
             ctx.moveTo(particles[a].x, particles[a].y);
             ctx.lineTo(particles[b].x, particles[b].y);
