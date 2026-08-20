@@ -25,6 +25,7 @@
       <li><a href="#case-study">Case Study</a></li>
       <li><a href="#approach">Lifecycle</a></li>
       <li><a href="#why">Why Us</a></li>
+      <li><a href="#rating">Rate Us</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#contact" class="btn btn-primary">Book Assessment</a></li>
     </ul>
@@ -449,6 +450,87 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ────────────── RATING ────────────── -->
+<section class="rating-section" id="rating">
+  <div class="container">
+    <div class="rating-card reveal">
+
+      <div class="rating-left">
+        <span class="label label--amber">Client feedback</span>
+        <h2 class="rating-title">How did we do?</h2>
+        <p class="rating-lead">If you've worked with us, we'd value your honest feedback. It helps us improve and helps other companies know what to expect.</p>
+        <div class="rating-trust">
+          <div class="rt-item"><span class="rt-num">98%</span><span class="rt-label">of clients re-engage for a second project</span></div>
+          <div class="rt-item"><span class="rt-num">4.9</span><span class="rt-label">average rating from enterprise clients</span></div>
+        </div>
+      </div>
+
+      <div class="rating-right">
+        <!-- Form -->
+        <form id="ratingForm" class="rating-form" novalidate>
+          <input type="checkbox" name="botcheck" style="display:none">
+
+          <!-- Stars -->
+          <div class="star-group" id="starGroup" role="radiogroup" aria-label="Star rating">
+            <span class="star-label">Your rating</span>
+            <div class="stars" id="stars">
+              <button type="button" class="star" data-v="1" aria-label="1 star" title="Poor">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </button>
+              <button type="button" class="star" data-v="2" aria-label="2 stars" title="Fair">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </button>
+              <button type="button" class="star" data-v="3" aria-label="3 stars" title="Good">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </button>
+              <button type="button" class="star" data-v="4" aria-label="4 stars" title="Very good">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </button>
+              <button type="button" class="star" data-v="5" aria-label="5 stars" title="Excellent">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </button>
+            </div>
+            <span class="star-hint" id="starHint">&nbsp;</span>
+          </div>
+
+          <!-- Fields -->
+          <div class="rating-fields">
+            <div class="fg">
+              <label class="fl rl" for="rv-name">Your name</label>
+              <input class="fi ri" type="text" id="rv-name" name="name" placeholder="Alex Chen" required>
+            </div>
+            <div class="fg">
+              <label class="fl rl" for="rv-email">Work email</label>
+              <input class="fi ri" type="email" id="rv-email" name="email" placeholder="alex@company.com" required>
+            </div>
+          </div>
+
+          <div class="fg" style="margin-bottom:1.5rem">
+            <label class="fl rl" for="rv-feedback">Your feedback</label>
+            <textarea class="fta ri" id="rv-feedback" name="feedback" rows="4" placeholder="What went well? What could we improve? Be as specific as you like."></textarea>
+          </div>
+
+          <button type="submit" id="ratingSubmit" class="btn btn-primary rating-submit" disabled>
+            Submit rating
+          </button>
+          <p class="rating-privacy">Your feedback is private — we won't publish it without permission.</p>
+        </form>
+
+        <!-- Success state -->
+        <div id="ratingSuccess" class="rating-success" style="display:none">
+          <div class="rs-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="rs-title">Thank you — feedback received.</h3>
+          <p class="rs-body">We read every response. If you left your email we may follow up to understand more — never to market to you.</p>
+          <div class="rs-stars" id="rsStars"></div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 

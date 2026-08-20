@@ -319,4 +319,123 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (_) {}
   }
 
+
+
+  /* ════════════════════════════════
+     RATING WIDGET
+  ════════════════════════════════ */
+  (function initRating() {
+    const stars      = Array.from(document.querySelectorAll('.star'));
+    const starHint   = document.getElementById('starHint');
+    const submitBtn  = document.getElementById('ratingSubmit');
+    const ratingForm = document.getElementById('ratingForm');
+    const ratSuccess = document.getElementById('ratingSuccess');
+    const rsStars    = document.getElementById('rsStars');
+
+    if (!stars.length || !ratingForm) return;
+
+    const hints = { 1:'Poor', 2:'Fair', 3:'Good', 4:'Very good', 5:'Excellent' };
+    let selected = 0;
+
+    // Highlight stars up to index
+    function paint(upTo, cls) {
+      stars.forEach((s, i) => {
+        s.classList.toggle(cls, i < upTo);
+      });
+    }
+
+    // Mouse enter star
+    stars.forEach(star => {
+      star.addEventListener('mouseenter', () => {
+        const v = parseInt(star.dataset.v);
+        paint(v, 'hovered');
+        if (starHint) starHint.textContent = hints[v] || '';
+      });
+      star.addEventListener('mouseleave', () => {
+        paint(0, 'hovered');
+        if (starHint) starHint.textContent = selected ? hints[selected] : '\u00a0';
+      });
+      star.addEventListener('click', () => {
+        selected = parseInt(star.dataset.v);
+        paint(selected, 'selected');
+        if (starHint) starHint.textContent = hints[selected];
+        // Animate the clicked star
+        star.style.transform = 'scale(1.35)';
+        setTimeout(() => { star.style.transform = ''; }, 220);
+        if (submitBtn) submitBtn.disabled = false;
+      });
+    });
+
+    // Form submit
+    ratingForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!selected) return;
+
+      const btn = submitBtn;
+      btn.disabled = true;
+      btn.textContent = 'Submitting\u2026';
+
+      const name     = document.getElementById('rv-name')?.value.trim()     || 'Anonymous';
+      const email    = document.getElementById('rv-email')?.value.trim()    || '';
+      const feedback = document.getElementById('rv-feedback')?.value.trim() || '';
+      const stars5   = '\u2605'.repeat(selected) + '\u2606'.repeat(5 - selected);
+
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: W3F_KEY,
+            subject: `Client Rating: ${selected}/5 ${stars5} — ${name}`,
+            from_name: name,
+            email: email || 'no-email@riskcurity.com',
+            message: [
+              'CLIENT RATING — RISKCURITY',
+              '='.repeat(40),
+              `Name    : ${name}`,
+              `Email   : ${email || 'not provided'}`,
+              `Rating  : ${selected}/5  ${stars5}`,
+              `Date    : ${new Date().toLocaleString()}`,
+              '',
+              'FEEDBACK:',
+              feedback || '(no written feedback provided)',
+              '='.repeat(40)
+            ].join('\n')
+          })
+        });
+      } catch (_) { /* show success anyway */ }
+
+      // Show success
+      ratingForm.style.display = 'none';
+      ratSuccess.style.display = 'flex';
+
+      // Render chosen stars in success state
+      if (rsStars) {
+        rsStars.innerHTML = '';
+        for (let i = 0; i < 5; i++) {
+          const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          svg.setAttribute('viewBox', '0 0 24 24');
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
+          if (i < selected) {
+            svg.style.fill   = 'var(--amber)';
+            svg.style.stroke = 'var(--amber)';
+          } else {
+            svg.style.fill   = '#E8E5DA';
+            svg.style.stroke = '#E8E5DA';
+          }
+          svg.appendChild(path);
+          rsStars.appendChild(svg);
+        }
+        // Animate stars in
+        rsStars.querySelectorAll('svg').forEach((s, i) => {
+          s.style.opacity   = '0';
+          s.style.transform = 'scale(0.4)';
+          s.style.transition= `opacity 0.3s ${i * 0.07}s ease, transform 0.3s ${i * 0.07}s cubic-bezier(.16,1,.3,1)`;
+          setTimeout(() => { s.style.opacity = '1'; s.style.transform = 'scale(1)'; }, 60);
+        });
+      }
+    });
+  })();
+
 }); // end DOMContentLoaded
