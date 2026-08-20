@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const gaugeArc   = document.getElementById('gaugeArc');
   const gaugeBadge = document.getElementById('gaugeBadge');
   let gaugeRan     = false;
-  const rm         = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rm = prefersReducedMotion;
 
   function runGauge() {
     if (gaugeRan) return;
