@@ -615,14 +615,21 @@ a{color:inherit;text-decoration:none}
 /* Chat area */
 .rm-chat{
   flex:1;display:flex;flex-direction:column;
-  display:none;
+  min-height:0;
+  overflow:hidden;
 }
 .rm-msgs{
   flex:1;padding:1.1rem 1.2rem;
   overflow-y:auto;
+  min-height:0;
   display:flex;flex-direction:column;gap:.9rem;
   background:var(--fog);
+  scroll-behavior:smooth;
 }
+.rm-msgs::-webkit-scrollbar{width:4px}
+.rm-msgs::-webkit-scrollbar-track{background:transparent}
+.rm-msgs::-webkit-scrollbar-thumb{background:var(--hair);border-radius:4px}
+.rm-msgs::-webkit-scrollbar-thumb:hover{background:var(--slate)}
 .rm-msg{
   max-width:90%;padding:.75rem 1rem;
   border-radius:var(--r2);

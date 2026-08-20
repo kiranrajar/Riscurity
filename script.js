@@ -163,7 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
       chatUser.email = (document.getElementById('rmEmail')?.value || '').trim();
 
       rmGate.style.display      = 'none';
-      rmChatArea.style.display  = 'flex';
+      rmChatArea.style.display       = 'flex';
+      rmChatArea.style.flexDirection = 'column';
 
       botSay(`Hi ${chatUser.name} — I'm Riskmate, Riskcurity's assistant. Ask me about any of our services, the case study, or how to get started. What would you like to know?`);
       addChips();
