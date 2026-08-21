@@ -3,8 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none'; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Riskcurity — Security & Compliance for Scaling Companies</title>
   <meta name="description" content="We test your defences, handle your compliance certifications, and monitor your infrastructure 24/7 — so you can close enterprise deals without security being the blocker.">
+  <link rel="canonical" href="https://www.riskcurity.com/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.riskcurity.com/">
+  <meta property="og:title" content="Riskcurity — Security & Compliance for Scaling Companies">
+  <meta property="og:description" content="We test your defences, handle your compliance certifications, and monitor your infrastructure 24/7 — so you can close enterprise deals without security being the blocker.">
+  <meta property="og:site_name" content="Riskcurity">
+  <meta property="og:image" content="https://www.riskcurity.com/Riskcuritylogo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Riskcurity — Security & Compliance for Scaling Companies">
+  <meta name="twitter:description" content="We test your defences, handle your compliance certifications, and monitor your infrastructure 24/7 — so you can close enterprise deals without security being the blocker.">
+  <meta name="twitter:image" content="https://www.riskcurity.com/Riskcuritylogo.png">
+
+  <!-- Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Riskcurity",
+    "url": "https://www.riskcurity.com/",
+    "logo": "https://www.riskcurity.com/Riskcuritylogo.png",
+    "email": "riskecurity@gmail.com",
+    "description": "Cybersecurity, compliance certifications, 24/7 SOC monitoring, and AI security engineering for scaling companies."
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
@@ -552,18 +585,19 @@
     </div>
 
     <div class="form-card reveal">
-      <form id="contactForm"><input type="checkbox" name="botcheck" style="display:none">
+      <form id="contactForm">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="fg">
           <label class="fl" for="fc-name">Your name</label>
-          <input class="fi" type="text" id="fc-name" name="name" placeholder="e.g. Sarah Chen" required>
+          <input class="fi" type="text" id="fc-name" name="name" placeholder="e.g. Sarah Chen" maxlength="100" autocomplete="name" required>
         </div>
         <div class="fg">
           <label class="fl" for="fc-email">Work email</label>
-          <input class="fi" type="email" id="fc-email" name="email" placeholder="sarah@company.com" required>
+          <input class="fi" type="email" id="fc-email" name="email" placeholder="sarah@company.com" maxlength="100" autocomplete="email" required>
         </div>
         <div class="fg">
           <label class="fl" for="fc-phone">Phone (optional)</label>
-          <input class="fi" type="tel" id="fc-phone" name="phone" placeholder="+1 555 000 0000">
+          <input class="fi" type="tel" id="fc-phone" name="phone" placeholder="+1 555 000 0000" maxlength="30" autocomplete="tel">
         </div>
         <div class="fg">
           <label class="fl" for="fc-service">What's the priority?</label>
@@ -586,7 +620,7 @@
         </div>
         <div class="fg" style="margin-bottom:2rem">
           <label class="fl" for="fc-detail">What's going on? (brief description)</label>
-          <textarea class="fta" id="fc-detail" name="detail" placeholder="Tell us about your tech stack, compliance deadline, or what's worrying you. The more specific, the better our proposal."></textarea>
+          <textarea class="fta" id="fc-detail" name="detail" maxlength="2000" placeholder="Tell us about your tech stack, compliance deadline, or what's worrying you. The more specific, the better our proposal."></textarea>
         </div>
         <button type="submit" class="btn btn-primary fsub">Send request →</button>
       </form>
@@ -619,7 +653,7 @@
       <div class="rating-right">
         <!-- Form -->
         <form id="ratingForm" class="rating-form" novalidate>
-          <input type="checkbox" name="botcheck" style="display:none">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <!-- Stars -->
           <div class="star-group" id="starGroup" role="radiogroup" aria-label="Star rating">
@@ -648,17 +682,17 @@
           <div class="rating-fields">
             <div class="fg">
               <label class="fl rl" for="rv-name">Your name</label>
-              <input class="fi ri" type="text" id="rv-name" name="name" placeholder="Alex Chen" required>
+              <input class="fi ri" type="text" id="rv-name" name="name" placeholder="Alex Chen" maxlength="100" autocomplete="name" required>
             </div>
             <div class="fg">
               <label class="fl rl" for="rv-email">Work email</label>
-              <input class="fi ri" type="email" id="rv-email" name="email" placeholder="alex@company.com" required>
+              <input class="fi ri" type="email" id="rv-email" name="email" placeholder="alex@company.com" maxlength="100" autocomplete="email" required>
             </div>
           </div>
 
           <div class="fg" style="margin-bottom:1.5rem">
             <label class="fl rl" for="rv-feedback">Your feedback</label>
-            <textarea class="fta ri" id="rv-feedback" name="feedback" rows="4" placeholder="What went well? What could we improve? Be as specific as you like."></textarea>
+            <textarea class="fta ri" id="rv-feedback" name="feedback" rows="4" maxlength="2000" placeholder="What went well? What could we improve? Be as specific as you like."></textarea>
           </div>
 
           <button type="submit" id="ratingSubmit" class="btn btn-primary rating-submit" disabled>
@@ -741,7 +775,13 @@
       <div class="rm-head-name">Riskmate AI</div>
       <div class="rm-head-sub">Security &amp; scope assistant</div>
     </div>
-    <button id="rmClose" class="rm-close" aria-label="Close chat">✕</button>
+    <div class="rm-head-actions">
+      <span class="rm-shield-badge" title="Active Prompt Injection &amp; XSS Defense Engine">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Protected
+      </span>
+      <button id="rmClose" class="rm-close" aria-label="Close chat">✕</button>
+    </div>
   </div>
 
   <!-- Login gate (shown first) -->
@@ -750,13 +790,14 @@
     <p class="rm-gate-sub">Share your details and we'll have a real answer ready — no automated runaround.</p>
 
     <form id="rmGateForm">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="fg">
         <label class="fl" for="rmName">Your first name</label>
-        <input class="fi" type="text" id="rmName" placeholder="Alex" required>
+        <input class="fi" type="text" id="rmName" placeholder="Alex" maxlength="60" autocomplete="given-name" required>
       </div>
       <div class="fg" style="margin-bottom:1.25rem">
         <label class="fl" for="rmEmail">Work email</label>
-        <input class="fi" type="email" id="rmEmail" placeholder="alex@company.com" required>
+        <input class="fi" type="email" id="rmEmail" placeholder="alex@company.com" maxlength="100" autocomplete="email" required>
       </div>
       <button type="submit" class="rm-gate-submit">Start conversation →</button>
     </form>
@@ -766,7 +807,7 @@
   <div id="rmChat" class="rm-chat" style="display:none">
     <div id="rmMsgs" class="rm-msgs"></div>
     <form id="rmChatForm" class="rm-input-row">
-      <input id="rmInput" class="rm-input" type="text" placeholder="Ask about pen testing, compliance, pricing…" autocomplete="off">
+      <input id="rmInput" class="rm-input" type="text" placeholder="Ask about pen testing, compliance, pricing…" maxlength="500" autocomplete="off">
       <button type="submit" class="rm-send">Send</button>
     </form>
   </div>
